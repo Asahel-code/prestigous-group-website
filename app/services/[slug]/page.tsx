@@ -89,11 +89,23 @@ export default async function ServiceDetailPage({
                 <div className="rounded-xl bg-[#f1e8d4] p-3 text-[#a88445]">
                   <Users className="w-6 h-6" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">Who Benefits?</h2>
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {service.applications ? "Where We Work" : "Who Benefits?"}
+                </h2>
               </div>
-              <p className="text-slate-600 leading-relaxed">
-                Our {service.title.toLowerCase()} program is highly optimized for corporate teams, senior leadership, compliance officers, and organizational departments seeking measurable improvements in structural efficiency and individual competence.
-              </p>
+              <p className="text-slate-600 leading-relaxed">{service.audience}</p>
+              {service.applications && (
+                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {service.applications.map((application) => (
+                    <li
+                      key={application}
+                      className="border-l-2 border-[#d4af6d] pl-4 text-sm font-semibold text-[#0d1b3d]"
+                    >
+                      {application}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             
           </div>
