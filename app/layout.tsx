@@ -16,8 +16,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Home | Prestigous Group",
-  description: "Prestigious Group Ltd is a leading provider of training, consultancy, HSE, and leadership development services, helping organizations build capability, improve operational performance, and create safer workplaces.",
+  title: {
+    default: "Prestigious Group | Prestigious Consultancy",
+    template: "%s | Prestigious Group",
+  },
+  description:
+    "Prestigious Group, formerly Prestigious Consultancy, helps organizations and property owners in Kenya build capability, improve performance, and create elevated residential and office spaces.",
+  applicationName: "Prestigious Group",
+  keywords: [
+    "Prestigious Group",
+    "Prestigious Consultancy",
+    "Prestigious Group Kenya",
+    "Prestigious Consultancy Kenya",
+    "corporate training Kenya",
+    "consultancy services Nairobi",
+    "executive advisory Kenya",
+    "office interior finishes Kenya",
+    "residential interior finishes Nairobi",
+    "corporate events Kenya",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_KE",
+    siteName: "Prestigious Group",
+    title: "Prestigious Group | Prestigious Consultancy",
+    description:
+      "Prestigious Group, formerly Prestigious Consultancy, provides professional training, executive consultancy, corporate events, and elegant finishes in Kenya.",
+  },
 };
 
 import { Header } from "@/components/navigation/Header";

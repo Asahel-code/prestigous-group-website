@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 import { eventsData } from "@/data/events";
 import { servicesData } from "@/data/services";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Prestigious Group Kenya | Prestigious Consultancy",
+  description:
+    "Discover Prestigious Group, formerly Prestigious Consultancy: professional training, executive consultancy, corporate events, and elegant residential and office finishes in Kenya.",
+};
 
 const capabilityTracks = servicesData.map((service, index) => ({
   ...service,

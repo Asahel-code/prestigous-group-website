@@ -12,9 +12,31 @@ import {
 } from "lucide-react";
 import { eventsData } from "@/data/events";
 import { EventBookingForm } from "@/components/forms/EventBookingForm";
+import type { Metadata } from "next";
 
 interface EventDetailProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: EventDetailProps): Promise<Metadata> {
+  const { slug } = await params;
+  const event = eventsData.find((entry) => entry.slug === slug);
+
+  if (!event) {
+    return {};
+  }
+
+  return {
+    title: `${event.title} | Corporate Event`,
+    description: event.description,
+    openGraph: {
+      title: `${event.title} | Prestigious Consultancy`,
+      description: event.description,
+      images: [{ url: event.imageUrl, alt: event.title }],
+    },
+  };
 }
 
 export default async function EventDetailPage({ params }: EventDetailProps) {

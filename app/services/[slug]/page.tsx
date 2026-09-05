@@ -4,12 +4,36 @@ import Link from "next/link";
 import { servicesData } from "@/data/services";
 import { ServiceEnquiryForm } from "@/components/forms/ServiceEnquiryForm";
 import { CheckCircle2, Target, Users } from "lucide-react";
+import type { Metadata } from "next";
+
+interface ServiceDetailProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: ServiceDetailProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = servicesData.find((entry) => entry.slug === slug);
+
+  if (!service) {
+    return {};
+  }
+
+  return {
+    title: `${service.title} | ${service.theme}`,
+    description: service.description,
+    openGraph: {
+      title: `${service.title} | Prestigious Consultancy`,
+      description: service.description,
+      images: [{ url: service.imageUrl, alt: service.title }],
+    },
+  };
+}
 
 export default async function ServiceDetailPage({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+}: ServiceDetailProps) {
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
 

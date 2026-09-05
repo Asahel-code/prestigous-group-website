@@ -1,4 +1,11 @@
 import { Award, Shield, Target, Lightbulb, Users, CheckCircle2 } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Prestigious Group | Prestigious Consultancy",
+  description:
+    "Learn how Prestigious Group, formerly Prestigious Consultancy, helps people and organizations across Africa improve capability, performance, and spaces.",
+};
 
 export default function AboutPage() {
   return (

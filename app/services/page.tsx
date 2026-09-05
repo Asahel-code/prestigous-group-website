@@ -2,6 +2,13 @@ import { servicesData } from "@/data/services";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services | Prestigious Group (Prestigious Consultancy)",
+  description:
+    "Explore professional training, executive consultancy, and elegant residential and office space finishes from Prestigious Group, formerly Prestigious Consultancy, in Kenya.",
+};
 
 export default function ServicesPage() {
   return (
