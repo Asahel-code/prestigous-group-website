@@ -84,12 +84,11 @@ export default function HomePage() {
                   Empowering People.
                   <br />
                   <span className="text-[#d4af6d]"> Creating Impact.</span>{" "}
-                  Transforming Spaces
                 </h1>
                 <p className="mt-8 max-w-xl text-lg leading-8 text-white/75 sm:text-xl">
-                  From developing people to strengthening performance and
-                  transforming spaces, we deliver practical solutions that
-                  create measurable, lasting impact.
+                  From developing people to strengthening performance, we
+                  deliver practical solutions that create measurable, lasting
+                  impact.
                 </p>
                 <div className="my-10 flex flex-col gap-3 sm:flex-row">
                   <Link
@@ -132,14 +131,14 @@ export default function HomePage() {
               One Partner. Practical Solutions. Lasting Results.
             </p>
             <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
-              Practical solutions for people, performance and spaces.
+              Practical solutions for people and performance.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#596170]">
-              From people and performance to spaces and solutions, we bring
-              expertise, structure, and purpose to the work that matters.
+              From people, performance and solutions, we bring expertise,
+              structure and purpose to the work that matters.
             </p>
           </div>
-          <div className="mt-16 grid gap-5 lg:grid-cols-3">
+          <div className="mt-16 grid gap-5 lg:grid-cols-2">
             {capabilityTracks.map((track) => {
               const Icon = track.icon;
               return (

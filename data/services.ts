@@ -39,19 +39,5 @@ export const servicesData: ServiceItem[] = [
     audience: "Executives, senior leadership teams, and organizations seeking sharper decisions, stronger systems, and lasting performance.",
     primaryCta: "Our Services",
     secondaryCta: "Request a Proposal"
-  },
-  {
-    id: "3",
-    slug: "finishes",
-    title: "Space Finishes",
-    urlTitle: "Space Finishes",
-    theme: "Elegant finishes. Elevated spaces.",
-    description: "Elegant, luxurious finish selections that transform homes and elevate workspaces with character, quality, and cohesion.",
-    imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=85&w=1200",
-    outcomes: ["Curated Collections", "Project-Specific Guidance", "Refined Interior Details"],
-    audience: "Homeowners, property developers, and businesses creating spaces that feel considered, distinctive, and enduring.",
-    applications: ["Residential interiors", "Office and workplace interiors"],
-    primaryCta: "View Catalog",
-    secondaryCta: "Request a Quote"
   }
 ];
