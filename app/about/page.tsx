@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Check } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -69,17 +68,7 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-[#f8f6f1] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-[#e8e2d5]">
-              <Image
-                src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=85&w=1400"
-                alt="Speaker presenting to delegates at a professional forum"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="max-w-xl">
+        <div className="mx-auto max-w-3xl">
             <p className="text-sm font-semibold text-[#a88445]">Who we are</p>
             <h2 className="mt-5 text-3xl font-medium leading-tight sm:text-5xl">
               Expertise that strengthens organisations.
@@ -90,7 +79,6 @@ export default function AboutPage() {
               workplace safety, develop people and improve performance through
               practical training and focused professional expertise.
             </p>
-          </div>
         </div>
       </section>
     </div>
