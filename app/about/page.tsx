@@ -1,11 +1,13 @@
 import { Check } from "lucide-react";
-import type { Metadata } from "next";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { getCanonicalUrl, siteConfig } from "@/config/site";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About Prestigious Group | Prestigious Consultancy",
-  description:
-    "Learn how Prestigious Group, formerly Prestigious Consultancy, helps people and organizations across Africa improve capability, performance, and spaces.",
-};
+export const metadata = createPageMetadata({
+  title: "About",
+  description: `Learn about ${siteConfig.brandName}, a Nairobi training and consultancy firm supporting workplace safety, development and organisational performance.`,
+  path: "/about",
+});
 
 const reasons = [
   {
@@ -18,7 +20,7 @@ const reasons = [
   },
   {
     title: "Tailored",
-    description: "Solutions designed around your organization’s needs.",
+    description: "Solutions designed around your organisation’s needs.",
   },
   {
     title: "Professional",
@@ -29,15 +31,20 @@ const reasons = [
 
 export default function AboutPage() {
   return (
+    <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: getCanonicalUrl() },
+        { name: "About", url: getCanonicalUrl("about") },
+      ]} />
     <div className="min-h-screen bg-white pb-24 text-[#0d1b3d]">
       <section className="px-4 pb-12 pt-16 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-[#a88445]">About Prestigious</p>
+            <p className="text-sm font-semibold text-[#715426]">About Prestigious</p>
             <h1 className="mt-5 text-4xl font-medium leading-tight sm:text-6xl">
               Practical expertise.
               <br />
-              <span className="text-[#a88445]">Real world results.</span>
+              <span className="text-[#715426]">Real world results.</span>
             </h1>
           </div>
         </div>
@@ -51,8 +58,8 @@ export default function AboutPage() {
               className="min-h-56 rounded-md border border-[#ece8df] bg-[#faf9f6] p-6 sm:p-7"
             >
               <div className="flex items-center justify-between">
-                <Check className="h-5 w-5 text-[#a88445]" aria-hidden="true" />
-                <span className="text-xs font-medium tabular-nums text-[#a4a09a]">
+                <Check className="h-5 w-5 text-[#715426]" aria-hidden="true" />
+                <span className="text-xs font-medium tabular-nums text-[#6b665c]">
                   0{index + 1}
                 </span>
               </div>
@@ -69,18 +76,19 @@ export default function AboutPage() {
 
       <section className="bg-[#f8f6f1] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-semibold text-[#a88445]">Who we are</p>
+            <p className="text-sm font-semibold text-[#715426]">Who we are</p>
             <h2 className="mt-5 text-3xl font-medium leading-tight sm:text-5xl">
               Expertise that strengthens organisations.
             </h2>
             <p className="mt-6 text-base leading-8 text-[#596170] sm:text-lg">
-              Prestigious Consultancy &amp; Management Ltd is a professional
-              training and consultancy firm helping organizations strengthen
+              {siteConfig.legalName} is a professional training and consultancy
+              firm helping organisations strengthen
               workplace safety, develop people and improve performance through
               practical training and focused professional expertise.
             </p>
         </div>
       </section>
     </div>
+    </>
   );
 }

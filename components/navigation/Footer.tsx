@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { servicesData } from "@/data/services";
 import { hasOwnerValue, siteConfig } from "@/config/site";
+import { TrackedAnchor } from "@/components/analytics/TrackedAnchor";
 
 const serviceLinks = servicesData.map((service) => ({
   label: service.urlTitle,
@@ -68,9 +69,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
               Services
-            </h3>
+            </h2>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
@@ -86,9 +87,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
               Explore
-            </h3>
+            </h2>
             <ul className="mt-5 space-y-3">
               <li>
                 <Link
@@ -118,9 +119,9 @@ export function Footer() {
           </div>
 
           <div className="min-w-0">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
               Contact
-            </h3>
+            </h2>
             <ul className="mt-5 space-y-4">
               <li className="flex min-w-0 items-start gap-3">
                 <MapPin className="h-5 w-5 text-[#d4af6d] shrink-0" />
@@ -132,39 +133,31 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#d4af6d] shrink-0" />
-                <a
+                <TrackedAnchor
                   href={`tel:${siteConfig.contact.phoneHref}`}
-                  onClick={() =>
-                    import("@/lib/analytics").then(({ trackEvent }) =>
-                      trackEvent("phone_click"),
-                    )
-                  }
+                  eventName="phone_click"
                   className="text-sm transition-colors hover:text-white"
                 >
                   {siteConfig.contact.phone}
-                </a>
+                </TrackedAnchor>
               </li>
-              <li className="flex items-center gap-3">
+              {hasOwnerValue(siteConfig.contact.email) && <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#d4af6d] shrink-0" />
-                <a
+                <TrackedAnchor
                   href={`mailto:${siteConfig.contact.email}`}
-                  onClick={() =>
-                    import("@/lib/analytics").then(({ trackEvent }) =>
-                      trackEvent("email_click"),
-                    )
-                  }
+                  eventName="email_click"
                   className="break-all text-sm transition-colors hover:text-white"
                 >
                   {siteConfig.contact.email}
-                </a>
-              </li>
+                </TrackedAnchor>
+              </li>}
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
               Follow Us
-            </h3>
+            </h2>
             <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
@@ -184,7 +177,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/55 sm:justify-start">
-            <p className="text-white/45">
+            <p className="text-white/55">
               &copy; {new Date().getFullYear()} {siteConfig.legalName}. All
               rights reserved.
             </p>
@@ -204,7 +197,7 @@ export function Footer() {
                 {siteConfig.nita.approvalLabel}
               </span>
             )}
-            <span className="text-xs text-white/35">
+            <span className="text-xs text-white/60">
               People. Performance. Progress.
             </span>
           </div>

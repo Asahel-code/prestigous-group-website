@@ -1,7 +1,7 @@
-import { siteConfig } from "@/config/site";
+import { getSiteUrl, hasOwnerValue, isProduction, siteConfig } from "@/config/site";
 
 export function GET() {
-  const baseUrl = siteConfig.productionUrl;
+  const baseUrl = isProduction ? getSiteUrl() : siteConfig.productionUrl;
   const content = [
     `# ${siteConfig.brandName}`,
     "",
@@ -9,7 +9,7 @@ export function GET() {
     "",
     `Services: ${siteConfig.summaryServices.join(", ")}.`,
     `Location: ${siteConfig.contact.addressLocality}, Kenya.`,
-    `Contact: ${siteConfig.contact.email} | ${siteConfig.contact.phone}.`,
+    `Contact: ${hasOwnerValue(siteConfig.contact.email) ? `${siteConfig.contact.email} | ` : ""}${siteConfig.contact.phone}.`,
     "",
     "## Key pages",
     `- Home: ${baseUrl}/`,

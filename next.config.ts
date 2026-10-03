@@ -13,6 +13,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: { qualities: [60, 75] },
   async headers() {
     return [{
       source: "/:path*",
@@ -33,13 +34,13 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         has: [{ type: "host" as const, value: apexHost }],
         destination: `${siteConfig.productionUrl}/:path*`,
-        permanent: true,
+        statusCode: 301,
       },
       {
         source: "/:path*",
         has: [{ type: "header" as const, key: "x-forwarded-proto", value: "http" }],
         destination: `${siteConfig.productionUrl}/:path*`,
-        permanent: true,
+        statusCode: 301,
       },
     ];
 
@@ -48,7 +49,7 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         has: [{ type: "host" as const, value: siteConfig.oldHost }],
         destination: `${siteConfig.productionUrl}/:path*`,
-        permanent: true,
+        statusCode: 301,
       });
     }
 

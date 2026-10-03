@@ -9,8 +9,7 @@ export const siteConfig = {
     "Corporate training and consultancy in Nairobi, Kenya, helping organisations build capability, strengthen workplace safety and improve performance.",
   summaryServices: ["Corporate training", "Professional consultancy", "Leadership forums and events"],
   contact: {
-    email: "prestigiousconsultants@gmail.com",
-    productionEmail: process.env.CONTACT_EMAIL ?? TODO,
+    email: process.env.CONTACT_EMAIL ?? TODO,
     phone: "+254 111 441 515",
     phoneHref: "+254111441515",
     whatsappNumber: "254720785900",
@@ -41,6 +40,8 @@ export const siteConfig = {
     bingVerification: process.env.BING_SITE_VERIFICATION ?? "",
   },
   formRecipient: process.env.FORM_RECIPIENT_EMAIL ?? "",
+  enquiryWebhookUrl: process.env.ENQUIRY_WEBHOOK_URL ?? "",
+  enquiryWebhookSecret: process.env.ENQUIRY_WEBHOOK_SECRET ?? "",
 } as const;
 
 export function getSiteUrl(): string {

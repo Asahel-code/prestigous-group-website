@@ -6,6 +6,7 @@ export interface ServiceItem {
   theme: string;
   description: string;
   imageUrl: string;
+  imageAlt: string;
   outcomes: string[];
   audience: string;
   applications?: string[];
@@ -32,6 +33,7 @@ export const servicesData: ServiceItem[] = [
     theme: "Training & Development",
     description: "Practical, workplace-focused training designed to build competence, confidence and safer work practices.",
     imageUrl: "/img/training.webp",
+    imageAlt: "A facilitator leading a practical workshop for training participants.",
     outcomes: ["Certified Competency", "Practical Skill Application", "Increased Team Productivity"],
     audience: "Professionals, emerging leaders, and teams ready to build capability and turn learning into action.",
     primaryCta: "Explore Training",
@@ -65,7 +67,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Leadership & Strategic Planning",
-        lead: "Professional development for stronger leaders, teams and organizational performance.",
+        lead: "Professional development for stronger leaders, teams and organisational performance.",
         items: [
           "Leadership & Management",
           "Project Management",
@@ -84,10 +86,11 @@ export const servicesData: ServiceItem[] = [
     title: "Consultancy",
     urlTitle: "Explore Consultancy",
     theme: "Consultancy",
-    description: "Focused professional expertise to help organizations assess, improve and deliver.",
-    imageUrl: "https://images.unsplash.com/photo-1573164574511-73c773193279?auto=format&fit=crop&q=85&w=1400",
+    description: "Focused professional expertise to help organisations assess, improve and deliver.",
+    imageUrl: "/img/consultancy-team.webp",
+    imageAlt: "A predominantly Black team discussing work around a meeting table.",
     outcomes: ["ISO Audit Readiness", "Process Efficiency", "Risk Mitigation"],
-    audience: "Executives, senior leadership teams, and organizations seeking sharper decisions, stronger systems, and lasting performance.",
+    audience: "Executives, senior leadership teams, and organisations seeking sharper decisions, stronger systems, and lasting performance.",
     primaryCta: "Explore Consultancy",
     secondaryCta: "Request a Proposal",
     proposalOptions: [
@@ -97,6 +100,7 @@ export const servicesData: ServiceItem[] = [
       "Quality Management",
       "Environment Management",
       "Gap Analysis",
+      "Work at Heights Training",
     ],
     defaultProposalOption: "Project Management",
     supportingAreas: ["Project Management", "Audit & Assessment"],
@@ -104,12 +108,12 @@ export const servicesData: ServiceItem[] = [
       {
         title: "Project Management",
         lead: "Plan Better. Deliver with Confidence.",
-        description: "We provide practical project management support to help organizations plan, coordinate, monitor and deliver projects effectively.",
+        description: "We provide practical project management support to help organisations plan, coordinate, monitor and deliver projects effectively.",
         listLabel: "Our support includes",
         items: ["Planning", "Implementation", "Coordination", "Monitoring", "Reporting"],
       },
       {
-        title: "Auditing & Assessment",
+        title: "Audit & Assessment",
         lead: "Identify gaps. Strengthen performance.",
         description: "We conduct structured audits and assessments to identify gaps, risks and opportunities for improvement.",
         listLabel: "Our services include",

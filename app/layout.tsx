@@ -4,6 +4,7 @@ import "./globals.css";
 import { getCanonicalUrl, getSiteUrl, isProduction, siteConfig } from "@/config/site";
 import { getVerificationMetadata } from "@/lib/metadata";
 import { SiteJsonLd } from "@/components/seo/JsonLd";
+import { AnalyticsConsent } from "@/components/analytics/ConsentBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
@@ -65,7 +66,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
-        <WhatsAppButton />
+        <aside aria-label="Quick contact">
+          <WhatsAppButton />
+        </aside>
+        <AnalyticsConsent />
         <SiteJsonLd />
       </body>
     </html>

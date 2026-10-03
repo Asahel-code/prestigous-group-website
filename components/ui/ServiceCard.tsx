@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ServiceItem } from "@/data/services";
 import { ArrowRight } from "lucide-react";
 
-export function ServiceCard({ service, priority = false }: { service: ServiceItem, priority?: boolean }) {
+export function ServiceCard({ service, preload = false }: { service: ServiceItem, preload?: boolean }) {
   return (
     <Link 
       href={`/services/${service.slug}`}
@@ -13,9 +13,9 @@ export function ServiceCard({ service, priority = false }: { service: ServiceIte
         <div className="absolute inset-0 bg-black/40 z-10 transition-opacity group-hover:opacity-30" />
         <Image
           src={service.imageUrl}
-          alt={service.title}
+          alt={service.imageAlt}
           fill
-          priority={priority}
+          preload={preload}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />

@@ -1,8 +1,10 @@
-import { isProduction, siteConfig } from "@/config/site";
+const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production";
+const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[][];
   }
 }
 
@@ -15,8 +17,13 @@ export type AnalyticsEvent =
   | "partner_click"
   | "course_view";
 
-export function trackEvent(eventName: AnalyticsEvent, formName?: string): void {
-  if (!isProduction || !siteConfig.analytics.gaMeasurementId) return;
+export function trackEvent(eventName: AnalyticsEvent, detail?: string): void {
+  if (!isProduction || !measurementId) return;
   if (!document.cookie.split("; ").includes("analytics-consent=accepted")) return;
-  window.gtag?.("event", eventName, formName ? { form_name: formName } : undefined);
+  const parameters = eventName === "form_submit" && detail
+    ? { form_name: detail }
+    : eventName === "course_view" && detail
+      ? { course_name: detail }
+      : undefined;
+  window.gtag?.("event", eventName, parameters);
 }

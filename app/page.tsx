@@ -8,18 +8,19 @@ import {
   Compass,
   GraduationCap,
   Sparkles,
-  Star,
   Users,
 } from "lucide-react";
 import { eventsData } from "@/data/events";
 import { servicesData } from "@/data/services";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 
-export const metadata: Metadata = {
-  title: "Prestigious Consultancy & Management Ltd", 
-  description:
-    "Discover Prestigious Consultancy & Management Ltd: professional training, focused consultancy, and corporate events in Kenya.",
-};
+export const metadata = createPageMetadata({
+  title: "Corporate Training & Consultancy in Nairobi, Kenya | Prestigious Consultancy",
+  description: "Practical corporate training and consultancy in Nairobi, Kenya, helping organisations strengthen workplace safety, develop people and improve performance.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 const capabilityTracks = servicesData.map((service, index) => ({
   ...service,
@@ -31,9 +32,9 @@ const capabilityTracks = servicesData.map((service, index) => ({
 }));
 
 const heroPillars = [
-  { label: "Professional Training", icon: GraduationCap },
-  { label: "Executive Consultancy", icon: BriefcaseBusiness },
-  { label: "Corporate Events", icon: CalendarDays },
+  { label: "Professional Training", icon: GraduationCap, href: "/services/training" },
+  { label: "Executive Consultancy", icon: BriefcaseBusiness, href: "/services/consultancy" },
+  { label: "Corporate Events", icon: CalendarDays, href: "/events" },
 ];
 
 const googleReviewsUrl =
@@ -70,10 +71,11 @@ export default function HomePage() {
       <section className="px-4 pb-12 pt-5 sm:px-6 lg:px-8 lg:pb-16">
         <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-3xl border border-[#e8e2d5] bg-[#f8f6f1] sm:rounded-[2rem]">
           <Image
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=85&w=1600"
+            src="/img/home-hero.webp"
             alt="Construction professional at work on a building site"
             fill
             preload
+            quality={60}
             sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover object-[58%_center]"
           />
@@ -83,7 +85,7 @@ export default function HomePage() {
               <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-[#0d1b3d] sm:text-5xl xl:text-6xl">
                 Building safer,
                 <br />
-                <span className="text-[#a88445]">stronger</span>
+                <span className="text-[#715426]">stronger</span>
                 <br />
                 organisations
               </h1>
@@ -93,14 +95,15 @@ export default function HomePage() {
                 grow, teams perform, and organisations move forward.
               </p>
               <div className="mt-7 grid grid-cols-3 divide-x divide-[#d4af6d]/70">
-                {heroPillars.map(({ label, icon: Icon }) => (
-                  <div
+                {heroPillars.map(({ label, icon: Icon, href }) => (
+                  <Link
                     key={label}
+                    href={href}
                     className="flex flex-col items-center gap-2 px-2 text-center text-xs font-semibold leading-4 text-[#0d1b3d] sm:px-3 sm:text-sm"
                   >
-                    <Icon className="h-6 w-6 text-[#a88445]" aria-hidden="true" />
+                    <Icon className="h-6 w-6 text-[#715426]" aria-hidden="true" />
                     <span>{label}</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -125,7 +128,7 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a88445]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
               One Partner. Practical Solutions. Lasting Results.
             </p>
             <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
@@ -148,10 +151,10 @@ export default function HomePage() {
                     <span>{track.number}</span>
                   </div>
                   <div className="relative z-10 mt-16 max-w-xs pb-4 sm:mt-24">
-                    <div className="mb-5 inline-flex bg-[#f1e8d4] p-3 text-[#a88445]">
+                    <div className="mb-5 inline-flex bg-[#f1e8d4] p-3 text-[#715426]">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#a88445]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#715426]">
                       {track.eyebrow}
                     </p>
                     <h3 className="mt-3 text-3xl font-medium leading-tight tracking-[-0.035em]">
@@ -188,7 +191,7 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#f1e8d4] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#a88445]">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#f1e8d4] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#715426]">
               <Sparkles className="h-4 w-4" /> Built for momentum
             </div>
             <h2 className="text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
@@ -196,12 +199,12 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-lg leading-8 text-[#596170]">
               Our approach is direct: understand the real constraint, equip the
-              people closest to it, and leave your organization stronger than we
+                people closest to it, and leave your organisation stronger than we
               found it.
             </p>
             <Link
               href="/about"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d] hover:text-[#a88445]"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d] hover:text-[#715426]"
             >
               Meet Prestigious Consultancy & Management Ltd <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -209,13 +212,13 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
             <div className="rounded-[2rem] bg-[#08172f] p-7 text-white sm:p-10">
               <ClipboardCheck className="h-7 w-7 text-[#d4af6d]" />
-              <p className="mt-12 text-5xl font-medium tracking-[-0.05em]">3</p>
+              <p className="mt-12 text-5xl font-medium tracking-[-0.05em]">2</p>
               <p className="mt-2 text-sm leading-6 text-white/65">
-                connected areas of organizational support
+                connected areas of organisational support
               </p>
             </div>
             <div className="mt-10 rounded-[2rem] bg-[#f1e8d4] p-7 text-[#0d1b3d] sm:p-10">
-              <Compass className="h-7 w-7 text-[#a88445]" />
+              <Compass className="h-7 w-7 text-[#715426]" />
               <p className="mt-12 text-5xl font-medium tracking-[-0.05em]">
                 360°
               </p>
@@ -232,7 +235,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a88445]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
                   Keep learning
                 </p>
                 <h2 className="mt-4 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
@@ -274,12 +277,13 @@ export default function HomePage() {
                   >
                     Register now <ArrowUpRight className="h-4 w-4" />
                   </Link>
-                  <Link
+                  <TrackedLink
                     href="/contact?interest=sponsorship"
+                    eventName="partner_click"
                     className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
                   >
                     Partner with us <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                  </TrackedLink>
                 </div>
               </div>
             </div>
@@ -290,7 +294,7 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#a88445]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
               Client perspective
             </p>
             <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
@@ -307,14 +311,6 @@ export default function HomePage() {
                 key={review.name}
                 className="flex min-h-[260px] flex-col border border-[#e8e2d5] bg-[#f8f6f1] p-7 sm:p-9"
               >
-                <div
-                  className="flex items-center gap-1 text-[#d4af6d]"
-                  aria-label="5 star review"
-                >
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
                 <blockquote className="mt-6 flex-1 text-lg leading-8 text-[#0d1b3d]">
                   &ldquo;{review.quote}&rdquo;
                 </blockquote>
@@ -322,8 +318,9 @@ export default function HomePage() {
                   <Link
                     href={review.href}
                     target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-semibold text-[#a88445] hover:text-[#0d1b3d]"
+                    rel="noopener noreferrer"
+                    aria-label={`Read ${review.name}'s Google review (opens in a new tab)`}
+                    className="text-xs font-semibold text-[#715426] hover:text-[#0d1b3d]"
                   >
                     View on Google
                   </Link>
@@ -334,7 +331,8 @@ export default function HomePage() {
           <Link
             href={googleReviewsUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            aria-label="Leave a review on Google (opens in a new tab)"
             className="mt-8 inline-flex items-center gap-2 bg-[#08172f] px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#0d1b3d]"
           >
             Leave a review on Google <ArrowUpRight className="h-4 w-4" />

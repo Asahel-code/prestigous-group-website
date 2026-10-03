@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { getCanonicalUrl, hasOwnerValue, siteConfig } from "@/config/site";
 
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
   const serialised = JSON.stringify(data).replace(/</g, "\\u003c");
@@ -46,12 +47,13 @@ export function SiteJsonLd(): ReactNode {
   const professionalService = {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
+    "@id": `${getCanonicalUrl()}#organization`,
     name: siteConfig.brandName,
     legalName: siteConfig.legalName,
     url: getCanonicalUrl(),
     logo: getCanonicalUrl("logo.png"),
     telephone: contact.phoneHref,
-    email: contact.email,
+    ...(hasOwnerValue(contact.email) ? { email: contact.email } : {}),
     address: postalAddress,
     areaServed: ["Nairobi, Kenya", "Kenya", "East Africa"],
     sameAs,
@@ -59,6 +61,7 @@ export function SiteJsonLd(): ReactNode {
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${getCanonicalUrl()}#website`,
     name: siteConfig.brandName,
     url: getCanonicalUrl(),
     inLanguage: "en-KE",
@@ -71,5 +74,3 @@ export function SiteJsonLd(): ReactNode {
     </>
   );
 }
-
-import { getCanonicalUrl, siteConfig } from "@/config/site";

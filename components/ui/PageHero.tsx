@@ -6,6 +6,7 @@ interface PageHeroProps {
   title: React.ReactNode;
   description: string;
   imageUrl: string;
+  preload?: boolean;
 }
 
 export function PageHero({
@@ -14,6 +15,7 @@ export function PageHero({
   title,
   description,
   imageUrl,
+  preload = false,
 }: PageHeroProps) {
   const styles = {
     services: {
@@ -22,7 +24,7 @@ export function PageHero({
       overlay:
         "bg-[linear-gradient(90deg,#f1e8d4_0%,#f1e8d4_36%,rgba(241,232,212,0.82)_54%,rgba(241,232,212,0.08)_100%)]",
       content: "max-w-full sm:max-w-[62%]",
-      eyebrow: "text-[#a88445]",
+      eyebrow: "text-[#715426]",
       description: "text-[#596170]",
     },
     events: {
@@ -49,7 +51,7 @@ export function PageHero({
       image: "absolute inset-y-5 left-5 hidden w-[34%] sm:block lg:inset-y-8 lg:left-8",
       overlay: "hidden",
       content: "max-w-full sm:ml-auto sm:max-w-[62%]",
-      eyebrow: "text-[#a88445]",
+      eyebrow: "text-[#715426]",
       description: "text-[#596170]",
     },
   }[variant];
@@ -62,6 +64,7 @@ export function PageHero({
             src={imageUrl}
             alt=""
             fill
+            preload={preload}
             sizes="(max-width: 1280px) 100vw, 1200px"
             className={`object-cover ${variant === "events" ? "opacity-55" : variant === "services" ? "object-[64%_center] opacity-90" : ""}`}
           />

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Corporate Events in Kenya | Prestigious Consultancy & Management Ltd",
-  description:
-    "Discover corporate conferences, leadership forums, and strategic learning events from Prestigious Consultancy & Management Ltd, formerly Prestigious Consultancy, in Kenya.",
-};
+export const metadata = createPageMetadata({
+  title: "Corporate Events",
+  description: "Discover Blueprint 2027 and corporate learning events in Kenya, bringing leaders and professionals together for practical discussion and connection.",
+  path: "/events",
+});
 
 export default function EventsLayout({ children }: { children: React.ReactNode }) {
   return children;
