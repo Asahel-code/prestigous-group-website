@@ -34,7 +34,7 @@ const capabilityTracks = servicesData.map((service, index) => ({
 const heroPillars = [
   { label: "Professional Training", icon: GraduationCap, href: "/services/training" },
   { label: "Executive Consultancy", icon: BriefcaseBusiness, href: "/services/consultancy" },
-  { label: "Corporate Events", icon: CalendarDays, href: "/events" },
+  { label: "Blueprint 2027", icon: CalendarDays, href: "/events/blue-print-2027" },
 ];
 
 const googleReviewsUrl =
