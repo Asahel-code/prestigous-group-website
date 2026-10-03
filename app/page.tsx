@@ -16,9 +16,9 @@ import { servicesData } from "@/data/services";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Prestigious Group Kenya | Prestigious Consultancy",
+  title: "Prestigious Consultancy & Management Ltd", 
   description:
-    "Discover Prestigious Group: professional training, focused consultancy, and corporate events in Kenya.",
+    "Discover Prestigious Consultancy & Management Ltd: professional training, focused consultancy, and corporate events in Kenya.",
 };
 
 const capabilityTracks = servicesData.map((service, index) => ({
