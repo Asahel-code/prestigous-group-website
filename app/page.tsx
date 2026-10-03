@@ -3,9 +3,10 @@ import Link from "next/link";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
-  Check,
+  CalendarDays,
   ClipboardCheck,
   Compass,
+  GraduationCap,
   Sparkles,
   Star,
   Users,
@@ -17,7 +18,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Prestigious Group Kenya | Prestigious Consultancy",
   description:
-    "Discover Prestigious Group, formerly Prestigious Consultancy: professional training, executive consultancy, corporate events, and elegant residential and office finishes in Kenya.",
+    "Discover Prestigious Group: professional training, focused consultancy, and corporate events in Kenya.",
 };
 
 const capabilityTracks = servicesData.map((service, index) => ({
@@ -29,10 +30,10 @@ const capabilityTracks = servicesData.map((service, index) => ({
   icon: index === 0 ? Users : index === 1 ? BriefcaseBusiness : Sparkles,
 }));
 
-const outcomes = [
-  "NITA approved training provider",
-  "Solutions tailored to your context",
-  "A partner for measurable, lasting impact",
+const heroPillars = [
+  { label: "Professional Training", icon: GraduationCap },
+  { label: "Executive Consultancy", icon: BriefcaseBusiness },
+  { label: "Corporate Events", icon: CalendarDays },
 ];
 
 const googleReviewsUrl =
@@ -66,58 +67,55 @@ export default function HomePage() {
 
   return (
     <div className="overflow-hidden bg-[#f8f6f1] text-[#0d1b3d]">
-      <section className="relative px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-3xl bg-[#08172f] px-5 py-12 text-white sm:min-h-[600px] sm:rounded-[2.5rem] sm:px-12 sm:py-16 lg:min-h-[700px] lg:px-20 lg:py-24">
-            <Image
-              src="https://images.unsplash.com/photo-1521737711867-e3b97375b902?auto=format&fit=crop&q=85&w=2200"
-              alt="Leaders collaborating around a table"
-              fill
-              priority
-              sizes="(max-width: 1280px) 100vw, 1200px"
-              className="object-cover opacity-30"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(110deg,#08172f_15%,rgba(8,23,47,0.82),rgba(8,23,47,0.3))]" />
-            <div className="relative z-10 flex min-h-[520px] flex-col justify-between sm:min-h-[520px] lg:min-h-[600px]">
-              <div className="max-w-4xl pt-6 lg:pt-10">
-                <h1 className="max-w-4xl text-4xl font-medium leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-[5.2rem]">
-                  Empowering People.
-                  <br />
-                  <span className="text-[#d4af6d]"> Creating Impact.</span>{" "}
-                </h1>
-                <p className="mt-8 max-w-xl text-lg leading-8 text-white/75 sm:text-xl">
-                  From developing people to strengthening performance, we
-                  deliver practical solutions that create measurable, lasting
-                  impact.
-                </p>
-                <div className="my-10 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/services/training"
-                    className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-[#d4af6d] px-7 text-sm font-semibold text-[#08172f] transition-transform hover:-translate-y-0.5"
+      <section className="px-4 pb-12 pt-5 sm:px-6 lg:px-8 lg:pb-16">
+        <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-3xl border border-[#e8e2d5] bg-[#f8f6f1] sm:rounded-[2rem]">
+          <Image
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=85&w=1600"
+            alt="Construction professional at work on a building site"
+            fill
+            preload
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover object-[58%_center]"
+          />
+          <div className="absolute inset-0 bg-[#f8f6f1]/90 sm:bg-transparent sm:bg-[linear-gradient(90deg,#f8f6f1_0%,rgba(248,246,241,0.98)_34%,rgba(248,246,241,0.86)_52%,rgba(248,246,241,0.18)_76%,rgba(8,23,47,0.12)_100%)]" />
+          <div className="relative z-10 flex min-h-[620px] flex-col justify-center px-6 py-10 sm:min-h-[640px] sm:px-10 sm:py-12 lg:min-h-[680px] lg:px-14 lg:py-14">
+            <div className="max-w-xl">
+              <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-[#0d1b3d] sm:text-5xl xl:text-6xl">
+                Building safer,
+                <br />
+                <span className="text-[#a88445]">stronger</span>
+                <br />
+                organisations
+              </h1>
+              <div className="mt-5 h-1 w-24 bg-[#d4af6d]" />
+              <p className="mt-5 max-w-lg text-base leading-7 text-[#0d1b3d]/80 sm:text-lg">
+                Practical training and consultancy solutions that help people
+                grow, teams perform, and organisations move forward.
+              </p>
+              <div className="mt-7 grid grid-cols-3 divide-x divide-[#d4af6d]/70">
+                {heroPillars.map(({ label, icon: Icon }) => (
+                  <div
+                    key={label}
+                    className="flex flex-col items-center gap-2 px-2 text-center text-xs font-semibold leading-4 text-[#0d1b3d] sm:px-3 sm:text-sm"
                   >
-                    Start a conversation <ArrowUpRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/events"
-                    className="inline-flex h-13 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                  >
-                    Explore upcoming events
-                  </Link>
-                  <Link
-                    href="/contact?interest=sponsorship"
-                    className="inline-flex h-13 items-center justify-center rounded-full border border-[#d4af6d]/70 px-7 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
-                  >
-                    Become a sponsor
-                  </Link>
-                </div>
-              </div>
-              <div className="grid max-w-3xl grid-cols-1 gap-6 border-t border-white/20 pt-7 text-sm text-white/70 sm:grid-cols-3">
-                {outcomes.map((outcome) => (
-                  <div key={outcome} className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af6d]" />
-                    <span>{outcome}</span>
+                    <Icon className="h-6 w-6 text-[#a88445]" aria-hidden="true" />
+                    <span>{label}</span>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/services"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#d4af6d] px-6 text-sm font-semibold text-[#08172f] transition-colors hover:bg-[#c7a267]"
+                >
+                  Explore our services <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
+                >
+                  Request a proposal <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
@@ -179,12 +177,6 @@ export default function HomePage() {
                     >
                       {track.primaryCta} <ArrowUpRight className="h-4 w-4" />
                     </Link>
-                    <Link
-                      href="/contact"
-                      className="inline-flex h-11 items-center justify-center border border-[#d4af6d] px-4 text-xs font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f1e8d4]"
-                    >
-                      {track.secondaryCta}
-                    </Link>
                   </div>
                 </article>
               );
@@ -211,7 +203,7 @@ export default function HomePage() {
               href="/about"
               className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d] hover:text-[#a88445]"
             >
-              Meet Prestigious Group <ArrowUpRight className="h-4 w-4" />
+              Meet Prestigious Consultancy & Management Ltd <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">

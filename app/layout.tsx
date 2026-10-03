@@ -21,8 +21,17 @@ export const metadata: Metadata = {
     template: "%s | Prestigious Group",
   },
   description:
-    "Prestigious Group, formerly Prestigious Consultancy, helps organizations and property owners in Kenya build capability, improve performance, and create elevated residential and office spaces.",
+    "Prestigious Group helps organizations across Kenya build capability, strengthen workplace safety, and improve performance through practical training and consultancy.",
   applicationName: "Prestigious Group",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   keywords: [
     "Prestigious Group",
     "Prestigious Consultancy",
@@ -31,8 +40,8 @@ export const metadata: Metadata = {
     "corporate training Kenya",
     "consultancy services Nairobi",
     "executive advisory Kenya",
-    "office interior finishes Kenya",
-    "residential interior finishes Nairobi",
+    "work at heights training Kenya",
+    "leadership development training Kenya",
     "corporate events Kenya",
   ],
   openGraph: {
@@ -41,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "Prestigious Group",
     title: "Prestigious Group | Prestigious Consultancy",
     description:
-      "Prestigious Group, formerly Prestigious Consultancy, provides professional training, executive consultancy, corporate events, and elegant finishes in Kenya.",
+      "Prestigious Group provides professional training, consultancy, and corporate events in Kenya.",
   },
 };
 

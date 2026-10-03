@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { servicesData } from "@/data/services";
@@ -11,6 +13,15 @@ const serviceLinks = servicesData.map((service) => ({
 }));
 
 export function Header() {
+  const pathname = usePathname();
+  const isDarkHero =
+    pathname === "/contact" ||
+    pathname === "/services" ||
+    pathname === "/events" ||
+    pathname.startsWith("/events/") ||
+    pathname.startsWith("/services/");
+  const isOpaqueHeader = pathname === "/contact" || pathname === "/services";
+  const isAboutPage = pathname === "/about";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const servicesMenuRef = useRef<HTMLDivElement | null>(null);
@@ -30,14 +41,36 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#f8f6f1]/90 px-3 pt-3 backdrop-blur supports-[backdrop-filter]:bg-[#f8f6f1]/75 sm:px-5">
+    <header
+      className={`sticky top-0 z-50 w-full px-3 pt-3 backdrop-blur sm:px-5 ${
+        isOpaqueHeader
+          ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
+          : isDarkHero
+            ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
+          : isAboutPage
+            ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
+            : "bg-[#f8f6f1]/90 supports-[backdrop-filter]:bg-[#f8f6f1]/75"
+      }`}
+    >
       <div className="mx-auto w-full max-w-7xl">
-        <div className="flex h-[4.25rem] items-center justify-between rounded-[1.35rem] border border-white/80 bg-white/90 px-4 shadow-[0_12px_35px_rgba(39,17,67,0.10)] sm:px-6">
+        <div
+          className={`flex h-[4.25rem] items-center justify-between rounded-[1.35rem] border px-4 shadow-[0_12px_35px_rgba(39,17,67,0.10)] sm:px-6 ${
+            isDarkHero
+              ? `border-white/15 ${isOpaqueHeader ? "bg-[#08172f]" : "bg-[#08172f]/95"}`
+              : "border-white/80 bg-white/90"
+          }`}
+        >
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex items-center gap-2 text-[#271143]">
-                <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#08172f] text-sm font-bold text-[#d4af6d]">P</span>
-                <span className="text-lg font-semibold tracking-[-0.03em]">Prestigious<span className="text-[#a88445]">.</span></span>
+              <div className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-[#271143]"}`}>
+                <Image
+                  src="/logo.png"
+                  alt="Prestigous Consultancy logo"
+                  width={40}
+                  height={40}
+                  className={`h-10 w-10 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
+                />
+                <span className="text-base font-semibold sm:text-lg">Prestigous Consultancy</span>
               </div>
             </Link>
           </div>
@@ -45,7 +78,7 @@ export function Header() {
           <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
             <Link
               href="/"
-              className="text-sm font-medium text-slate-700 hover:text-[#0d1b3d] transition-colors"
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
                 Home
             </Link>
@@ -54,7 +87,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setIsServicesOpen((prev) => !prev)}
-                className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-[#0d1b3d] transition-colors"
+                className={`flex items-center gap-1 text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
                 aria-expanded={isServicesOpen}
               >
                 Services
@@ -80,20 +113,20 @@ export function Header() {
             </div>
 
             <Link
-              href="/events"
-              className="text-sm font-medium text-slate-700 hover:text-[#0d1b3d] transition-colors"
+              href="/events/blue-print-2027"
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
-              Corporate Events
+              Blue Print 2027
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium text-slate-700 hover:text-[#0d1b3d] transition-colors"
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium text-slate-700 hover:text-[#0d1b3d] transition-colors"
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
               Contact
             </Link>
@@ -102,7 +135,7 @@ export function Header() {
           <div className="hidden items-center gap-4 xl:flex">
             <Link
               href="/contact"
-              className="inline-flex h-10 items-center justify-center rounded-2xl bg-[#0d1b3d] px-6 text-sm font-medium text-white transition-colors hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+              className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
             >
               Start a conversation <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -114,7 +147,7 @@ export function Header() {
                 setIsMenuOpen((prev) => !prev);
                 setIsServicesOpen(false);
               }}
-              className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 hover:text-[#0d1b3d] focus:outline-none"
+              className={`inline-flex items-center justify-center rounded-md p-2 focus:outline-none ${isDarkHero ? "text-white hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-100 hover:text-[#0d1b3d]"}`}
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -127,21 +160,21 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="border-t bg-white lg:hidden">
+        <div className={`border-t lg:hidden ${isDarkHero ? "border-white/10 bg-[#08172f]" : "bg-white"}`}>
           <div className="space-y-1 px-4 pb-3 pt-2">
             <Link
               href="/"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
 
-            <div className="rounded-md border border-slate-100 bg-slate-50 px-3 py-2">
+            <div className={`rounded-md border px-3 py-2 ${isDarkHero ? "border-white/10 bg-white/5" : "border-slate-100 bg-slate-50"}`}>
               <button
                 type="button"
                 onClick={() => setIsServicesOpen((prev) => !prev)}
-                className="flex w-full items-center justify-between py-1 text-left text-base font-medium text-slate-700"
+                className={`flex w-full items-center justify-between py-1 text-left text-base font-medium ${isDarkHero ? "text-white/85" : "text-slate-700"}`}
                 aria-expanded={isServicesOpen}
                 aria-controls="mobile-services-menu"
               >
@@ -151,12 +184,12 @@ export function Header() {
                 />
               </button>
               {isServicesOpen && (
-                <div id="mobile-services-menu" className="mt-2 space-y-1 border-t border-slate-200 pt-2">
+                <div id="mobile-services-menu" className={`mt-2 space-y-1 border-t pt-2 ${isDarkHero ? "border-white/10" : "border-slate-200"}`}>
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block rounded-md px-2 py-2 text-base font-medium text-slate-700 hover:bg-white hover:text-[#0d1b3d]"
+                      className={`block rounded-md px-2 py-2 text-base font-medium ${isDarkHero ? "text-white/80 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-white hover:text-[#0d1b3d]"}`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
@@ -167,22 +200,22 @@ export function Header() {
             </div>
 
             <Link
-              href="/events"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"
+              href="/events/blue-print-2027"
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
               onClick={() => setIsMenuOpen(false)}
             >
-              Corporate Events
+              Blue Print 2027
             </Link>
             <Link
               href="/about"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/contact"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact

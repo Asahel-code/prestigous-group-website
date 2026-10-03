@@ -1,11 +1,10 @@
 # Prestigious Consultancy Website
 
-The Prestigious Consultancy website presents practical support for people,
-performance, and spaces across three service areas:
+The Prestigious Consultancy website presents practical support for people and
+organizational performance across two service areas:
 
-- **Training:** professional, energetic learning programmes.
-- **Consultancy:** executive, sophisticated strategic advisory.
-- **Space Finishes:** elegant, luxurious finishes for residential interiors and offices.
+- **Training & Development:** workplace-focused safety, compliance, leadership, and professional skills training.
+- **Consultancy:** project management, auditing, and assessment support.
 
 The site also includes a corporate events directory, event booking and
 waitlist flows, service enquiry forms, contact information, and a persistent
@@ -45,7 +44,7 @@ The project also supports the equivalent `npm run` commands defined in
 ## Site Structure
 
 - `/` - homepage with service tracks, featured event, reviews, and contact CTA
-- `/about` - company mission, vision, and values
+- `/about` - company profile and specialist strengths
 - `/services` - service overview
 - `/services/[slug]` - service detail page and enquiry form
 - `/events` - upcoming, recent, and past event directory
@@ -55,8 +54,8 @@ The project also supports the equivalent `npm run` commands defined in
 ## Content Management
 
 Service content is defined in [`data/services.ts`](data/services.ts), including
-positioning, descriptions, imagery, outcomes, audiences, and Space Finishes
-applications. Event content is defined in [`data/events.ts`](data/events.ts).
+positioning, descriptions, imagery, service breakdowns, and specialist focus.
+Event content is defined in [`data/events.ts`](data/events.ts).
 
 Shared layout and navigation live in `app/layout.tsx` and
 `components/navigation/`. Reusable forms and display components live in

@@ -13,6 +13,9 @@ export interface EventItem {
   isBookingOpen: boolean;
   tagline?: string;
   overview?: string;
+  audience?: string[];
+  registrationUrl?: string;
+  partnershipOptions?: string[];
   agenda?: { time: string; activity: string }[];
   speakers?: {
     name: string;
@@ -26,7 +29,7 @@ export const eventsData: EventItem[] = [
   {
     id: "1",
     slug: "blue-print-2027",
-    title: "BluePrint  2027",
+    title: "Blueprint 2027",
     theme: "Leadership & Competitive Advantage Forum",
     date: "2027-01-27T09:00:00Z",
     time: "09:00 AM – 05:00 PM EAT",
@@ -36,32 +39,27 @@ export const eventsData: EventItem[] = [
     imageUrl:
       "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1000",
     description:
-      "A premier summit gathering industry leaders to discuss the future of corporate strategy and resilient leadership.",
-    tagline:
-      "Driving sustainability, executive leadership, and growth strategy for modern organizations.",
+      "Blueprint 2027; Leadership & Competitive Advantage Forum is a flagship Prestigious initiative bringing together leaders, professionals and organizations to explore practical strategies for stronger leadership, competitiveness, innovation and sustainable growth.",
+    tagline: "Shaping leaders, Driving Competitiveness",
     overview:
-      "Blue Print 2027 brings together senior leaders, operators, and policymakers to explore growth strategy, governance, and practical execution models for the next decade.",
+      "The forum provides a platform for meaningful conversations, knowledge sharing, professional networking and business connection.",
     isBookingOpen: true,
-    agenda: [
-      { time: "09:00 AM", activity: "Keynote Address" },
-      { time: "11:00 AM", activity: "Panel Discussion: Navigating Change" },
-      { time: "02:00 PM", activity: "Interactive Workshops" },
+    audience: [
+      "Business leaders",
+      "Executives",
+      "Managers",
+      "Professionals",
+      "Entrepreneurs",
+      "Emerging leaders",
     ],
-    speakers: [
-      {
-        name: "Jane Doe",
-        role: "CEO",
-        company: "FutureCorp",
-        imageUrl:
-          "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
-      },
-      {
-        name: "John Smith",
-        role: "Strategy Director",
-        company: "Innovate Ltd",
-        imageUrl:
-          "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-      },
+    registrationUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSe4VbjE95eoIbgOcOGsgb0w0UePcbHhzzzKZzSRQfFWfF4BAg/viewform",
+    partnershipOptions: [
+      "Strategic Partnership",
+      "Partner Showcase",
+      "Corporate Participation",
+      "Brand Visibility",
+      "Other",
     ],
   }
 ];

@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { Mail, MapPin, Phone, Clock, Send } from "lucide-react";
-import { PageHero } from "@/components/ui/PageHero";
+import { ArrowUpRight, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { FormField, getControlClassName } from "@/components/ui/FormField";
 
 export default function ContactPage() {
@@ -19,158 +19,166 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f6f1] pb-24 text-[#0d1b3d]">
-      <PageHero
-        eyebrow="Let's talk"
-        title={<>A clear next step<br /><span className="text-[#d4af6d]">starts here.</span></>}
-        description="Get in touch with our team of experts to discuss how we can support your organizational goals."
-        imageUrl="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=85&w=2200"
-      />
-
-      <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          
-          {/* Contact Card */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
-            <h2 className="text-2xl font-bold text-slate-900 mb-8">Our Offices</h2>
-            
-            <div className="space-y-8 mb-10">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-[#f7f0e4] text-[#0d1b3d] rounded-xl shrink-0">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Headquarters</h3>
-                  <p className="text-slate-600 leading-relaxed">Pearl Collections Kenya,  Koinange St<br />Nairobi, Kenya</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-50 text-[#0A16A7] rounded-xl shrink-0">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Direct Phone</h3>
-                  <p className="text-slate-600 leading-relaxed">+254 700 000 000<br />+254 20 123 4567</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-50 text-[#0A16A7] rounded-xl shrink-0">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Email Support</h3>
-                  <p className="text-slate-600 leading-relaxed">info@company.co.ke<br />training@company.co.ke</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-50 text-[#0A16A7] rounded-xl shrink-0">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-1">Operating Hours</h3>
-                  <p className="text-slate-600 leading-relaxed">Monday - Friday: 8:00 AM - 5:00 PM<br />Saturday: 9:00 AM - 1:00 PM</p>
-                </div>
+    <div className="min-h-screen bg-white pb-20 text-[#171717]">
+      <section className="mx-auto w-full max-w-7xl px-5 pb-20 pt-5 sm:px-8 sm:pt-8 lg:px-12 lg:pb-28 lg:pt-10">
+        <div className="grid items-stretch gap-10 md:grid-cols-2 lg:gap-14">
+          <div className="flex min-w-0 flex-col">
+            <div className="relative isolate mb-12 min-h-[320px] overflow-hidden rounded-md bg-[#08172f] sm:min-h-[360px]">
+              <Image
+                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=85&w=1600"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 896px"
+                className="object-cover object-[65%_center] opacity-80"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,#08172f_0%,rgba(8,23,47,0.94)_42%,rgba(8,23,47,0.34)_100%)]" />
+              <div className="relative z-10 flex min-h-[320px] flex-col justify-center px-5 py-10 text-white sm:min-h-[360px] sm:px-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+                  Contact Prestigious Consultancy & Management Ltd
+                </p>
+                <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
+                  Love to hear from you,
+                  <br className="hidden sm:block" /> let&apos;s get in touch.
+                </h1>
+                <p className="mt-5 max-w-xl text-base leading-7 text-white/75 sm:text-lg">
+                  Tell us what you&apos;re working on and our team will help you
+                  find the right next step.
+                </p>
               </div>
             </div>
-
-            <div className="overflow-hidden rounded-2xl border border-[#e8e2d5] bg-slate-100">
-              <iframe
-                title="Prestigious Consultancy location on Google Maps"
-                src="https://www.google.com/maps?q=-1.2840114,36.8185837&z=16&output=embed"
-                className="h-48 w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              <div className="flex items-center justify-between gap-4 border-t border-[#e8e2d5] bg-white px-4 py-3">
-                <span className="flex min-w-0 items-center gap-2 text-xs text-[#596170]">
-                  <MapPin className="h-4 w-4 shrink-0 text-[#a88445]" />
-                  <span className="truncate">Koinange Street, Nairobi</span>
-                </span>
-                <a
-                  href="https://maps.app.goo.gl/wHEKBALDesVYgzgS7"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="shrink-0 text-xs font-semibold text-[#0d1b3d] hover:text-[#a88445]"
-                >
-                  Open in Maps
-                </a>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#a88445]">
+                Find us
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-[#171717]">
+                Nairobi, Kenya
+              </h2>
+              <div className="mt-8 space-y-6 text-sm leading-6 text-[#555]">
+                <div className="flex items-start gap-3">
+                  <MapPin
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                    aria-hidden="true"
+                  />
+                  <p>
+                    Pearl Collections Kenya, Koinange Street
+                    <br />
+                    Nairobi, Kenya
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Phone
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                    aria-hidden="true"
+                  />
+                  <p>+254 111 441 515</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Mail
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                    aria-hidden="true"
+                  />
+                  <p>prestigiousconsultants@gmail.com</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                    aria-hidden="true"
+                  />
+                  <p>
+                    Mon - Fri: 8:00 AM - 5:00 PM
+                    <br />
+                    Sat: 9:00 AM - 1:00 PM
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-slate-100 relative">
+          <div className="flex min-w-0">
             {isSubmitted ? (
-               <div className="absolute inset-0 bg-white rounded-3xl flex flex-col items-center justify-center p-8 text-center z-20">
-                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
-                  <Send className="w-10 h-10" />
+              <div
+                className="flex h-full w-full flex-col justify-center rounded-md border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+                role="status"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#f7f0e4] text-[#a88445]">
+                  <Send className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">Message Sent!</h3>
-                <p className="text-lg text-slate-600 max-w-sm">
-                  Thank you for reaching out. A member of our team will get back to you within 24 hours.
+                <h2 className="mt-5 text-2xl font-semibold text-[#171717]">
+                  Message sent
+                </h2>
+                <p className="mt-2 max-w-md leading-7 text-[#666]">
+                  Thank you for reaching out. A member of our team will get back
+                  to you within 24 hours.
                 </p>
-                <button 
+                <button
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-8 text-[#0d1b3d] font-semibold hover:underline"
+                  className="mt-6 text-sm font-semibold text-[#0d1b3d] underline underline-offset-4 hover:text-[#a88445]"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
-              <>
-                <h2 className="text-2xl font-bold text-slate-900 mb-8">Send us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <FormField label="First Name" htmlFor="firstName">
-                      <input required type="text" id="firstName" className={getControlClassName()} />
-                    </FormField>
-                    <FormField label="Last Name" htmlFor="lastName">
-                      <input required type="text" id="lastName" className={getControlClassName()} />
-                    </FormField>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <FormField label="Email Address" htmlFor="email">
-                      <input required type="email" id="email" className={getControlClassName()} />
-                    </FormField>
-                    <FormField label="Phone Number" htmlFor="phone">
-                      <input required type="tel" id="phone" className={getControlClassName()} />
-                    </FormField>
-                  </div>
-
-                  <FormField label="Area of Interest" htmlFor="interest">
-                    <select required id="interest" className={getControlClassName()}>
-                      <option value="">Select an option...</option>
-                      <optgroup label="Services">
-                        <option value="training">Corporat Training</option>
-                        <option value="consultancy">Enterprise Consultancy</option>
-                        <option value="finishes">Space Finishes</option>
-                      </optgroup>
-                      <optgroup label="Events & Other">
-                        <option value="events">Event Registration/Sponsorship</option>
-                        <option value="general">General Inquiry</option>
-                      </optgroup>
-                    </select>
+              <form
+                onSubmit={handleSubmit}
+                className="flex h-full w-full flex-col rounded-md border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+              >
+                <h2 className="text-2xl font-bold text-slate-900">
+                  Send us a message
+                </h2>
+                <p className="mt-2 mb-6 text-sm leading-6 text-slate-600">
+                  Share a few details and our team will be in touch.
+                </p>
+                <div className="flex flex-1 flex-col gap-5">
+                  <FormField label="Full Name" htmlFor="name">
+                    <input
+                      required
+                      type="text"
+                      id="name"
+                      name="name"
+                      autoComplete="name"
+                      className={getControlClassName()}
+                    />
                   </FormField>
-
-                  <FormField label="Message" htmlFor="message">
-                    <textarea required id="message" rows={5} className={getControlClassName("resize-none")} />
+                  <FormField label="Email Address" htmlFor="email">
+                    <input
+                      required
+                      type="email"
+                      id="email"
+                      name="email"
+                      autoComplete="email"
+                      className={getControlClassName()}
+                    />
+                  </FormField>
+                  <FormField label="Phone/WhatsApp (optional)" htmlFor="phone">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      autoComplete="tel"
+                      className={getControlClassName()}
+                    />
+                  </FormField>
+                  <FormField label="How can we help?" htmlFor="message">
+                    <textarea
+                      required
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className={getControlClassName("resize-y")}
+                    />
                   </FormField>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center rounded-xl bg-[#0d1b3d] px-8 py-4 text-base font-semibold text-white transition-all hover:bg-[#08172f] focus:outline-none focus:ring-2 focus:ring-[#d4af6d] focus:ring-offset-2 disabled:opacity-70 shadow-lg shadow-[#0d1b3d]/20"
+                    className="mt-auto inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-[#0d1b3d] px-7 text-sm font-semibold text-white transition-colors hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 disabled:opacity-70"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send your message"}
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </button>
-                </form>
-              </>
+                </div>
+              </form>
             )}
           </div>
-          
         </div>
       </section>
     </div>

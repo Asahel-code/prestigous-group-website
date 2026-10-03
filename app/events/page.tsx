@@ -16,6 +16,7 @@ export default function EventsDirectoryPage() {
   return (
     <div className="min-h-screen bg-[#f8f6f1] pb-24 text-[#0d1b3d]">
       <PageHero
+        variant="events"
         eyebrow="Gather, learn, connect"
         title={<>Ideas worth<br /><span className="text-[#d4af6d]">showing up for.</span></>}
         description="Join industry leaders, experts, and professionals at our upcoming events, conferences, and strategic learning sessions."

@@ -23,7 +23,7 @@ export function ServiceCard({ service, priority = false }: { service: ServiceIte
           <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
           <p className="text-slate-200 text-sm line-clamp-2 mb-4">{service.description}</p>
           <div className="inline-flex items-center text-sm font-semibold text-white">
-            Learn More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            {service.urlTitle} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </div>
         </div>
       </div>
