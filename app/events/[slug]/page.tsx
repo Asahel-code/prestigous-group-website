@@ -25,10 +25,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${event.title} | Corporate Event`,
+    title: `${event.title} | Corporate Event | Prestigious Consultancy & Management Ltd`,
     description: event.description,
     openGraph: {
-      title: `${event.title} | Prestigious Consultancy`,
+      title: `${event.title} | Prestigious Consultancy & Management Ltd`,
       description: event.description,
       images: [{ url: event.imageUrl, alt: event.title }],
     },

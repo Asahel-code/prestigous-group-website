@@ -25,7 +25,7 @@ export async function generateMetadata({
     title: `${service.title} | ${service.theme}`,
     description: service.description,
     openGraph: {
-      title: `${service.title} | Prestigious Consultancy`,
+      title: `${service.title} | Prestigious Consultancy & Management Ltd`,
       description: service.description,
       images: [{ url: service.imageUrl, alt: service.title }],
     },
