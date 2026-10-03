@@ -1,19 +1,23 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { servicesData } from "@/data/services";
+import { servicesData, specialistFocusData } from "@/data/services";
+import { getTrainingCourseForTopic, getTrainingCourseBySlug, trainingCourses } from "@/data/courses";
 import { ServiceEnquiryForm } from "@/components/forms/ServiceEnquiryForm";
+import { FocusAnchor } from "@/components/ui/FocusAnchor";
 import { CheckCircle2 } from "lucide-react";
-import { specialistFocusData } from "@/data/services";
-import type { Metadata } from "next";
+import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/JsonLd";
+import { getCanonicalUrl } from "@/config/site";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface ServiceDetailProps {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ course?: string; interest?: string }>;
 }
 
 export async function generateMetadata({
   params,
-}: ServiceDetailProps): Promise<Metadata> {
+}: ServiceDetailProps) {
   const { slug } = await params;
   const service = servicesData.find((entry) => entry.slug === slug);
 
@@ -21,28 +25,52 @@ export async function generateMetadata({
     return {};
   }
 
-  return {
-    title: `${service.title} | ${service.theme}`,
-    description: service.description,
-    openGraph: {
-      title: `${service.title} | Prestigious Consultancy & Management Ltd`,
-      description: service.description,
-      images: [{ url: service.imageUrl, alt: service.title }],
-    },
-  };
+  return createPageMetadata({
+    title: service.theme,
+    description: `Explore ${service.theme} from Prestigious Consultancy in Nairobi, Kenya. Request practical support for your organisation and team.`,
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({
   params,
+  searchParams,
 }: ServiceDetailProps) {
   const { slug } = await params;
+  const query = await searchParams;
   const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
   }
 
+  const selectedCourse = service.slug === "training" && query.course
+    ? getTrainingCourseBySlug(query.course)
+    : undefined;
+  const serviceOptions = service.slug === "training"
+    ? service.supportingAreas
+    : service.proposalOptions;
+  const interestOption = serviceOptions.find(
+    (option) => option.toLowerCase().replace(/[^a-z0-9]+/g, "-") === query.interest,
+  );
+  const defaultServiceOption = selectedCourse?.category ?? interestOption ?? service.supportingAreas[0];
+
   return (
+    <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: getCanonicalUrl() },
+        { name: "Services", url: getCanonicalUrl("services") },
+        { name: service.theme, url: getCanonicalUrl(`services/${service.slug}`) },
+      ]} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: service.theme,
+        description: service.description,
+        url: getCanonicalUrl(`services/${service.slug}`),
+        provider: { "@id": `${getCanonicalUrl()}#organization` },
+        areaServed: ["Nairobi, Kenya", "Kenya", "East Africa"],
+      }} />
     <div className="min-h-screen bg-[#f8f6f1] pb-20 text-[#0d1b3d]">
       {/* Hero Banner */}
       <section className="px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pb-24 lg:pt-12">
@@ -50,9 +78,9 @@ export default async function ServiceDetailPage({
           <div className="absolute inset-0">
             <Image
               src={service.imageUrl}
-              alt={service.title}
+              alt={service.imageAlt}
               fill
-              priority
+              preload
               sizes="100vw"
               className="object-cover"
             />
@@ -76,18 +104,18 @@ export default async function ServiceDetailPage({
                 </p>
               )}
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a
+                <FocusAnchor
                   href="#service-breakdown"
-                  className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#d4af6d] px-6 text-sm font-semibold text-[#08172f] transition-colors hover:bg-[#c7a267]"
+                  className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#d4af6d] px-6 text-sm font-semibold text-[#08172f] transition-colors hover:bg-[#c7a267] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
                 >
                   {service.primaryCta}
-                </a>
-                <a
+                </FocusAnchor>
+                <FocusAnchor
                   href="#service-enquiry"
-                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
                 >
                   {service.secondaryCta}
-                </a>
+                </FocusAnchor>
               </div>
             </div>
           </div>
@@ -98,9 +126,9 @@ export default async function ServiceDetailPage({
       <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="space-y-12 lg:col-span-8">
-            <section id="service-breakdown" className="scroll-mt-28">
+            <section id="service-breakdown" tabIndex={-1} className="scroll-mt-28">
               <div className="mb-7">
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a88445]">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#715426]">
                   {service.title}
                 </p>
                 <h2 className="mt-3 text-3xl font-medium text-[#0d1b3d] sm:text-4xl">
@@ -115,7 +143,7 @@ export default async function ServiceDetailPage({
                     key={section.title}
                     className="border border-[#e8e2d5] bg-white p-6 sm:p-8"
                   >
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#a88445]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#715426]">
                       0{index + 1}
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold text-[#0d1b3d] sm:text-3xl">
@@ -135,18 +163,30 @@ export default async function ServiceDetailPage({
                       </p>
                     )}
                     <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
-                      {section.items.map((item) => (
+                      {section.items.map((item) => {
+                        const course = service.slug === "training"
+                          ? getTrainingCourseForTopic(item)
+                          : undefined;
+                        return (
                         <li
                           key={item}
                           className="flex items-start gap-3 text-sm leading-6 text-[#596170]"
                         >
                           <CheckCircle2
-                            className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                            className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
                             aria-hidden="true"
                           />
-                          <span>{item}</span>
+                          {course ? (
+                            <Link
+                              href={`/services/training/${course.slug}`}
+                              className="underline decoration-[#a88445]/50 underline-offset-4 hover:text-[#0d1b3d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                            >
+                              {course.title}
+                            </Link>
+                          ) : <span>{item}</span>}
                         </li>
-                      ))}
+                        );
+                      })}
                     </ul>
                   </article>
                 ))}
@@ -158,7 +198,7 @@ export default async function ServiceDetailPage({
                 className="border-t border-[#d9d2c4] pt-10"
                 aria-labelledby="specialist-focus-title"
               >
-                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#a88445]">
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#715426]">
                   Our Specialist Focus
                 </p>
                 <h2
@@ -177,7 +217,7 @@ export default async function ServiceDetailPage({
                       className="flex items-start gap-3 text-sm leading-6 text-[#596170]"
                     >
                       <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-[#a88445]"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
                         aria-hidden="true"
                       />
                       <span>{item}</span>
@@ -185,7 +225,7 @@ export default async function ServiceDetailPage({
                   ))}
                 </ul>
                 <Link
-                  href="/services/training#service-enquiry"
+                  href="/services/training?course=work-at-heights#service-enquiry"
                   className="mt-8 inline-flex min-h-11 items-center justify-center rounded-md bg-[#0d1b3d] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#08172f]"
                 >
                   Request Work at Heights Training
@@ -194,12 +234,16 @@ export default async function ServiceDetailPage({
             )}
           </div>
 
-          <aside id="service-enquiry" className="scroll-mt-28 lg:col-span-4">
+          <aside id="service-enquiry" tabIndex={-1} className="scroll-mt-28 lg:col-span-4">
             <div className="lg:sticky lg:top-28">
               <ServiceEnquiryForm
                 serviceName={service.title}
-                serviceOptions={service.supportingAreas}
-                defaultServiceOption={service.supportingAreas[0]}
+                serviceOptions={serviceOptions}
+                defaultServiceOption={defaultServiceOption}
+                courseOptions={service.slug === "training" ? trainingCourses.map(({ slug, title, category }) => ({ slug, title, category })) : undefined}
+                courseCategories={service.slug === "training" ? service.supportingAreas : undefined}
+                defaultCourse={selectedCourse?.slug}
+                isTrainingPage={service.slug === "training"}
                 specialistFocus={
                   service.slug === "consultancy"
                     ? specialistFocusData
@@ -211,5 +255,6 @@ export default async function ServiceDetailPage({
         </div>
       </section>
     </div>
+    </>
   );
 }

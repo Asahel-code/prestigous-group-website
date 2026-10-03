@@ -35,7 +35,7 @@ export function EventCard({ event }: { event: EventItem }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6c45]">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#715426]">
           {event.category}
         </p>
         <h3 className="mb-3 text-xl font-bold text-slate-900 line-clamp-2">{event.title}</h3>
@@ -44,11 +44,11 @@ export function EventCard({ event }: { event: EventItem }) {
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4 text-[#0d1b3d]" />
             <time dateTime={event.date}>
-              {new Date(event.date).toLocaleDateString("en-US", {
-                weekday: "short",
-                month: "short",
+              {new Date(event.date).toLocaleDateString("en-GB", {
+                month: "long",
                 day: "numeric",
                 year: "numeric",
+                timeZone: "Africa/Nairobi",
               })}
             </time>
           </div>
@@ -64,7 +64,7 @@ export function EventCard({ event }: { event: EventItem }) {
           href={`/events/${event.slug}`}
           className={`mt-auto inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${buttonClasses}`}
         >
-          {isUpcoming ? "Book Seat" : "View Details"}
+          View event details
           <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </div>

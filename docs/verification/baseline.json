@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-10-03",
+  "environment": "Untouched local production build at http://localhost:3000",
+  "commands": [
+    "npm run build",
+    "npm run start",
+    "npm exec --yes lighthouse -- <route> --preset=perf --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --output=json (3 runs per route)",
+    "axe-core 4.x via browser audit (one run per route)"
+  ],
+  "scoreScale": "Lighthouse scores are 0-100; performance metrics are medians across three Lighthouse runs.",
+  "axeMethod": "Counts are axe violation rules grouped by impact, not affected-node totals.",
+  "routes": [
+    {
+      "path": "/",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 83, "accessibility": 86, "bestPractices": 100, "seo": 100, "lcpMs": 2703.224, "cls": 0.001299, "tbtMs": 433.609 },
+      "axeViolations": { "critical": 0, "serious": 2, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/about",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 88, "accessibility": 90, "bestPractices": 100, "seo": 100, "lcpMs": 1848.043, "cls": 0.000283, "tbtMs": 438.675 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/services/training",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 87, "accessibility": 90, "bestPractices": 100, "seo": 100, "lcpMs": 2005.995, "cls": 0.000272, "tbtMs": 448.498 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/services/consultancy",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 89, "accessibility": 90, "bestPractices": 100, "seo": 100, "lcpMs": 1991.209, "cls": 0.01675, "tbtMs": 365.225 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/services/training/work-at-heights",
+      "httpStatus": 404,
+      "lighthouseMedian": null,
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 },
+      "note": "Lighthouse refuses document responses with HTTP 404."
+    },
+    {
+      "path": "/events",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 80, "accessibility": 88, "bestPractices": 100, "seo": 100, "lcpMs": 3280.822, "cls": 0.017154, "tbtMs": 444.424 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 2, "minor": 0 }
+    },
+    {
+      "path": "/events/blue-print-2027",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 85, "accessibility": 90, "bestPractices": 100, "seo": 100, "lcpMs": 2023.524, "cls": 0.028904, "tbtMs": 499.468 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/contact",
+      "httpStatus": 200,
+      "lighthouseMedian": { "performance": 78, "accessibility": 90, "bestPractices": 100, "seo": 100, "lcpMs": 3285.668, "cls": 0.001482, "tbtMs": 467.112 },
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 }
+    },
+    {
+      "path": "/privacy",
+      "httpStatus": 404,
+      "lighthouseMedian": null,
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 },
+      "note": "Lighthouse refuses document responses with HTTP 404."
+    },
+    {
+      "path": "/terms",
+      "httpStatus": 404,
+      "lighthouseMedian": null,
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 },
+      "note": "Lighthouse refuses document responses with HTTP 404."
+    },
+    {
+      "path": "/does-not-exist",
+      "httpStatus": 404,
+      "lighthouseMedian": null,
+      "axeViolations": { "critical": 0, "serious": 1, "moderate": 1, "minor": 0 },
+      "note": "Lighthouse refuses document responses with HTTP 404."
+    }
+  ]
+}

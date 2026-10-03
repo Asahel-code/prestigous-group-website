@@ -4,6 +4,7 @@ export interface EventItem {
   title: string;
   theme?: string;
   date: string;
+  endDate?: string;
   time?: string;
   venue: string;
   location?: string;
@@ -29,17 +30,18 @@ export const eventsData: EventItem[] = [
   {
     id: "1",
     slug: "blue-print-2027",
-    title: "Blueprint 2027",
+    title: "Blueprint 2027: Leadership & Competitive Advantage Forum",
     theme: "Leadership & Competitive Advantage Forum",
-    date: "2027-01-27T09:00:00Z",
+    date: "2027-01-27T09:00:00+03:00",
+    endDate: "2027-01-27T17:00:00+03:00",
     time: "09:00 AM – 05:00 PM EAT",
     venue: "Eka Hotel",
     location: "Nairobi, Kenya",
     category: "Upcoming",
     imageUrl:
-      "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=1000",
+      "/img/blueprint-forum.webp",
     description:
-      "Blueprint 2027; Leadership & Competitive Advantage Forum is a flagship Prestigious initiative bringing together leaders, professionals and organizations to explore practical strategies for stronger leadership, competitiveness, innovation and sustainable growth.",
+      "Blueprint 2027: Leadership & Competitive Advantage Forum is a flagship Prestigious initiative bringing together leaders, professionals and organisations to explore practical strategies for stronger leadership, competitiveness, innovation and sustainable growth.",
     tagline: "Shaping leaders, Driving Competitiveness",
     overview:
       "The forum provides a platform for meaningful conversations, knowledge sharing, professional networking and business connection.",

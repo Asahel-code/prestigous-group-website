@@ -1,28 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import { getCanonicalUrl, getSiteUrl, isProduction, siteConfig } from "@/config/site";
+import { getVerificationMetadata } from "@/lib/metadata";
+import { SiteJsonLd } from "@/components/seo/JsonLd";
+import { AnalyticsConsent } from "@/components/analytics/ConsentBanner";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const homeTitle = "Corporate Training & Consultancy in Nairobi, Kenya | Prestigious Consultancy";
 
 export const metadata: Metadata = {
   title: {
-    default: "Prestigious Group | Prestigious Consultancy",
-    template: "%s | Prestigious Group",
+    default: homeTitle,
+    template: `%s | ${siteConfig.brandName}`,
   },
-  description:
-    "Prestigious Group helps organizations across Kenya build capability, strengthen workplace safety, and improve performance through practical training and consultancy.",
-  applicationName: "Prestigious Group",
+  metadataBase: new URL(getSiteUrl()),
+  description: siteConfig.defaultDescription,
+  applicationName: siteConfig.brandName,
+  alternates: { canonical: getCanonicalUrl() },
+  robots: { index: isProduction, follow: isProduction },
+  verification: getVerificationMetadata(),
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -32,25 +30,20 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
-  keywords: [
-    "Prestigious Group",
-    "Prestigious Consultancy",
-    "Prestigious Group Kenya",
-    "Prestigious Consultancy Kenya",
-    "corporate training Kenya",
-    "consultancy services Nairobi",
-    "executive advisory Kenya",
-    "work at heights training Kenya",
-    "leadership development training Kenya",
-    "corporate events Kenya",
-  ],
   openGraph: {
     type: "website",
-    locale: "en_KE",
-    siteName: "Prestigious Group",
-    title: "Prestigious Group | Prestigious Consultancy",
-    description:
-      "Prestigious Group provides professional training, consultancy, and corporate events in Kenya.",
+    locale: siteConfig.locale,
+    siteName: siteConfig.brandName,
+    title: homeTitle,
+    description: siteConfig.defaultDescription,
+    url: getCanonicalUrl(),
+    images: [{ url: getCanonicalUrl("opengraph-image"), width: 1200, height: 630, alt: siteConfig.brandName }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeTitle,
+    description: siteConfig.defaultDescription,
+    images: [{ url: getCanonicalUrl("opengraph-image"), alt: siteConfig.brandName }],
   },
 };
 
@@ -60,17 +53,24 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
-    >
+    <html lang="en-KE" className={`h-full antialiased font-sans ${inter.variable}`}>
       <body className="min-h-full flex flex-col bg-[#f8f6f1]">
+        <a
+          href="#main-content"
+          className="sr-only z-[100] rounded-md bg-white px-4 py-3 text-[#0d1b3d] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
           {children}
         </main>
         <Footer />
-        <WhatsAppButton />
+        <aside aria-label="Quick contact">
+          <WhatsAppButton />
+        </aside>
+        <AnalyticsConsent />
+        <SiteJsonLd />
       </body>
     </html>
   );
