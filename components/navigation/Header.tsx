@@ -21,7 +21,7 @@ export function Header() {
     pathname === "/events" ||
     pathname.startsWith("/events/") ||
     pathname.startsWith("/services/");
-  const isOpaqueHeader = pathname === "/contact" || pathname === "/services";
+  const isOpaqueHeader = pathname === "/contact";
   const isAboutPage = pathname === "/about";
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -64,8 +64,6 @@ export function Header() {
       className={`sticky top-0 z-50 w-full px-3 pt-3 backdrop-blur sm:px-5 ${
         isOpaqueHeader
           ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
-          : isDarkHero
-            ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
           : isAboutPage
             ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
             : "bg-[#f8f6f1]/90 supports-[backdrop-filter]:bg-[#f8f6f1]/75"
@@ -81,7 +79,9 @@ export function Header() {
         >
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-[#271143]"}`}>
+              <div
+                className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-[#271143]"}`}
+              >
                 <Image
                   src="/logo2.png"
                   alt={`${siteConfig.brandName} logo`}
@@ -93,12 +93,15 @@ export function Header() {
             </Link>
           </div>
 
-          <nav aria-label="Primary navigation" className="hidden items-center gap-5 lg:flex xl:gap-8">
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center gap-5 lg:flex xl:gap-8"
+          >
             <Link
               href="/"
               className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
-                Home
+              Home
             </Link>
 
             <div ref={servicesMenuRef} className="relative">
@@ -110,7 +113,11 @@ export function Header() {
                   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
                     event.preventDefault();
                     setIsServicesOpen(true);
-                    requestAnimationFrame(() => servicesMenuRef.current?.querySelector<HTMLElement>("[role='menuitem']")?.focus());
+                    requestAnimationFrame(() =>
+                      servicesMenuRef.current
+                        ?.querySelector<HTMLElement>("[role='menuitem']")
+                        ?.focus(),
+                    );
                   }
                 }}
                 className={`flex items-center gap-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
@@ -125,14 +132,28 @@ export function Header() {
               </button>
 
               {isServicesOpen && (
-                <div id="desktop-services-menu" role="menu" className="absolute left-0 top-full mt-3 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl" onKeyDown={(event) => {
-                  if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
-                  event.preventDefault();
-                  const items = Array.from(event.currentTarget.querySelectorAll<HTMLElement>("[role='menuitem']"));
-                  const currentIndex = items.indexOf(document.activeElement as HTMLElement);
-                  const offset = event.key === "ArrowDown" ? 1 : -1;
-                  items[(currentIndex + offset + items.length) % items.length]?.focus();
-                }}>
+                <div
+                  id="desktop-services-menu"
+                  role="menu"
+                  className="absolute left-0 top-full mt-3 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl"
+                  onKeyDown={(event) => {
+                    if (event.key !== "ArrowDown" && event.key !== "ArrowUp")
+                      return;
+                    event.preventDefault();
+                    const items = Array.from(
+                      event.currentTarget.querySelectorAll<HTMLElement>(
+                        "[role='menuitem']",
+                      ),
+                    );
+                    const currentIndex = items.indexOf(
+                      document.activeElement as HTMLElement,
+                    );
+                    const offset = event.key === "ArrowDown" ? 1 : -1;
+                    items[
+                      (currentIndex + offset + items.length) % items.length
+                    ]?.focus();
+                  }}
+                >
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -184,7 +205,9 @@ export function Header() {
                 setIsMenuOpen((prev) => !prev);
                 setIsServicesOpen(false);
               }}
-              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+              }
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
               className={`inline-flex items-center justify-center rounded-md p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "text-white hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-100 hover:text-[#0d1b3d]"}`}
@@ -200,7 +223,11 @@ export function Header() {
       </div>
 
       {isMenuOpen && (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className={`border-t lg:hidden ${isDarkHero ? "border-white/10 bg-[#08172f]" : "bg-white"}`}>
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className={`border-t lg:hidden ${isDarkHero ? "border-white/10 bg-[#08172f]" : "bg-white"}`}
+        >
           <div className="space-y-1 px-4 pb-3 pt-2">
             <Link
               href="/"
@@ -210,7 +237,9 @@ export function Header() {
               Home
             </Link>
 
-            <div className={`rounded-md border px-3 py-2 ${isDarkHero ? "border-white/10 bg-white/5" : "border-slate-100 bg-slate-50"}`}>
+            <div
+              className={`rounded-md border px-3 py-2 ${isDarkHero ? "border-white/10 bg-white/5" : "border-slate-100 bg-slate-50"}`}
+            >
               <button
                 type="button"
                 onClick={() => setIsServicesOpen((prev) => !prev)}
@@ -224,7 +253,10 @@ export function Header() {
                 />
               </button>
               {isServicesOpen && (
-                <div id="mobile-services-menu" className={`mt-2 space-y-1 border-t pt-2 ${isDarkHero ? "border-white/10" : "border-slate-200"}`}>
+                <div
+                  id="mobile-services-menu"
+                  className={`mt-2 space-y-1 border-t pt-2 ${isDarkHero ? "border-white/10" : "border-slate-200"}`}
+                >
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.href}
