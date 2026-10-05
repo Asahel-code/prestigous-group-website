@@ -37,9 +37,9 @@ export function Footer() {
           <div className="min-w-0">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-white"
+              className="inline-flex items-center gap-3 text-[#d4af6d] transition-colors hover:text-white"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#d4af6d] p-0.5">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white p-0.5">
                 <Image
                   src="/logo.png"
                   alt={`${siteConfig.brandName} logo`}

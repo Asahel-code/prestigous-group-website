@@ -83,13 +83,12 @@ export function Header() {
             <Link href="/" className="flex items-center gap-2">
               <div className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-[#271143]"}`}>
                 <Image
-                  src="/logo.png"
+                  src="/logo2.png"
                   alt={`${siteConfig.brandName} logo`}
-                  width={40}
-                  height={40}
-                  className={`h-10 w-10 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
+                  width={200}
+                  height={100}
+                  className={`h-15 w-50 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
                 />
-                <span className="text-base font-semibold sm:text-lg">{siteConfig.brandName}</span>
               </div>
             </Link>
           </div>
