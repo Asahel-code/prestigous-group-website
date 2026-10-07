@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Send } from "lucide-react";
 import { FormField, getControlClassName } from "@/components/ui/FormField";
-import type { TrainingCourse } from "@/data/courses";
 import { trackEvent } from "@/lib/analytics";
 import { submitEnquiry } from "@/lib/enquiry-client";
 
@@ -13,25 +12,19 @@ export function ServiceEnquiryForm({
   serviceOptions,
   defaultServiceOption,
   specialistFocus,
-  courseOptions,
-  courseCategories,
-  defaultCourse,
   isTrainingPage = false,
 }: {
   serviceName: string;
   serviceOptions: string[];
   defaultServiceOption: string;
   specialistFocus?: { title: string; items: string[] };
-  courseOptions?: Pick<TrainingCourse, "slug" | "title" | "category">[];
   courseCategories?: string[];
   defaultCourse?: string;
   isTrainingPage?: boolean;
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submittedService, setSubmittedService] = useState(defaultServiceOption);
   const [selectedService, setSelectedService] = useState(defaultServiceOption);
-  const [selectedCourse, setSelectedCourse] = useState(defaultCourse ?? "");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -40,11 +33,6 @@ export function ServiceEnquiryForm({
     const formData = new FormData(event.currentTarget);
     const serviceRequired = String(formData.get("serviceRequired") ?? serviceName);
     const specialistService = formData.get("specialistService");
-    const course = formData.get("course");
-    const courseTitle = courseOptions?.find((item) => item.slug === course)?.title;
-    setSubmittedService(
-      [serviceRequired, courseTitle, specialistService].filter(Boolean).join(": "),
-    );
     setIsSubmitting(true);
     setErrors({});
     const result = await submitEnquiry(event.currentTarget, "service");
@@ -68,7 +56,6 @@ export function ServiceEnquiryForm({
           <Send className="h-8 w-8" />
         </div>
         <h3 className="mb-2 text-xl font-bold text-green-800">Enquiry Received</h3>
-        <p aria-live="polite" className="text-green-700">{message} {submittedService}</p>
       </div>
     );
   }
@@ -112,7 +99,6 @@ export function ServiceEnquiryForm({
             value={selectedService}
             onChange={(event) => {
               setSelectedService(event.target.value);
-              setSelectedCourse("");
             }}
             aria-invalid={Boolean(errors.serviceRequired)}
             aria-describedby={errors.serviceRequired ? "serviceRequired-error" : undefined}
@@ -122,26 +108,6 @@ export function ServiceEnquiryForm({
           </select>
           {errors.serviceRequired && <p id="serviceRequired-error" className="mt-1 text-sm text-red-700" aria-live="polite">{errors.serviceRequired}</p>}
         </FormField>
-        {courseOptions && courseCategories?.includes(selectedService) && (
-          <FormField label="Course / Service" htmlFor="course">
-            <select
-              required
-              id="course"
-              name="course"
-              value={selectedCourse}
-              onChange={(event) => setSelectedCourse(event.target.value)}
-              aria-invalid={Boolean(errors.course)}
-              aria-describedby={errors.course ? "course-error" : undefined}
-              className={getControlClassName()}
-            >
-              <option value="" disabled>Select a course</option>
-              {courseOptions.filter((course) => course.category === selectedService).map((course) => (
-                <option key={course.slug} value={course.slug}>{course.title}</option>
-              ))}
-            </select>
-            {errors.course && <p id="course-error" className="mt-1 text-sm text-red-700" aria-live="polite">{errors.course}</p>}
-          </FormField>
-        )}
         {specialistFocus && selectedService === specialistFocus.title && (
           <FormField label="Select a specialist focus" htmlFor="specialistService">
             <select

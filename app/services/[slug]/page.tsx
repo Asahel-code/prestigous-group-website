@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { servicesData, specialistFocusData } from "@/data/services";
-import { getTrainingCourseForTopic, getTrainingCourseBySlug, trainingCourses } from "@/data/courses";
 import { ServiceEnquiryForm } from "@/components/forms/ServiceEnquiryForm";
 import { FocusAnchor } from "@/components/ui/FocusAnchor";
 import { CheckCircle2 } from "lucide-react";
@@ -34,26 +33,18 @@ export async function generateMetadata({
 
 export default async function ServiceDetailPage({
   params,
-  searchParams,
 }: ServiceDetailProps) {
   const { slug } = await params;
-  const query = await searchParams;
   const service = servicesData.find((s) => s.slug === slug);
 
   if (!service) {
     notFound();
   }
 
-  const selectedCourse = service.slug === "training" && query.course
-    ? getTrainingCourseBySlug(query.course)
-    : undefined;
-  const serviceOptions = service.slug === "training"
-    ? service.supportingAreas
-    : service.proposalOptions;
-  const interestOption = serviceOptions.find(
-    (option) => option.toLowerCase().replace(/[^a-z0-9]+/g, "-") === query.interest,
-  );
-  const defaultServiceOption = selectedCourse?.category ?? interestOption ?? service.supportingAreas[0];
+  // const interestOption = serviceOptions.find(
+  //   (option) => option.toLowerCase().replace(/[^a-z0-9]+/g, "-") === query.interest,
+  // );
+  const defaultServiceOption = service.supportingAreas[0];
 
   return (
     <>
@@ -164,9 +155,6 @@ export default async function ServiceDetailPage({
                     )}
                     <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
                       {section.items.map((item) => {
-                        const course = service.slug === "training"
-                          ? getTrainingCourseForTopic(item)
-                          : undefined;
                         return (
                         <li
                           key={item}
@@ -176,14 +164,7 @@ export default async function ServiceDetailPage({
                             className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
                             aria-hidden="true"
                           />
-                          {course ? (
-                            <Link
-                              href={`/services/training/${course.slug}`}
-                              className="underline decoration-[#a88445]/50 underline-offset-4 hover:text-[#0d1b3d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
-                            >
-                              {course.title}
-                            </Link>
-                          ) : <span>{item}</span>}
+                           <span>{item}</span>
                         </li>
                         );
                       })}
@@ -238,11 +219,9 @@ export default async function ServiceDetailPage({
             <div className="lg:sticky lg:top-28">
               <ServiceEnquiryForm
                 serviceName={service.title}
-                serviceOptions={serviceOptions}
+                serviceOptions={ service.supportingAreas}
                 defaultServiceOption={defaultServiceOption}
-                courseOptions={service.slug === "training" ? trainingCourses.map(({ slug, title, category }) => ({ slug, title, category })) : undefined}
                 courseCategories={service.slug === "training" ? service.supportingAreas : undefined}
-                defaultCourse={selectedCourse?.slug}
                 isTrainingPage={service.slug === "training"}
                 specialistFocus={
                   service.slug === "consultancy"
