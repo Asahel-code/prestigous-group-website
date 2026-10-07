@@ -87,7 +87,7 @@ export function Header() {
                   alt={`${siteConfig.brandName} logo`}
                   width={200}
                   height={100}
-                  className={`h-15 w-50 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
+                  className={`h-15 w-60 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
                 />
               </div>
             </Link>
