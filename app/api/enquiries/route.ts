@@ -1,5 +1,4 @@
 import { NextRequest } from "next/server";
-import { getTrainingCourseBySlug, trainingCourses } from "@/data/courses";
 import { servicesData, specialistFocusData } from "@/data/services";
 import { hasOwnerValue, isProduction, siteConfig } from "@/config/site";
 
@@ -58,13 +57,7 @@ function validate(payload: EnquiryPayload): Record<string, string> {
   if (payload.privacyConsent !== "yes") {
     errors.privacyConsent = "Consent is required to submit this enquiry.";
   }
-  if (payload.course && !getTrainingCourseBySlug(payload.course)) {
-    errors.course = "Choose a valid course.";
-  }
   if (formType === "service" && trainingCategories.includes(payload.serviceRequired ?? "")) {
-    const course = trainingCourses.find((item) => item.slug === payload.course);
-    if (!course) errors.course = "Choose a course for this training area.";
-    else if (course.category !== payload.serviceRequired) errors.course = "Choose a course from the selected training area.";
     if (!/^\d{1,4}$/.test(payload.delegateCount ?? "") || Number(payload.delegateCount) < 1) {
       errors.delegateCount = "Enter a valid number of delegates.";
     }
