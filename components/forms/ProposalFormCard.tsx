@@ -10,7 +10,7 @@ export function ProposalFormCard() {
     <div className="rounded-md border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
       <h3 className="text-2xl font-bold text-slate-900">Request a Proposal</h3>
       <p className="mt-2 mb-6 text-sm leading-6 text-slate-600">
-        Tell us about your training, consultancy or event needs using our quick
+        Tell us about your training or consultancy needs using our quick
         enquiry form.
       </p>
       <TrackedAnchor
