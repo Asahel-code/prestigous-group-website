@@ -96,7 +96,7 @@ export default async function EventDetailPage({ params }: EventDetailProps) {
           <div className="max-w-4xl space-y-6">
               <h1 className="text-4xl font-medium leading-[1.02] tracking-[-0.04em] sm:text-6xl">{event.title}</h1>
               {event.theme && (
-                <p className="max-w-2xl text-sm font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+                <p className="max-w-2xl text-sm font-semibold uppercase tracking-[0.18em] text-[#d4af6d]"><span>Theme: </span>
                   {event.theme}
                 </p>
               )}

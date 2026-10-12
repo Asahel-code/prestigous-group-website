@@ -40,6 +40,8 @@ export const siteConfig = {
     bingVerification: process.env.BING_SITE_VERIFICATION ?? "",
   },
   formRecipient: process.env.FORM_RECIPIENT_EMAIL ?? "",
+  proposalFormUrl: process.env.PROPOSAL_FORM_URL ?? "",
+  partnerFormUrl: process.env.PARTNER_FORM_URL ?? "",
   enquiryWebhookUrl: process.env.ENQUIRY_WEBHOOK_URL ?? "",
   enquiryWebhookSecret: process.env.ENQUIRY_WEBHOOK_SECRET ?? "",
 } as const;

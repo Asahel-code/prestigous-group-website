@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { servicesData, specialistFocusData } from "@/data/services";
-import { ServiceEnquiryForm } from "@/components/forms/ServiceEnquiryForm";
+import { ProposalFormCard } from "@/components/forms/ProposalFormCard";
+import { TrackedAnchor } from "@/components/analytics/TrackedAnchor";
 import { FocusAnchor } from "@/components/ui/FocusAnchor";
-import { CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/JsonLd";
-import { getCanonicalUrl } from "@/config/site";
+import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
 
 interface ServiceDetailProps {
@@ -41,10 +41,7 @@ export default async function ServiceDetailPage({
     notFound();
   }
 
-  // const interestOption = serviceOptions.find(
-  //   (option) => option.toLowerCase().replace(/[^a-z0-9]+/g, "-") === query.interest,
-  // );
-  const defaultServiceOption = service.supportingAreas[0];
+  const proposalHref = siteConfig.proposalFormUrl;
 
   return (
     <>
@@ -101,12 +98,24 @@ export default async function ServiceDetailPage({
                 >
                   {service.primaryCta}
                 </FocusAnchor>
-                <FocusAnchor
-                  href="#service-enquiry"
-                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
-                >
-                  {service.secondaryCta}
-                </FocusAnchor>
+                {proposalHref ? (
+                  <TrackedAnchor
+                    href={proposalHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    eventName="proposal_click"
+                    className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                  >
+                    {service.secondaryCta} <ArrowUpRight className="h-4 w-4" />
+                  </TrackedAnchor>
+                ) : (
+                  <FocusAnchor
+                    href="#service-enquiry"
+                    className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                  >
+                    {service.secondaryCta}
+                  </FocusAnchor>
+                )}
               </div>
             </div>
           </div>
@@ -172,6 +181,23 @@ export default async function ServiceDetailPage({
                   </article>
                 ))}
               </div>
+              {service.learningModes && (
+                <div className="mt-6 flex flex-col gap-3 border border-[#e8e2d5] bg-[#fbf9f4] p-6 sm:flex-row sm:items-center sm:gap-4 sm:p-8">
+                  <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#715426]">
+                    Learning Modes
+                  </p>
+                  <ul className="flex flex-wrap gap-2">
+                    {service.learningModes.map((mode) => (
+                      <li
+                        key={mode}
+                        className="rounded-full border border-[#d9d2c4] bg-white px-4 py-1.5 text-sm font-medium text-[#0d1b3d]"
+                      >
+                        {mode}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </section>
 
             {service.slug === "consultancy" && (
@@ -205,30 +231,23 @@ export default async function ServiceDetailPage({
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/services/training?course=work-at-heights#service-enquiry"
-                  className="mt-8 inline-flex min-h-11 items-center justify-center rounded-md bg-[#0d1b3d] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#08172f]"
+                <TrackedAnchor
+                  href={proposalHref || "/services/training?course=work-at-heights#service-enquiry"}
+                  target={proposalHref ? "_blank" : undefined}
+                  rel={proposalHref ? "noopener noreferrer" : undefined}
+                  eventName="proposal_click"
+                  className="mt-8 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#0d1b3d] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#08172f]"
                 >
                   Request Work at Heights Training
-                </Link>
+                  {proposalHref && <ArrowUpRight className="h-4 w-4" />}
+                </TrackedAnchor>
               </section>
             )}
           </div>
 
           <aside id="service-enquiry" tabIndex={-1} className="scroll-mt-28 lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <ServiceEnquiryForm
-                serviceName={service.title}
-                serviceOptions={ service.supportingAreas}
-                defaultServiceOption={defaultServiceOption}
-                courseCategories={service.slug === "training" ? service.supportingAreas : undefined}
-                isTrainingPage={service.slug === "training"}
-                specialistFocus={
-                  service.slug === "consultancy"
-                    ? specialistFocusData
-                    : undefined
-                }
-              />
+              <ProposalFormCard />
             </div>
           </aside>
         </div>

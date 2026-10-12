@@ -7,6 +7,7 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { servicesData } from "@/data/services";
 import { siteConfig } from "@/config/site";
+import { trackEvent } from "@/lib/analytics";
 
 const serviceLinks = servicesData.map((service) => ({
   label: service.urlTitle,
@@ -190,12 +191,26 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-4 xl:flex">
-            <Link
-              href="/contact"
-              className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
-            >
-              Start a conversation <ArrowUpRight className="h-4 w-4" />
-            </Link>
+            {siteConfig.proposalFormUrl ? (
+              <a
+                href={siteConfig.proposalFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Request a proposal (opens in a new tab)"
+                onClick={() => trackEvent("proposal_click")}
+                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
+              >
+                Request a Proposal{" "}
+              </a>
+            ) : (
+              <Link
+                href="/contact"
+                onClick={() => trackEvent("partner_click")}
+                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
+              >
+                Request a Proposal{" "}
+              </Link>
+            )}
           </div>
 
           <div className="flex items-center lg:hidden">

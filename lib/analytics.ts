@@ -15,6 +15,7 @@ export type AnalyticsEvent =
   | "email_click"
   | "event_register_click"
   | "partner_click"
+  | "proposal_click"
   | "course_view";
 
 export function trackEvent(eventName: AnalyticsEvent, detail?: string): void {

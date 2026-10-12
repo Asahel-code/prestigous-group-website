@@ -14,10 +14,13 @@ import { eventsData } from "@/data/events";
 import { servicesData } from "@/data/services";
 import { createPageMetadata } from "@/lib/metadata";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { siteConfig } from "@/config/site";
 
 export const metadata = createPageMetadata({
-  title: "Corporate Training & Consultancy in Nairobi, Kenya | Prestigious Consultancy",
-  description: "Practical corporate training and consultancy in Nairobi, Kenya, helping organisations strengthen workplace safety, develop people and improve performance.",
+  title:
+    "Corporate Training & Consultancy in Nairobi, Kenya | Prestigious Consultancy",
+  description:
+    "Practical corporate training and consultancy in Nairobi, Kenya, helping organisations strengthen workplace safety, develop people and improve performance.",
   path: "/",
   absoluteTitle: true,
 });
@@ -32,9 +35,18 @@ const capabilityTracks = servicesData.map((service, index) => ({
 }));
 
 const heroPillars = [
-  { label: "Professional Training", icon: GraduationCap, href: "/services/training" },
-  { label: "Executive Consultancy", icon: BriefcaseBusiness, href: "/services/consultancy" },
-  { label: "Blueprint 2027", icon: CalendarDays, href: "/events/blue-print-2027" },
+  {
+    label: "Practical",
+    icon: GraduationCap,
+  },
+  {
+    label: "Flexible",
+    icon: BriefcaseBusiness,
+  },
+  {
+    label: "Results-Driven",
+    icon: CalendarDays,
+  },
 ];
 
 const googleReviewsUrl =
@@ -83,27 +95,25 @@ export default function HomePage() {
           <div className="relative z-10 flex min-h-[620px] flex-col justify-center px-6 py-10 sm:min-h-[640px] sm:px-10 sm:py-12 lg:min-h-[680px] lg:px-14 lg:py-14">
             <div className="max-w-xl">
               <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-[#0d1b3d] sm:text-5xl xl:text-6xl">
-                Building safer,
+                Empowering People,
                 <br />
-                <span className="text-[#715426]">stronger</span>
+                <span className="text-[#715426]">Strengthening</span>
                 <br />
                 organisations
               </h1>
               <div className="mt-5 h-1 w-24 bg-[#d4af6d]" />
               <p className="mt-5 max-w-lg text-base leading-7 text-[#0d1b3d]/80 sm:text-lg">
-                Practical training and consultancy solutions that help people
-                grow, teams perform, and organisations move forward.
+                Practical training and consultancy solutions that build skills
+                improve performance and create opportunities.
               </p>
               <div className="mt-7 grid grid-cols-3 divide-x divide-[#d4af6d]/70">
-                {heroPillars.map(({ label, icon: Icon, href }) => (
-                  <Link
+                {heroPillars.map(({ label }) => (
+                  <div
                     key={label}
-                    href={href}
-                    className="flex flex-col items-center gap-2 px-2 text-center text-xs font-semibold leading-4 text-[#0d1b3d] sm:px-3 sm:text-sm"
+                    className="flex flex-col items-center text-center text-xs font-semibold leading-4 text-[#0d1b3d] sm:text-sm"
                   >
-                    <Icon className="h-6 w-6 text-[#715426]" aria-hidden="true" />
                     <span>{label}</span>
-                  </Link>
+                  </div>
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -113,12 +123,24 @@ export default function HomePage() {
                 >
                   Explore our services <ArrowUpRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
-                >
-                  Request a proposal <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                {siteConfig.proposalFormUrl ? (
+                  <TrackedLink
+                    href={siteConfig.proposalFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    eventName="proposal_click"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
+                  >
+                    Request a proposal <ArrowUpRight className="h-4 w-4" />
+                  </TrackedLink>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
+                  >
+                    Request a proposal <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -150,7 +172,7 @@ export default function HomePage() {
                   <div className="relative z-10 text-sm font-semibold text-[#0d1b3d]">
                     <span>{track.number}</span>
                   </div>
-                  <div className="relative z-10 mt-16 max-w-xs pb-4 sm:mt-24">
+                  <div className="relative z-10 mt-16 pb-4 sm:mt-24">
                     <div className="mb-5 inline-flex bg-[#f1e8d4] p-3 text-[#715426]">
                       <Icon className="h-6 w-6" />
                     </div>
@@ -199,14 +221,15 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-lg leading-8 text-[#596170]">
               Our approach is direct: understand the real constraint, equip the
-                people closest to it, and leave your organisation stronger than we
+              people closest to it, and leave your organisation stronger than we
               found it.
             </p>
             <Link
               href="/about"
               className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d] hover:text-[#715426]"
             >
-              Meet Prestigious Consultancy & Management Ltd <ArrowUpRight className="h-4 w-4" />
+              Meet Prestigious Consultancy & Management Ltd{" "}
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
@@ -277,13 +300,25 @@ export default function HomePage() {
                   >
                     Register now <ArrowUpRight className="h-4 w-4" />
                   </Link>
-                  <TrackedLink
-                    href="/contact?interest=sponsorship"
-                    eventName="partner_click"
-                    className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
-                  >
-                    Partner with us <ArrowUpRight className="h-4 w-4" />
-                  </TrackedLink>
+                  {siteConfig.partnerFormUrl ? (
+                    <TrackedLink
+                      href={siteConfig.partnerFormUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      eventName="partner_click"
+                      className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
+                    >
+                      Partner with us <ArrowUpRight className="h-4 w-4" />
+                    </TrackedLink>
+                  ) : (
+                    <TrackedLink
+                      href="/contact?interest=sponsorship"
+                      eventName="partner_click"
+                      className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
+                    >
+                      Partner with us <ArrowUpRight className="h-4 w-4" />
+                    </TrackedLink>
+                  )}
                 </div>
               </div>
             </div>

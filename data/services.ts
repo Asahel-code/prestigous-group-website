@@ -15,6 +15,7 @@ export interface ServiceItem {
   proposalOptions: string[];
   defaultProposalOption: string;
   supportingAreas: string[];
+  learningModes?: string[];
   detailSections: {
     title: string;
     lead: string;
@@ -30,8 +31,8 @@ export const servicesData: ServiceItem[] = [
     slug: "training",
     title: "Training",
     urlTitle: "Explore Training",
-    theme: "Training & Development",
-    description: "Practical, workplace-focused training designed to build competence, confidence and safer work practices.",
+    theme: "Building Skills. Strengthening Performance. Creating Opportunities.",
+    description: "Practical training for organizations, professionals and individuals.",
     imageUrl: "/img/training.webp",
     imageAlt: "A facilitator leading a practical workshop for training participants.",
     outcomes: ["Certified Competency", "Practical Skill Application", "Increased Team Productivity"],
@@ -46,36 +47,70 @@ export const servicesData: ServiceItem[] = [
       "Environment Management",
       "Food Safety",
     ],
-    defaultProposalOption: "Safety & Compliance",
-    supportingAreas: ["Safety & Compliance", "Leadership & Strategic Planning"],
+    defaultProposalOption: "Corporate Training",
+    supportingAreas: [
+      "Corporate Training",
+      "Career & Business Skills",
+      "Leadership & Management",
+      "Business & Professional Skills",
+      "Project Management",
+    ],
+    learningModes: ["Online", "Physical", "Self-Paced"],
     detailSections: [
       {
-        title: "Safety & Compliance",
-        lead: "Practical training for safer, compliant workplaces.",
+        title: "Corporate Training",
+        lead: "Safety, Health & Compliance",
         items: [
           "Work at Heights",
           "Confined Space",
-          "Crane Operation",
-          "Safety & Emergency Preparedness",
           "First Aid",
-          "Fire Safety",
+          "Emergency Preparedness",
           "Occupational Health & Safety",
+          "Crane Management",
           "Food Safety",
           "Quality Management",
-          "Environment Management",
         ],
       },
       {
-        title: "Leadership & Strategic Planning",
-        lead: "Professional development for stronger leaders, teams and organisational performance.",
+        title: "Career & Business Skills",
+        lead: "For individuals, graduates, job seekers and entrepreneurs.",
         items: [
-          "Leadership & Management",
-          "Project Management",
+          "AI for Small Business & Entrepreneurs",
+          "Social Media Management: From Skill to Client",
+          "Freelance Business Bootcamp",
+          "Personal Brand & LinkedIn for Career Growth",
+          "Bookkeeping & QuickBooks",
+        ],
+      },
+      {
+        title: "Leadership & Management",
+        lead: "Developing confident leaders and high-performing teams.",
+        items: [
+          "Leadership & Management Skills",
+          "Supervisory Skills for New Managers",
+          "Strategic Leadership & Management",
+          "Team Building & Performance Management",
+        ],
+      },
+      {
+        title: "Business & Professional Skills",
+        lead: "For organizations and working professionals.",
+        items: [
+          "Customer Service Excellence",
           "Sales & Marketing",
-          "Soft Skills",
-          "Team & Capacity Building",
-          "Business & Professional Skills",
-          "Digital Skills",
+          "Communication & Public Speaking",
+          "Personal Effectiveness",
+          "AI for Workplace Productivity",
+        ],
+      },
+      {
+        title: "Project Management",
+        lead: "Delivering projects with confidence and control.",
+        items: [
+          "Project Management Essentials",
+          "Project Planning & Scheduling",
+          "Project Monitoring & Risk Management",
+          "Project Coordination",
         ],
       },
     ],
