@@ -49,7 +49,7 @@ export function Footer() {
                 />
               </span>
               <span className="text-xl font-semibold">
-                {siteConfig.brandName}
+                {siteConfig.legalName}
               </span>
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-7 text-white/65">

@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { CommunityImpact } from "@/components/about/CommunityImpact";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
@@ -88,6 +89,8 @@ export default function AboutPage() {
             </p>
         </div>
       </section>
+
+      <CommunityImpact />
     </div>
     </>
   );
