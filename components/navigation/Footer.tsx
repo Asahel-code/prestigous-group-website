@@ -198,7 +198,7 @@ export function Footer() {
               </span>
             )}
             <span className="text-xs text-white/60">
-              People. Performance. Progress.
+              Practical. Flexible. Results-Driven.
             </span>
           </div>
         </div>
