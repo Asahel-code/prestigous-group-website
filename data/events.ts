@@ -32,7 +32,7 @@ export const eventsData: EventItem[] = [
     slug: "blue-print-2027",
     title: "Blueprint 2027: Leadership & Competitiveness Roundtable Breakfast",
     theme: "Connecting leaders, Strengthening Businesses. Shaping the Future.",
-    date: "2027-01-27T09:00:00+03:00",
+    date: "2027-01-27T07:30:00+03:00",
     endDate: "2027-01-27T17:00:00+03:00",
     time: "07:30 AM – 05:00 PM EAT",
     venue: "Nairobi",
