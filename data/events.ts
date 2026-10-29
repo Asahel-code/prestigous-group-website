@@ -34,7 +34,7 @@ export const eventsData: EventItem[] = [
     theme: "Connecting leaders, Strengthening Businesses. Shaping the Future.",
     date: "2027-01-27T09:00:00+03:00",
     endDate: "2027-01-27T17:00:00+03:00",
-    time: "09:00 AM – 05:00 PM EAT",
+    time: "07:30 AM – 05:00 PM EAT",
     venue: "Nairobi",
     location: "Nairobi, Kenya",
     category: "Upcoming",
