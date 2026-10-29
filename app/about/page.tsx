@@ -13,21 +13,26 @@ export const metadata = createPageMetadata({
 const reasons = [
   {
     title: "Practical",
-    description: "Workplace-focused solutions that can be applied immediately.",
+    description: "Real world, applicable solutions.",
   },
   {
     title: "Experienced",
-    description: "Qualified trainers and experienced professionals.",
+    description: "Skilled professionals and industry partners.",
   },
   {
-    title: "Tailored",
-    description: "Solutions designed around your organisation’s needs.",
+    title: "Flexible",
+    description: "Online, physical and customized options.",
   },
   {
-    title: "Professional",
+    title: "Credible",
     description:
-      "Reliable training and consultancy delivered to professional standards.",
+      "Professional registrations and partnerships.",
   },
+   {
+    title: "Client focused",
+    description:
+      "Solutions designed around your needs.",
+  }
 ];
 
 export default function AboutPage() {

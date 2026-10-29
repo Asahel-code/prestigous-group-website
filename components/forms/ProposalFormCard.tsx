@@ -3,7 +3,7 @@ import { TrackedAnchor } from "@/components/analytics/TrackedAnchor";
 import { siteConfig } from "@/config/site";
 
 export function ProposalFormCard() {
-  const href = siteConfig.proposalFormUrl || "/contact";
+  const href = siteConfig.proposalFormUrl || "/contact?interest=proposal";
   const isExternal = href.startsWith("http");
 
   return (

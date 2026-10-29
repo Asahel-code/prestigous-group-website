@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Terms of Use",
   description: "Read the terms for using Prestigious Consultancy's website, enquiry forms and event registration links. Service scope and fees are agreed separately.",
-  path: "/terms",
+  path: getCanonicalUrl("terms"),
 });
 
 export default function TermsPage() {
@@ -24,7 +24,7 @@ export default function TermsPage() {
         <div className="mt-10 space-y-9">
           <section>
             <h2 className="text-2xl font-semibold">Website information</h2>
-            <p className="mt-3 leading-7 text-[#596170]">Website information is provided for general information. A course or service description is not a binding offer, and details should be confirmed with the organisation before arrangements are made.</p>
+            <p className="mt-3 leading-7 text-[#596170]">Website information is provided for general information. A training or service description is not a binding offer, and details should be confirmed with the organisation before arrangements are made.</p>
           </section>
           <section>
             <h2 className="text-2xl font-semibold">Enquiries and proposals</h2>

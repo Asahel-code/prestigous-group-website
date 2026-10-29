@@ -1,18 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
-import { siteConfig } from "@/config/site";
+import { TrackedLink } from "../analytics/TrackedLink";
 
 interface EventBookingFormProps {
   eventTitle: string;
   registrationUrl: string;
+  partnerFormUrl?: string
 }
 
 export function EventBookingForm({
   eventTitle,
   registrationUrl,
+  partnerFormUrl
 }: EventBookingFormProps) {
   return (
     <section
@@ -34,38 +34,36 @@ export function EventBookingForm({
           forum.
         </p>
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-          <a
+          <TrackedLink
             href={registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackEvent("event_register_click")}
+            eventName="event_register_click"
             aria-label="Register as a delegate (opens in a new tab)"
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-white transition-colors hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
           >
             Reserve your seat{" "}
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-          {siteConfig.partnerFormUrl ? (
-            <a
-              href={siteConfig.partnerFormUrl}
+          </TrackedLink>
+          {partnerFormUrl ? (
+            <TrackedLink
+              href={partnerFormUrl}
               target="_blank"
               rel="noopener noreferrer"
+              eventName="partner_click"
               aria-label="Partner with us (opens in a new tab)"
-              onClick={() => trackEvent("partner_click")}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
             >
-              Partner With Us{" "}
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+              Partner with us <ArrowUpRight className="h-4 w-4" />
+            </TrackedLink>
           ) : (
-            <Link
+            <TrackedLink
               href="/contact?interest=sponsorship"
-              onClick={() => trackEvent("partner_click")}
+              eventName="partner_click"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
             >
-              Partner With Us{" "}
+              Partner with us{" "}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            </TrackedLink>
           )}
         </div>
       </div>

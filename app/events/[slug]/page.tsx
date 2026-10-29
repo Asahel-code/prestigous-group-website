@@ -11,7 +11,7 @@ import { EventBookingForm } from "@/components/forms/EventBookingForm";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { getCanonicalUrl } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
-
+import { siteConfig } from "@/config/site"
 interface EventDetailProps {
   params: Promise<{ slug: string }>;
 }
@@ -128,6 +128,22 @@ export default async function EventDetailPage({ params }: EventDetailProps) {
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#715426]">About the forum</p>
           <h2 className="text-2xl font-extrabold text-[#0d1b3d] sm:text-3xl">Meaningful conversations. Lasting connections.</h2>
           <p className="text-base leading-7 text-slate-600">{event.overview ?? event.description}</p>
+          
+          {event.agenda && event.agenda.length > 0 && (
+            <div className="mt-8 space-y-4">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#715426]">Event Agenda</p>
+              <div className="grid gap-3">
+                {event.agenda.map((item) => (
+                  <div key={item.time} className="flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <span className="rounded-lg bg-[#f8f6f1] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#715426]">
+                      {item.time}
+                    </span>
+                    <span className="text-sm font-semibold text-[#0d1b3d]">{item.activity}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         {event.audience && event.audience.length > 0 && (
           <div>
@@ -173,6 +189,7 @@ export default async function EventDetailPage({ params }: EventDetailProps) {
           <EventBookingForm
             eventTitle={event.title}
             registrationUrl={event.registrationUrl ?? "#"}
+             partnerFormUrl={siteConfig.partnerFormUrl}
           />
         </div>
       </section>

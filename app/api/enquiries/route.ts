@@ -30,10 +30,10 @@ function validate(payload: EnquiryPayload): Record<string, string> {
   const errors: Record<string, string> = {};
   const formType = payload.formType;
   const trainingService = servicesData.find((service) => service.slug === "training");
-  const trainingCategories = trainingService?.supportingAreas ?? [];
+  const trainingCategories = trainingService?.detailSections.map((s) => s.title) ?? [];
   const serviceChoices = new Set(servicesData.flatMap((service) => [
-    ...service.proposalOptions,
-    ...service.supportingAreas,
+    ...service.detailSections.map((s) => s.title),
+    ...service.outcomes,
   ]));
   const required = formType === "contact"
     ? ["name", "email", "message"]

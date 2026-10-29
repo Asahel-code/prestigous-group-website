@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: "Privacy Notice",
   description: "Read how Prestigious Consultancy handles website enquiries and contact details under Kenya's Data Protection Act 2019, and learn about your rights and choices.",
-  path: "/privacy",
+  path: getCanonicalUrl("privacy"),
 });
 
 export default function PrivacyPage() {

@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { servicesData } from "@/data/services";
 import { siteConfig } from "@/config/site";
-import { trackEvent } from "@/lib/analytics";
+import { TrackedLink } from "../analytics/TrackedLink";
 
 const serviceLinks = servicesData.map((service) => ({
   label: service.urlTitle,
@@ -86,6 +86,7 @@ export function Header() {
                 <Image
                   src="/logo2.png"
                   alt={`${siteConfig.brandName} logo`}
+                  loading="eager"
                   width={200}
                   height={100}
                   className={`h-15 w-60 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
@@ -171,6 +172,12 @@ export function Header() {
             </div>
 
             <Link
+              href="/training-calendar"
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+            >
+              Training Calendar
+            </Link>
+            <Link
               href="/events/blue-print-2027"
               className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
@@ -192,24 +199,24 @@ export function Header() {
 
           <div className="hidden items-center gap-4 xl:flex">
             {siteConfig.proposalFormUrl ? (
-              <a
+              <TrackedLink
                 href={siteConfig.proposalFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                eventName="proposal_click"
                 aria-label="Request a proposal (opens in a new tab)"
-                onClick={() => trackEvent("proposal_click")}
                 className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
               >
                 Request a Proposal{" "}
-              </a>
+              </TrackedLink>
             ) : (
-              <Link
-                href="/contact"
-                onClick={() => trackEvent("partner_click")}
+              <TrackedLink
+                href="/contact?interest=proposal"
+                eventName="proposal_click"
                 className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
               >
                 Request a Proposal{" "}
-              </Link>
+              </TrackedLink>
             )}
           </div>
 
@@ -285,7 +292,13 @@ export function Header() {
                 </div>
               )}
             </div>
-
+            <Link
+              href="/training-calendar"
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Training Calendar
+            </Link>
             <Link
               href="/events/blue-print-2027"
               className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}

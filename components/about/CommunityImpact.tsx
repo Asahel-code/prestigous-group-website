@@ -1,66 +1,40 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { ArrowUpRight, ImageIcon, Users, X } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight, Users, X } from "lucide-react";
 
 interface ImpactPhoto {
   caption: string;
+  imageUrl: string;
   description: string;
 }
 
 const featuredPhotos: ImpactPhoto[] = [
   {
     caption: "Student Mentorship",
+    imageUrl: "/img/impacts_images/001.jpg",
     description:
       "Guiding learners through one-on-one mentorship and study support.",
   },
   {
     caption: "Career Guidance",
-    description:
-      "Helping young people map pathways into meaningful work.",
+    imageUrl: "/img/impacts_images/002.jpg",
+    description: "Helping young people map pathways into meaningful work.",
   },
   {
     caption: "Youth Empowerment",
-    description:
-      "Skills development that turns potential into opportunity.",
+    imageUrl: "/img/impacts_images/003.webp",
+    description: "Skills development that turns potential into opportunity.",
   },
   {
     caption: "Community Outreach",
-    description:
-      "Working alongside communities to create lasting change.",
+    imageUrl: "/img/impacts_images/004.jpg",
+    description: "Working alongside communities to create lasting change.",
   },
 ];
 
-const galleryPhotos: ImpactPhoto[] = [
-  ...featuredPhotos,
-  {
-    caption: "Skills Training",
-    description: "Hands-on sessions building practical, employable skills.",
-  },
-  {
-    caption: "School Partnerships",
-    description: "Collaborating with schools to reach more learners.",
-  },
-  {
-    caption: "Community Dialogue",
-    description: "Listening to communities and shaping programmes together.",
-  },
-  {
-    caption: "Volunteer Network",
-    description: "Mobilising mentors and volunteers who give their time.",
-  },
-];
-
-function PhotoPlaceholder({ label }: { label: string }) {
-  return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-[linear-gradient(135deg,#f1e8d4_0%,#e5dcc6_55%,#d4af6d_100%)] text-[#715426]">
-      <ImageIcon className="h-8 w-8" aria-hidden="true" />
-      <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-        {label}
-      </span>
-    </div>
-  );
-}
+const galleryPhotos: ImpactPhoto[] = [...featuredPhotos];
 
 export function CommunityImpact() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -97,7 +71,7 @@ export function CommunityImpact() {
               <span className="text-[#715426]">Creating Opportunity.</span>
             </h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-[#596170] sm:text-lg">
-              Through Mysomo Foundation, we support education, mentorship, youth
+              Through <strong>Mysomo Foundation</strong>, we support education, mentorship, youth
               skills development and community empowerment initiatives that
               create lasting opportunities.
             </p>
@@ -126,8 +100,14 @@ export function CommunityImpact() {
                 key={photo.caption}
                 className="overflow-hidden rounded-md border border-[#ece8df] bg-white"
               >
-                <div className="aspect-[4/3]">
-                  <PhotoPlaceholder label="Photo" />
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={photo.imageUrl}
+                    alt={photo.caption}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
                 <figcaption className="px-4 py-3 text-sm font-semibold text-[#0d1b3d]">
                   {photo.caption}
@@ -175,8 +155,13 @@ export function CommunityImpact() {
                   key={photo.caption}
                   className="overflow-hidden rounded-md border border-[#ece8df] bg-[#faf9f6]"
                 >
-                  <div className="aspect-square">
-                    <PhotoPlaceholder label="Photo" />
+                  <div className="relative aspect-square w-full">
+                    <Image
+                      src={photo.imageUrl}
+                      alt={photo.caption}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <figcaption className="px-3 py-3">
                     <p className="text-sm font-semibold text-[#0d1b3d]">

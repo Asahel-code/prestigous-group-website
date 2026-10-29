@@ -43,6 +43,7 @@ export function Footer() {
                 <Image
                   src="/logo.png"
                   alt={`${siteConfig.brandName} logo`}
+                  loading="eager"
                   width={36}
                   height={36}
                   className="h-9 w-9 object-contain"

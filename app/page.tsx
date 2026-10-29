@@ -294,18 +294,41 @@ export default function HomePage() {
                   {featuredEvent.description}
                 </p>
                 <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-                  <Link
+                  <TrackedLink
                     href={`/events/${featuredEvent.slug}`}
+                    eventName="explore_event_click"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
                   >
-                    Register now <ArrowUpRight className="h-4 w-4" />
-                  </Link>
+                    Explore Blueprint{" "}
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true"  />
+                  </TrackedLink>
+                  {featuredEvent.registrationUrl ? (
+                    <TrackedLink
+                      href={featuredEvent.registrationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      eventName="event_register_click"
+                      aria-label="Register as a delegate (opens in a new tab)"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
+                    >
+                      Reserve your seat <ArrowUpRight className="h-4 w-4" />
+                    </TrackedLink>
+                  ) : (
+                    <TrackedLink
+                      href={`/events/${featuredEvent.slug}`}
+                      eventName="explore_event_click"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
+                    >
+                      Reserve your seat <ArrowUpRight className="h-4 w-4" aria-hidden="true"  />
+                    </TrackedLink>
+                  )}
                   {siteConfig.partnerFormUrl ? (
                     <TrackedLink
                       href={siteConfig.partnerFormUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       eventName="partner_click"
+                      aria-label="Partner with us (opens in a new tab)"
                       className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
                     >
                       Partner with us <ArrowUpRight className="h-4 w-4" />
@@ -316,7 +339,7 @@ export default function HomePage() {
                       eventName="partner_click"
                       className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
                     >
-                      Partner with us <ArrowUpRight className="h-4 w-4" />
+                      Partner with us <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                     </TrackedLink>
                   )}
                 </div>
