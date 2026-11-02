@@ -63,12 +63,6 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
             <h2 className="mb-4 text-3xl font-bold">Partner with us</h2>
             <p className="text-lg text-blue-100">Partner with us to create meaningful industry conversations, expand your reach and connect with key decision-makers.</p>
           </div>
-          <TrackedLink
-            href="/contact?interest=sponsorship"
-            eventName="partner_click"
-          >
-            Partner with us
-          </TrackedLink>
           {partnerFormUrl ? (
             <TrackedLink
               href={partnerFormUrl}
