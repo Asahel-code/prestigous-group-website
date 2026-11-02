@@ -59,6 +59,7 @@ export const servicesData: ServiceItem[] = [
     detailSections: [
       {
         title: "Safety, Health & Compliance",
+        lead: "For organizations, safety professionals & employees.",
         items: [
           "Work at Heights",
           "Confined Space",
@@ -70,6 +71,7 @@ export const servicesData: ServiceItem[] = [
       },
       {
         title: "Leadership & Strategic Management",
+        lead: "For executives, managers,supervisors & business owners.",
         items: [
           "Leadership & Management Skills",
           "Supervisory Skills for New Managers",
@@ -85,7 +87,7 @@ export const servicesData: ServiceItem[] = [
           "Gap Analysis & Implementation",
           "Quality Management Systems",
           "Food Safety Management",
-          "Environment Management Systems",
+          "EnvironmentFor executives, managers,supervisors & business owners Management Systems",
           "Risk Based Thinking & Management Systems",
         ],
       },
