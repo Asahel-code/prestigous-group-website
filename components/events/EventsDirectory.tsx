@@ -9,7 +9,11 @@ import { eventsData } from "@/data/events";
 
 type FilterTab = "Upcoming" | "Recent" | "Past";
 
-export function EventsDirectory() {
+interface EventsDirectoryProps {
+  partnerFormUrl?: string
+}
+
+export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
   const [activeTab, setActiveTab] = useState<FilterTab>("Upcoming");
   const filteredEvents = eventsData.filter((event) => event.category === activeTab);
 
@@ -62,10 +66,29 @@ export function EventsDirectory() {
           <TrackedLink
             href="/contact?interest=sponsorship"
             eventName="partner_click"
-            className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f7f0e4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
           >
             Partner with us
           </TrackedLink>
+          {partnerFormUrl ? (
+            <TrackedLink
+              href={partnerFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              eventName="partner_click"
+              aria-label="Partner with us (opens in a new tab)"
+              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f7f0e4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
+            >
+              Partner with us
+            </TrackedLink>
+          ) : (
+            <TrackedLink
+              href="/contact?interest=sponsorship"
+              eventName="partner_click"
+              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f7f0e4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
+            >
+              Partner with us
+            </TrackedLink>
+          )}
         </div>
       </section>
     </div>
