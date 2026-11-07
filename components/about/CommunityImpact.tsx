@@ -62,15 +62,15 @@ export function CommunityImpact() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
           <div>
-            <p className="text-sm font-semibold text-[#715426]">
+            <p className="text-sm font-semibold text-brand-gold-ink">
               Community Impact
             </p>
             <h2 className="mt-5 text-3xl font-medium leading-tight sm:text-5xl">
               Beyond Business.
               <br />
-              <span className="text-[#715426]">Creating Opportunity.</span>
+              <span className="text-brand-gold-ink">Creating Opportunity.</span>
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-[#596170] sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-8 text-brand-text-muted sm:text-lg">
               Through <strong>Mysomo Foundation</strong>, we support education, mentorship, youth
               skills development and community empowerment initiatives that
               create lasting opportunities.
@@ -79,7 +79,7 @@ export function CommunityImpact() {
               <button
                 type="button"
                 onClick={() => setIsGalleryOpen(true)}
-                className="group inline-flex min-h-11 items-center gap-2 rounded-md bg-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#715426] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f8f6f1]"
+                className="group inline-flex min-h-11 items-center gap-2 rounded-md bg-brand-navy px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold-ink focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream"
               >
                 Our Community Impact
                 <ArrowUpRight
@@ -87,8 +87,8 @@ export function CommunityImpact() {
                   aria-hidden="true"
                 />
               </button>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-[#6b665c]">
-                <Users className="h-4 w-4 text-[#715426]" aria-hidden="true" />
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-brand-text-warm">
+                <Users className="h-4 w-4 text-brand-gold-ink" aria-hidden="true" />
                 Powered by Mysomo Foundation
               </span>
             </div>
@@ -98,7 +98,7 @@ export function CommunityImpact() {
             {featuredPhotos.map((photo) => (
               <figure
                 key={photo.caption}
-                className="overflow-hidden rounded-md border border-[#ece8df] bg-white"
+                className="overflow-hidden rounded-md border border-brand-sand-muted bg-white"
               >
                 <div className="relative aspect-[4/3] w-full">
                   <Image
@@ -109,7 +109,7 @@ export function CommunityImpact() {
                     className="object-cover"
                   />
                 </div>
-                <figcaption className="px-4 py-3 text-sm font-semibold text-[#0d1b3d]">
+                <figcaption className="px-4 py-3 text-sm font-semibold text-brand-navy">
                   {photo.caption}
                 </figcaption>
               </figure>
@@ -123,7 +123,7 @@ export function CommunityImpact() {
           role="dialog"
           aria-modal="true"
           aria-label="Community impact gallery"
-          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-[#08172f]/80 p-4 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-brand-navy-deep/80 p-4 backdrop-blur-sm sm:p-8"
           onClick={closeGallery}
         >
           <div
@@ -132,7 +132,7 @@ export function CommunityImpact() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold text-[#715426]">
+                <p className="text-sm font-semibold text-brand-gold-ink">
                   Mysomo Foundation
                 </p>
                 <h3 className="mt-2 text-2xl font-medium sm:text-3xl">
@@ -143,7 +143,7 @@ export function CommunityImpact() {
                 type="button"
                 onClick={closeGallery}
                 aria-label="Close gallery"
-                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#ece8df] text-[#0d1b3d] transition-colors hover:bg-[#f8f6f1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#715426]"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-sand-muted text-brand-navy transition-colors hover:bg-brand-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold-ink"
               >
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
@@ -153,7 +153,7 @@ export function CommunityImpact() {
               {galleryPhotos.map((photo) => (
                 <figure
                   key={photo.caption}
-                  className="overflow-hidden rounded-md border border-[#ece8df] bg-[#faf9f6]"
+                  className="overflow-hidden rounded-md border border-brand-sand-muted bg-brand-cream-soft"
                 >
                   <div className="relative aspect-square w-full">
                     <Image
@@ -164,10 +164,10 @@ export function CommunityImpact() {
                     />
                   </div>
                   <figcaption className="px-3 py-3">
-                    <p className="text-sm font-semibold text-[#0d1b3d]">
+                    <p className="text-sm font-semibold text-brand-navy">
                       {photo.caption}
                     </p>
-                    <p className="mt-1 text-xs leading-5 text-[#596170]">
+                    <p className="mt-1 text-xs leading-5 text-brand-text-muted">
                       {photo.description}
                     </p>
                   </figcaption>

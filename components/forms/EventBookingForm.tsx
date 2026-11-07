@@ -16,16 +16,16 @@ export function EventBookingForm({
 }: EventBookingFormProps) {
   return (
     <section
-      className="rounded-md border border-slate-200 bg-[#f8f6f1] p-6 text-slate-900 sm:p-8"
+      className="rounded-md border border-slate-200 bg-brand-cream p-6 text-slate-900 sm:p-8"
       aria-labelledby="event-actions-title"
     >
       <div className="text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#715426]">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-gold-ink">
           Blueprint 2027
         </p>
         <h2
           id="event-actions-title"
-          className="mt-3 text-2xl font-bold text-[#0d1b3d]"
+          className="mt-3 text-2xl font-bold text-brand-navy"
         >
           Ready to be part of {eventTitle}?
         </h2>
@@ -40,7 +40,7 @@ export function EventBookingForm({
             rel="noopener noreferrer"
             eventName="event_register_click"
             aria-label="Register as a delegate (opens in a new tab)"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-white transition-colors hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-brand-navy px-6 py-3 text-sm font-semibold uppercase text-white transition-colors hover:bg-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
           >
             Reserve your seat{" "}
           </TrackedLink>
@@ -51,7 +51,7 @@ export function EventBookingForm({
               rel="noopener noreferrer"
               eventName="partner_click"
               aria-label="Partner with us (opens in a new tab)"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-brand-navy px-6 py-3 text-sm font-semibold uppercase text-brand-navy transition-colors hover:bg-brand-navy hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
             >
               Partner with us <ArrowUpRight className="h-4 w-4" />
             </TrackedLink>
@@ -59,7 +59,7 @@ export function EventBookingForm({
             <TrackedLink
               href="/contact?interest=sponsorship"
               eventName="partner_click"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[#0d1b3d] px-6 py-3 text-sm font-semibold uppercase text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-brand-navy px-6 py-3 text-sm font-semibold uppercase text-brand-navy transition-colors hover:bg-brand-navy hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
             >
               Partner with us{" "}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

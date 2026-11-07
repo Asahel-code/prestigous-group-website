@@ -69,21 +69,21 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
           ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
           : isAboutPage
             ? "bg-white/95 supports-[backdrop-filter]:bg-white/80"
-            : "bg-[#f8f6f1]/90 supports-[backdrop-filter]:bg-[#f8f6f1]/75"
+            : "bg-brand-cream/90 supports-[backdrop-filter]:bg-brand-cream/75"
       }`}
     >
       <div className="mx-auto w-full max-w-7xl">
         <div
           className={`flex h-[4.25rem] items-center justify-between rounded-[1.35rem] border px-4 shadow-[0_12px_35px_rgba(39,17,67,0.10)] sm:px-6 ${
             isDarkHero
-              ? `border-white/15 ${isOpaqueHeader ? "bg-[#08172f]" : "bg-[#08172f]/95"}`
+              ? `border-white/15 ${isOpaqueHeader ? "bg-brand-navy-deep" : "bg-brand-navy-deep/95"}`
               : "border-white/80 bg-white/90"
           }`}
         >
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
               <div
-                className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-[#271143]"}`}
+                className={`flex items-center gap-2 ${isDarkHero ? "text-white" : "text-brand-plum"}`}
               >
                 <Image
                   src="/logo2.png"
@@ -103,7 +103,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
           >
             <Link
               href="/"
-              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-brand-navy"}`}
             >
               Home
             </Link>
@@ -124,7 +124,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
                     );
                   }
                 }}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+                className={`flex items-center gap-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-brand-navy"}`}
                 aria-expanded={isServicesOpen}
                 aria-controls="desktop-services-menu"
                 aria-haspopup="menu"
@@ -163,7 +163,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
                       key={link.href}
                       href={link.href}
                       role="menuitem"
-                      className="block rounded-xl px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-[#f7f0e4] hover:text-[#0d1b3d]"
+                      className="block rounded-xl px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-brand-gold-soft hover:text-brand-navy"
                       onClick={() => setIsServicesOpen(false)}
                     >
                       {link.label}
@@ -175,19 +175,19 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
 
             <Link
               href="/training-calendar"
-              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-brand-navy"}`}
             >
               Training Calendar
             </Link>
             <Link
               href="/about"
-              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-brand-navy"}`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
+              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-brand-navy"}`}
             >
               Contact
             </Link>
@@ -201,7 +201,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
                 rel="noopener noreferrer"
                 eventName="proposal_click"
                 aria-label="Request a proposal (opens in a new tab)"
-                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
+                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${isDarkHero ? "bg-brand-gold text-brand-navy-deep hover:bg-brand-gold-hover" : "bg-brand-navy text-white hover:bg-brand-navy-deep"}`}
               >
                 Request a Proposal{" "}
               </TrackedLink>
@@ -209,7 +209,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
               <TrackedLink
                 href="/contact?interest=proposal"
                 eventName="proposal_click"
-                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "bg-[#d4af6d] text-[#08172f] hover:bg-[#c7a267]" : "bg-[#0d1b3d] text-white hover:bg-[#08172f]"}`}
+                className={`inline-flex h-10 items-center justify-center gap-1 rounded-2xl px-6 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${isDarkHero ? "bg-brand-gold text-brand-navy-deep hover:bg-brand-gold-hover" : "bg-brand-navy text-white hover:bg-brand-navy-deep"}`}
               >
                 Request a Proposal{" "}
               </TrackedLink>
@@ -228,7 +228,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
               }
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
-              className={`inline-flex items-center justify-center rounded-md p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] ${isDarkHero ? "text-white hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-100 hover:text-[#0d1b3d]"}`}
+              className={`inline-flex items-center justify-center rounded-md p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold ${isDarkHero ? "text-white hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-100 hover:text-brand-navy"}`}
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -244,12 +244,12 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className={`border-t lg:hidden ${isDarkHero ? "border-white/10 bg-[#08172f]" : "bg-white"}`}
+          className={`border-t lg:hidden ${isDarkHero ? "border-white/10 bg-brand-navy-deep" : "bg-white"}`}
         >
           <div className="space-y-1 px-4 pb-3 pt-2">
             <Link
               href="/"
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-brand-navy"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
@@ -279,7 +279,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`block rounded-md px-2 py-2 text-base font-medium ${isDarkHero ? "text-white/80 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-white hover:text-[#0d1b3d]"}`}
+                      className={`block rounded-md px-2 py-2 text-base font-medium ${isDarkHero ? "text-white/80 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-white hover:text-brand-navy"}`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.label}
@@ -290,21 +290,21 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
             </div>
             <Link
               href="/training-calendar"
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-brand-navy"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Training Calendar
             </Link>
             <Link
               href="/about"
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-brand-navy"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/contact"
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
+              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-brand-navy"}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact

@@ -17,13 +17,13 @@ export default function ServicesPage() {
         { name: "Home", url: getCanonicalUrl() },
         { name: "Services", url: getCanonicalUrl("services") },
       ]} />
-    <div className="min-h-screen bg-[#f8f6f1] pb-24 text-[#0d1b3d]">
+    <div className="min-h-screen bg-brand-cream pb-24 text-brand-navy">
       <section className="mx-auto w-full max-w-7xl px-4 pt-14 sm:px-6 sm:pt-16 lg:px-8">
         <div className="mb-8 max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#715426]">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-gold-ink">
             Explore our services
           </p>
-          <h1 className="mt-3 text-3xl font-medium text-[#0d1b3d] sm:text-4xl">
+          <h1 className="mt-3 text-3xl font-medium text-brand-navy sm:text-4xl">
             Practical expertise for safer, stronger organisations.
           </h1>
         </div>

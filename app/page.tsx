@@ -68,9 +68,9 @@ const googleReviews = [
 
 export default function HomePage() {
   return (
-    <div className="overflow-hidden bg-[#f8f6f1] text-[#0d1b3d]">
+    <div className="overflow-hidden bg-brand-cream text-brand-navy">
       <section className="px-4 pb-12 pt-5 sm:px-6 lg:px-8 lg:pb-16">
-        <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-3xl border border-[#e8e2d5] bg-[#f8f6f1] sm:rounded-[2rem]">
+        <div className="relative isolate mx-auto max-w-7xl overflow-hidden rounded-3xl border border-brand-border bg-brand-cream sm:rounded-[2rem]">
           <Image
             src="/img/home-hero.webp"
             alt="Construction professional at work on a building site"
@@ -80,26 +80,26 @@ export default function HomePage() {
             sizes="(max-width: 1280px) 100vw, 1280px"
             className="object-cover object-[58%_center]"
           />
-          <div className="absolute inset-0 bg-[#f8f6f1]/90 sm:bg-transparent sm:bg-[linear-gradient(90deg,#f8f6f1_0%,rgba(248,246,241,0.98)_34%,rgba(248,246,241,0.86)_52%,rgba(248,246,241,0.18)_76%,rgba(8,23,47,0.12)_100%)]" />
+          <div className="absolute inset-0 bg-brand-cream/90 sm:bg-transparent sm:bg-[linear-gradient(90deg,var(--brand-cream)_0%,rgba(248,246,241,0.98)_34%,rgba(248,246,241,0.86)_52%,rgba(248,246,241,0.18)_76%,rgba(var(--brand-navy-deep-rgb),0.12)_100%)]" />
           <div className="relative z-10 flex min-h-[620px] flex-col justify-center px-6 py-10 sm:min-h-[640px] sm:px-10 sm:py-12 lg:min-h-[680px] lg:px-14 lg:py-14">
             <div className="max-w-xl">
-              <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-[#0d1b3d] sm:text-5xl xl:text-6xl">
+              <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-brand-navy sm:text-5xl xl:text-6xl">
                 Empowering People,
                 <br />
-                <span className="text-[#715426]">Strengthening</span>
+                <span className="text-brand-gold-ink">Strengthening</span>
                 <br />
                 organisations
               </h1>
-              <div className="mt-5 h-1 w-24 bg-[#d4af6d]" />
-              <p className="mt-5 max-w-lg text-base leading-7 text-[#0d1b3d]/80 sm:text-lg">
+              <div className="mt-5 h-1 w-24 bg-brand-gold" />
+              <p className="mt-5 max-w-lg text-base leading-7 text-brand-navy/80 sm:text-lg">
                 Practical training and consultancy solutions that build skills
                 improve performance and create opportunities.
               </p>
-              <div className="mt-7 grid grid-cols-3 divide-x divide-[#d4af6d]/70">
+              <div className="mt-7 grid grid-cols-3 divide-x divide-brand-gold/70">
                 {heroPillars.map(({ label }) => (
                   <div
                     key={label}
-                    className="flex flex-col items-center text-center text-xs font-semibold leading-4 text-[#0d1b3d] sm:text-sm"
+                    className="flex flex-col items-center text-center text-xs font-semibold leading-4 text-brand-navy sm:text-sm"
                   >
                     <span>{label}</span>
                   </div>
@@ -108,7 +108,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/services"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#d4af6d] px-6 text-sm font-semibold text-[#08172f] transition-colors hover:bg-[#c7a267]"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-gold px-6 text-sm font-semibold text-brand-navy-deep transition-colors hover:bg-brand-gold-hover"
                 >
                   Explore our services <ArrowUpRight className="h-4 w-4" />
                 </Link>
@@ -118,14 +118,14 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     eventName="proposal_click"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-navy/60 px-6 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
                   >
                     Request a proposal <ArrowUpRight className="h-4 w-4" />
                   </TrackedLink>
                 ) : (
                   <Link
                     href="/contact"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#0d1b3d]/60 px-6 text-sm font-semibold text-[#0d1b3d] transition-colors hover:bg-[#0d1b3d] hover:text-white"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-brand-navy/60 px-6 text-sm font-semibold text-brand-navy transition-colors hover:bg-brand-navy hover:text-white"
                   >
                     Request a proposal <ArrowUpRight className="h-4 w-4" />
                   </Link>
@@ -139,13 +139,13 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-ink">
               One Partner. Practical Solutions. Lasting Results.
             </p>
             <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
               Practical solutions for people and performance.
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#596170]">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-brand-text-muted">
               From people, performance and solutions, we bring expertise,
               structure and purpose to the work that matters.
             </p>
@@ -156,22 +156,22 @@ export default function HomePage() {
               return (
                 <article
                   key={track.number}
-                  className="group relative min-h-[520px] overflow-hidden border border-[#e8e2d5] bg-white p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-9"
+                  className="group relative min-h-[520px] overflow-hidden border border-brand-border bg-white p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-9"
                 >
-                  <div className="relative z-10 text-sm font-semibold text-[#0d1b3d]">
+                  <div className="relative z-10 text-sm font-semibold text-brand-navy">
                     <span>{track.number}</span>
                   </div>
                   <div className="relative z-10 mt-16 pb-4 sm:mt-24">
-                    <div className="mb-5 inline-flex bg-[#f1e8d4] p-3 text-[#715426]">
+                    <div className="mb-5 inline-flex bg-brand-sand p-3 text-brand-gold-ink">
                       <Icon className="h-6 w-6" />
                     </div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#715426]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-gold-ink">
                       {track.eyebrow}
                     </p>
                     <h3 className="mt-3 text-3xl font-medium leading-tight tracking-[-0.035em]">
                       {track.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-6 text-[#596170]">
+                    <p className="mt-4 text-sm leading-6 text-brand-text-muted">
                       {track.description}
                     </p>
                   </div>
@@ -187,7 +187,7 @@ export default function HomePage() {
                   <div className="relative z-10 mt-8 flex flex-col gap-2 pb-8 sm:flex-row sm:flex-wrap">
                     <Link
                       href={track.href}
-                      className="inline-flex h-11 items-center justify-center gap-2 bg-[#08172f] px-4 text-xs font-semibold text-white transition-colors hover:bg-[#0d1b3d]"
+                      className="inline-flex h-11 items-center justify-center gap-2 bg-brand-navy-deep px-4 text-xs font-semibold text-white transition-colors hover:bg-brand-navy"
                     >
                       {track.primaryCta} <ArrowUpRight className="h-4 w-4" />
                     </Link>
@@ -202,39 +202,39 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#f1e8d4] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#715426]">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-sand px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold-ink">
               <Sparkles className="h-4 w-4" /> Built for momentum
             </div>
             <h2 className="text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
               The work gets better when the plan is clear.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#596170]">
+            <p className="mt-6 text-lg leading-8 text-brand-text-muted">
               Our approach is direct: understand the real constraint, equip the
               people closest to it, and leave your organisation stronger than we
               found it.
             </p>
             <Link
               href="/about"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d] hover:text-[#715426]"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-navy hover:text-brand-gold-ink"
             >
               Meet Prestigious Consultancy & Management Ltd{" "}
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div className="rounded-[2rem] bg-[#08172f] p-7 text-white sm:p-10">
-              <ClipboardCheck className="h-7 w-7 text-[#d4af6d]" />
+            <div className="rounded-[2rem] bg-brand-navy-deep p-7 text-white sm:p-10">
+              <ClipboardCheck className="h-7 w-7 text-brand-gold" />
               <p className="mt-12 text-5xl font-medium tracking-[-0.05em]">2</p>
               <p className="mt-2 text-sm leading-6 text-white/65">
                 connected areas of organisational support
               </p>
             </div>
-            <div className="mt-10 rounded-[2rem] bg-[#f1e8d4] p-7 text-[#0d1b3d] sm:p-10">
-              <Compass className="h-7 w-7 text-[#715426]" />
+            <div className="mt-10 rounded-[2rem] bg-brand-sand p-7 text-brand-navy sm:p-10">
+              <Compass className="h-7 w-7 text-brand-gold-ink" />
               <p className="mt-12 text-5xl font-medium tracking-[-0.05em]">
                 360°
               </p>
-              <p className="mt-2 text-sm leading-6 text-[#596170]">
+              <p className="mt-2 text-sm leading-6 text-brand-text-muted">
                 perspective on people, process, and performance
               </p>
             </div>
@@ -245,13 +245,13 @@ export default function HomePage() {
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold-ink">
               Client perspective
             </p>
             <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-6xl">
               Trusted by the people we work with.
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-[#596170]">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-brand-text-muted">
               See what clients are saying about their experience with
               Prestigious Consultancy on Google.
             </p>
@@ -260,18 +260,18 @@ export default function HomePage() {
             {googleReviews.map((review) => (
               <article
                 key={review.name}
-                className="flex min-h-[260px] flex-col border border-[#e8e2d5] bg-[#f8f6f1] p-7 sm:p-9"
+                className="flex min-h-[260px] flex-col border border-brand-border bg-brand-cream p-7 sm:p-9"
               >
-                <blockquote className="mt-6 flex-1 text-lg leading-8 text-[#0d1b3d]">
+                <blockquote className="mt-6 flex-1 text-lg leading-8 text-brand-navy">
                   &ldquo;{review.quote}&rdquo;
                 </blockquote>
-                <div className="mt-6 flex items-end justify-between gap-4 border-t border-[#e8e2d5] pt-5">
+                <div className="mt-6 flex items-end justify-between gap-4 border-t border-brand-border pt-5">
                   <Link
                     href={review.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Read ${review.name}'s Google review (opens in a new tab)`}
-                    className="text-xs font-semibold text-[#715426] hover:text-[#0d1b3d]"
+                    className="text-xs font-semibold text-brand-gold-ink hover:text-brand-navy"
                   >
                     View on Google
                   </Link>
@@ -284,7 +284,7 @@ export default function HomePage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Leave a review on Google (opens in a new tab)"
-            className="mt-8 inline-flex items-center gap-2 bg-[#08172f] px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#0d1b3d]"
+            className="mt-8 inline-flex items-center gap-2 bg-brand-navy-deep px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-navy"
           >
             Leave a review on Google <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -292,18 +292,18 @@ export default function HomePage() {
       </section>
 
       <section className="px-4 py-20 sm:px-6 lg:px-8 lg:pb-28">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 rounded-[2rem] bg-[#d4af6d] px-7 py-10 sm:px-12 lg:flex-row lg:items-center lg:py-14">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 rounded-[2rem] bg-brand-gold px-7 py-10 sm:px-12 lg:flex-row lg:items-center lg:py-14">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#08172f]/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-navy-deep/70">
               Ready when you are
             </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.035em] text-[#08172f] sm:text-5xl">
+            <h2 className="mt-3 max-w-2xl text-3xl font-medium tracking-[-0.035em] text-brand-navy-deep sm:text-5xl">
               Let&apos;s make your next step a meaningful one.
             </h2>
           </div>
           <Link
             href="/contact"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#08172f] px-7 py-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-navy-deep px-7 py-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
           >
             Talk to our team <ArrowUpRight className="h-4 w-4" />
           </Link>

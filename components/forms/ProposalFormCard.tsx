@@ -18,7 +18,7 @@ export function ProposalFormCard() {
         eventName="proposal_click"
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0d1b3d] px-6 py-4 text-base font-semibold text-white transition-all hover:bg-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-navy px-6 py-4 text-base font-semibold text-white transition-all hover:bg-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
       >
         {isExternal ? "Open the Request Form" : "Contact our team"}
         <ArrowUpRight className="h-4 w-4" />

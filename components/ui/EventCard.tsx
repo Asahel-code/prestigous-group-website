@@ -6,8 +6,8 @@ import { Calendar, MapPin, ArrowRight } from "lucide-react";
 export function EventCard({ event }: { event: EventItem }) {
   const isUpcoming = event.category === "Upcoming";
   const buttonClasses = isUpcoming
-    ? "bg-[#0d1b3d] text-white hover:bg-[#08172f]"
-    : "bg-[#f7f0e4] text-[#0d1b3d] hover:bg-[#ead4a3]";
+    ? "bg-brand-navy text-white hover:bg-brand-navy-deep"
+    : "bg-brand-gold-soft text-brand-navy hover:bg-brand-gold-pale";
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
@@ -20,14 +20,14 @@ export function EventCard({ event }: { event: EventItem }) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08172f]/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-deep/70 via-transparent to-transparent" />
 
         <div className="absolute left-4 top-4 z-10 flex flex-wrap gap-2">
-          <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#0d1b3d] shadow-sm">
+          <span className="inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-navy shadow-sm">
             {event.category}
           </span>
           {event.isBookingOpen && (
-            <span className="inline-flex items-center rounded-full bg-[#d4af6d] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#0d1b3d] shadow-sm">
+            <span className="inline-flex items-center rounded-full bg-brand-gold px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-navy shadow-sm">
               Booking Open
             </span>
           )}
@@ -35,14 +35,14 @@ export function EventCard({ event }: { event: EventItem }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#715426]">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold-ink">
           {event.category}
         </p>
         <h3 className="mb-3 text-xl font-bold text-slate-900 line-clamp-2">{event.title}</h3>
 
         <div className="mb-4 space-y-2 text-sm text-slate-600">
           <div className="flex items-center gap-2">
-            <Calendar className="h-4 w-4 text-[#0d1b3d]" />
+            <Calendar className="h-4 w-4 text-brand-navy" />
             <time dateTime={event.date}>
               {new Date(event.date).toLocaleDateString("en-GB", {
                 month: "long",
@@ -53,7 +53,7 @@ export function EventCard({ event }: { event: EventItem }) {
             </time>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-[#0d1b3d]" />
+            <MapPin className="h-4 w-4 text-brand-navy" />
             <span className="line-clamp-2 min-w-0 break-words">{event.venue}{event.location ? `, ${event.location}` : ""}</span>
           </div>
         </div>

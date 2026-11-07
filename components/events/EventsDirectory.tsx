@@ -18,11 +18,11 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
   const filteredEvents = eventsData.filter((event) => event.category === activeTab);
 
   return (
-    <div className="min-h-screen bg-[#f8f6f1] pb-24 text-[#0d1b3d]">
+    <div className="min-h-screen bg-brand-cream pb-24 text-brand-navy">
       <PageHero
         variant="events"
         eyebrow="Gather, learn, connect"
-        title={<>Ideas worth<br /><span className="text-[#d4af6d]">showing up for.</span></>}
+        title={<>Ideas worth<br /><span className="text-brand-gold">showing up for.</span></>}
         description="Join industry leaders, experts and professionals at our corporate learning events and strategic forums."
         imageUrl="/blueprint-forum.webp"
         preload
@@ -36,7 +36,7 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
                 type="button"
                 onClick={() => setActiveTab(tab)}
                 aria-pressed={activeTab === tab}
-                className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] sm:px-6 ${activeTab === tab ? "bg-[#0d1b3d] text-white shadow-md" : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"}`}
+                className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold sm:px-6 ${activeTab === tab ? "bg-brand-navy text-white shadow-md" : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"}`}
               >
                 {tab} Events
               </button>
@@ -55,7 +55,7 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
           )}
         </div>
 
-        <div className="relative flex flex-col items-center justify-between gap-8 overflow-hidden rounded-3xl bg-gradient-to-br from-[#0d1b3d] to-[#08172f] p-8 text-white shadow-xl md:flex-row sm:p-12">
+        <div className="relative flex flex-col items-center justify-between gap-8 overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navy-deep p-8 text-white shadow-xl md:flex-row sm:p-12">
           <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 opacity-10" aria-hidden="true">
             <Megaphone className="h-64 w-64" />
           </div>
@@ -70,7 +70,7 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
               rel="noopener noreferrer"
               eventName="partner_click"
               aria-label="Partner with us (opens in a new tab)"
-              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f7f0e4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
+              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-brand-navy transition-colors hover:bg-brand-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy-deep"
             >
               Partner with us
             </TrackedLink>
@@ -78,7 +78,7 @@ export function EventsDirectory({ partnerFormUrl }: EventsDirectoryProps) {
             <TrackedLink
               href="/contact?interest=sponsorship"
               eventName="partner_click"
-              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-[#0d1b3d] transition-colors hover:bg-[#f7f0e4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
+              className="relative z-10 inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-8 text-base font-semibold text-brand-navy transition-colors hover:bg-brand-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy-deep"
             >
               Partner with us
             </TrackedLink>

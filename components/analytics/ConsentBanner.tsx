@@ -46,11 +46,11 @@ export function AnalyticsConsent() {
   if (!isProduction || choice) return null;
 
   return (
-    <aside className="fixed bottom-4 left-4 right-4 z-[60] max-w-xl border border-slate-200 bg-white p-5 text-[#0d1b3d] shadow-xl" aria-label="Analytics cookie preferences">
+    <aside className="fixed bottom-4 left-4 right-4 z-[60] max-w-xl border border-slate-200 bg-white p-5 text-brand-navy shadow-xl" aria-label="Analytics cookie preferences">
       <p className="text-sm leading-6">Allow analytics cookies? Analytics are optional and used only to understand site visits.</p>
       <div className="mt-4 flex flex-wrap gap-3">
-        <button type="button" onClick={() => choose("accepted")} className="min-h-11 rounded-md bg-[#0d1b3d] px-4 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]">Accept analytics</button>
-        <button type="button" onClick={() => choose("rejected")} className="min-h-11 rounded-md border border-slate-300 px-4 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]">Reject</button>
+        <button type="button" onClick={() => choose("accepted")} className="min-h-11 rounded-md bg-brand-navy px-4 text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Accept analytics</button>
+        <button type="button" onClick={() => choose("rejected")} className="min-h-11 rounded-md border border-slate-300 px-4 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Reject</button>
       </div>
     </aside>
   );

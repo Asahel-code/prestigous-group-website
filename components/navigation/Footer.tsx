@@ -31,13 +31,13 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#d4af6d]/30 bg-[#08172f] text-slate-300">
+    <footer className="border-t border-brand-gold/30 bg-brand-navy-deep text-slate-300">
       <div className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-10 lg:py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_0.8fr_1.1fr_0.8fr] lg:gap-10">
           <div className="min-w-0">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-[#d4af6d] transition-colors hover:text-white"
+              className="inline-flex items-center gap-3 text-brand-gold transition-colors hover:text-white"
             >
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white p-0.5">
                 <Image
@@ -60,7 +60,7 @@ export function Footer() {
             </p>
             <Link
               href="/contact"
-              className="mt-7 inline-flex items-center border-b border-[#d4af6d] pb-1 text-sm font-semibold text-[#d4af6d] transition-colors hover:text-white"
+              className="mt-7 inline-flex items-center border-b border-brand-gold pb-1 text-sm font-semibold text-brand-gold transition-colors hover:text-white"
             >
               Start a conversation{" "}
               <span aria-hidden="true" className="ml-2">
@@ -70,7 +70,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               Services
             </h2>
             <ul className="mt-5 space-y-3">
@@ -88,7 +88,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               Explore
             </h2>
             <ul className="mt-5 space-y-3">
@@ -112,12 +112,12 @@ export function Footer() {
           </div>
 
           <div className="min-w-0">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               Contact
             </h2>
             <ul className="mt-5 space-y-4">
               <li className="flex min-w-0 items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#d4af6d] shrink-0" />
+                <MapPin className="h-5 w-5 text-brand-gold shrink-0" />
                 <span className="break-words text-sm leading-6">
                   {siteConfig.contact.streetAddress}
                   <br />
@@ -125,7 +125,7 @@ export function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#d4af6d] shrink-0" />
+                <Phone className="h-5 w-5 text-brand-gold shrink-0" />
                 <TrackedAnchor
                   href={`tel:${siteConfig.contact.phoneHref}`}
                   eventName="phone_click"
@@ -135,7 +135,7 @@ export function Footer() {
                 </TrackedAnchor>
               </li>
               {hasOwnerValue(siteConfig.contact.email) && <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-[#d4af6d] shrink-0" />
+                <Mail className="h-5 w-5 text-brand-gold shrink-0" />
                 <TrackedAnchor
                   href={`mailto:${siteConfig.contact.email}`}
                   eventName="email_click"
@@ -148,7 +148,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
               Follow Us
             </h2>
             <div className="mt-5 flex flex-wrap gap-3 lg:flex-col">
@@ -159,7 +159,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${label} (opens in a new tab)`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-white/70 transition-colors hover:border-[#d4af6d] hover:bg-[#d4af6d] hover:text-[#08172f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d] focus-visible:ring-offset-2 focus-visible:ring-offset-[#08172f]"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-white/70 transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy-deep"
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </a>

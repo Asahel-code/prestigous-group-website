@@ -13,11 +13,11 @@ export default async function ContactPage({
   const initialInterest = Array.isArray(interest) ? interest[0] : interest ?? "";
 
   return (
-    <div className="min-h-screen bg-white pb-20 text-[#171717]">
+    <div className="min-h-screen bg-white pb-20 text-brand-neutral-900">
       <section className="mx-auto w-full max-w-7xl px-5 pb-20 pt-5 sm:px-8 sm:pt-8 lg:px-12 lg:pb-28 lg:pt-10">
         <div className="grid items-stretch gap-10 md:grid-cols-2 lg:gap-14">
           <div className="flex min-w-0 flex-col">
-            <div className="relative isolate mb-12 min-h-[320px] overflow-hidden rounded-md bg-[#08172f] sm:min-h-[360px]">
+            <div className="relative isolate mb-12 min-h-[320px] overflow-hidden rounded-md bg-brand-navy-deep sm:min-h-[360px]">
               <Image
                 src="/img/contact.webp"
                 alt=""
@@ -26,9 +26,9 @@ export default async function ContactPage({
                 sizes="(max-width: 1024px) 100vw, 896px"
                 className="object-cover object-[65%_center] opacity-80"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,#08172f_0%,rgba(8,23,47,0.94)_42%,rgba(8,23,47,0.34)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--brand-navy-deep)_0%,rgba(var(--brand-navy-deep-rgb),0.94)_42%,rgba(var(--brand-navy-deep-rgb),0.34)_100%)]" />
               <div className="relative z-10 flex min-h-[320px] flex-col justify-center px-5 py-10 text-white sm:min-h-[360px] sm:px-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold">
                   Contact {siteConfig.brandName}
                 </p>
                 <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
@@ -42,16 +42,16 @@ export default async function ContactPage({
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#715426]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-gold-ink">
                 Find us
               </p>
-              <h2 className="mt-3 text-2xl font-semibold text-[#171717]">
+              <h2 className="mt-3 text-2xl font-semibold text-brand-neutral-900">
                 Nairobi, Kenya
               </h2>
-              <div className="mt-8 space-y-6 text-sm leading-6 text-[#555]">
+              <div className="mt-8 space-y-6 text-sm leading-6 text-brand-neutral-600">
                 <div className="flex items-start gap-3">
                   <MapPin
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold-ink"
                     aria-hidden="true"
                   />
                   <p>
@@ -62,14 +62,14 @@ export default async function ContactPage({
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold-ink"
                     aria-hidden="true"
                   />
                   <TrackedAnchor href={`tel:${siteConfig.contact.phoneHref}`} eventName="phone_click" className="underline underline-offset-2">{siteConfig.contact.phone}</TrackedAnchor>
                 </div>
                 {hasOwnerValue(siteConfig.contact.email) && <div className="flex items-start gap-3">
                   <Mail
-                    className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold-ink"
                     aria-hidden="true"
                   />
                   <TrackedAnchor href={`mailto:${siteConfig.contact.email}`} eventName="email_click" className="break-all underline underline-offset-2">{siteConfig.contact.email}</TrackedAnchor>

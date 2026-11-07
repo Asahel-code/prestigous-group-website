@@ -19,40 +19,40 @@ export function PageHero({
 }: PageHeroProps) {
   const styles = {
     services: {
-      container: "bg-[#f1e8d4] text-[#0d1b3d] sm:min-h-[430px]",
+      container: "bg-brand-sand text-brand-navy sm:min-h-[430px]",
       image: "absolute inset-y-0 right-0 hidden w-[58%] sm:block",
       overlay:
-        "bg-[linear-gradient(90deg,#f1e8d4_0%,#f1e8d4_36%,rgba(241,232,212,0.82)_54%,rgba(241,232,212,0.08)_100%)]",
+        "bg-[linear-gradient(90deg,var(--brand-sand)_0%,var(--brand-sand)_36%,rgba(var(--brand-sand-rgb),0.82)_54%,rgba(var(--brand-sand-rgb),0.08)_100%)]",
       content: "max-w-full sm:max-w-[62%]",
-      eyebrow: "text-[#715426]",
-      description: "text-[#596170]",
+      eyebrow: "text-brand-gold-ink",
+      description: "text-brand-text-muted",
     },
     events: {
-      container: "bg-[#08172f] text-white sm:min-h-[460px]",
+      container: "bg-brand-navy-deep text-white sm:min-h-[460px]",
       image: "absolute inset-0",
       overlay:
-        "bg-[linear-gradient(0deg,rgba(8,23,47,0.94),rgba(8,23,47,0.32))]",
+        "bg-[linear-gradient(0deg,rgba(var(--brand-navy-deep-rgb),0.94),rgba(var(--brand-navy-deep-rgb),0.32))]",
       content: "mx-auto max-w-4xl items-center text-center",
-      eyebrow: "text-[#d4af6d]",
+      eyebrow: "text-brand-gold",
       description: "max-w-2xl text-white/75",
     },
     contact: {
-      container: "bg-[#08172f] text-white sm:min-h-[360px]",
+      container: "bg-brand-navy-deep text-white sm:min-h-[360px]",
       image: "absolute inset-y-0 right-0 hidden w-[42%] sm:block",
       overlay:
-        "bg-[linear-gradient(90deg,#08172f_0%,#08172f_48%,rgba(8,23,47,0.12)_100%)]",
+        "bg-[linear-gradient(90deg,var(--brand-navy-deep)_0%,var(--brand-navy-deep)_48%,rgba(var(--brand-navy-deep-rgb),0.12)_100%)]",
       content: "max-w-3xl",
-      eyebrow: "text-[#d4af6d]",
+      eyebrow: "text-brand-gold",
       description: "max-w-xl text-white/75",
     },
     about: {
       container:
-        "border border-[#e8e2d5] bg-[#f8f6f1] text-[#0d1b3d] sm:min-h-[430px]",
+        "border border-brand-border bg-brand-cream text-brand-navy sm:min-h-[430px]",
       image: "absolute inset-y-5 left-5 hidden w-[34%] sm:block lg:inset-y-8 lg:left-8",
       overlay: "hidden",
       content: "max-w-full sm:ml-auto sm:max-w-[62%]",
-      eyebrow: "text-[#715426]",
-      description: "text-[#596170]",
+      eyebrow: "text-brand-gold-ink",
+      description: "text-brand-text-muted",
     },
   }[variant];
 

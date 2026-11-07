@@ -64,10 +64,10 @@ export default async function ServiceDetailPage({
           areaServed: ["Nairobi, Kenya", "Kenya", "East Africa"],
         }}
       />
-      <div className="min-h-screen bg-[#f8f6f1] pb-20 text-[#0d1b3d]">
+      <div className="min-h-screen bg-brand-cream pb-20 text-brand-navy">
         {/* Hero Banner */}
         <section className="px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pb-24 lg:pt-12">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-[#08172f] px-5 py-12 text-white sm:min-h-[500px] sm:rounded-[2.5rem] sm:px-12 sm:py-16 lg:px-20 lg:py-24">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand-navy-deep px-5 py-12 text-white sm:min-h-[500px] sm:rounded-[2.5rem] sm:px-12 sm:py-16 lg:px-20 lg:py-24">
             <div className="absolute inset-0">
               <Image
                 src={service.imageUrl}
@@ -77,12 +77,12 @@ export default async function ServiceDetailPage({
                 sizes="100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#08172f]/95 via-[#0d1b3d]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-navy-deep/95 via-brand-navy/80 to-transparent" />
             </div>
 
             <div className="relative z-10 flex min-h-[300px] items-center sm:min-h-[380px]">
               <div className="max-w-3xl">
-                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-[#d4af6d]">
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-brand-gold">
                   Our Services
                 </p>
                 <h1 className="text-4xl font-medium leading-tight text-white sm:text-6xl">
@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
                   {service.description}
                 </p>
-                <p className="mt-5 border-l-2 border-[#d4af6d] pl-4 text-sm font-semibold text-white/85">
+                <p className="mt-5 border-l-2 border-brand-gold pl-4 text-sm font-semibold text-white/85">
                   {service.detailSections
                     .map((section) => section.title)
                     .join(" | ")}
@@ -99,7 +99,7 @@ export default async function ServiceDetailPage({
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <FocusAnchor
                     href="#service-breakdown"
-                    className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#d4af6d] px-6 text-sm font-semibold text-[#08172f] transition-colors hover:bg-[#c7a267] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                    className="inline-flex min-h-12 items-center justify-center rounded-md bg-brand-gold px-6 text-sm font-semibold text-brand-navy-deep transition-colors hover:bg-brand-gold-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
                   >
                     {service.primaryCta}
                   </FocusAnchor>
@@ -109,7 +109,7 @@ export default async function ServiceDetailPage({
                       target="_blank"
                       rel="noopener noreferrer"
                       eventName="proposal_click"
-                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
                     >
                       {service.secondaryCta}{" "}
                       <ArrowUpRight className="h-4 w-4" />
@@ -117,7 +117,7 @@ export default async function ServiceDetailPage({
                   ) : (
                     <FocusAnchor
                       href="#service-enquiry"
-                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/50 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
                     >
                       {service.secondaryCta}
                     </FocusAnchor>
@@ -138,10 +138,10 @@ export default async function ServiceDetailPage({
                 className="scroll-mt-28"
               >
                 <div className="mb-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#715426]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-gold-ink">
                     {service.title}
                   </p>
-                  <h2 className="mt-3 text-3xl font-medium text-[#0d1b3d] sm:text-4xl">
+                  <h2 className="mt-3 text-3xl font-medium text-brand-navy sm:text-4xl">
                     {service.slug === "training"
                       ? "Explore training"
                       : "Our consultancy services"}
@@ -151,24 +151,24 @@ export default async function ServiceDetailPage({
                   {service.detailSections.map((section, index) => (
                     <article
                       key={section.title}
-                      className="border border-[#e8e2d5] bg-white p-6 sm:p-8"
+                      className="border border-brand-border bg-white p-6 sm:p-8"
                     >
-                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#715426]">
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold-ink">
                         0{index + 1}
                       </p>
-                      <h3 className="mt-3 text-2xl font-semibold text-[#0d1b3d] sm:text-3xl">
+                      <h3 className="mt-3 text-2xl font-semibold text-brand-navy sm:text-3xl">
                         {section.title}
                       </h3>
-                      <p className="mt-3 text-lg font-medium leading-7 text-[#0d1b3d]">
+                      <p className="mt-3 text-lg font-medium leading-7 text-brand-navy">
                         {section.lead}
                       </p>
                       {section.description && (
-                        <p className="mt-3 max-w-3xl leading-7 text-[#596170]">
+                        <p className="mt-3 max-w-3xl leading-7 text-brand-text-muted">
                           {section.description}
                         </p>
                       )}
                       {section.listLabel && (
-                        <p className="mt-6 text-sm font-semibold text-[#0d1b3d]">
+                        <p className="mt-6 text-sm font-semibold text-brand-navy">
                           {section.listLabel}
                         </p>
                       )}
@@ -177,10 +177,10 @@ export default async function ServiceDetailPage({
                           return (
                             <li
                               key={item}
-                              className="flex items-start gap-3 text-sm leading-6 text-[#596170]"
+                              className="flex items-start gap-3 text-sm leading-6 text-brand-text-muted"
                             >
                               <CheckCircle2
-                                className="mt-0.5 h-4 w-4 shrink-0 text-[#715426]"
+                                className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold-ink"
                                 aria-hidden="true"
                               />
                               <span>{item}</span>
@@ -192,15 +192,15 @@ export default async function ServiceDetailPage({
                   ))}
                 </div>
                 {service.learningModes && (
-                  <div className="mt-6 flex flex-col gap-3 border border-[#e8e2d5] bg-[#fbf9f4] p-6 sm:flex-row sm:items-center sm:gap-4 sm:p-8">
-                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#715426]">
+                  <div className="mt-6 flex flex-col gap-3 border border-brand-border bg-brand-cream-warm p-6 sm:flex-row sm:items-center sm:gap-4 sm:p-8">
+                    <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-gold-ink">
                       Learning Modes
                     </p>
                     <ul className="flex flex-wrap gap-2">
                       {service.learningModes.map((mode) => (
                         <li
                           key={mode}
-                          className="rounded-full border border-[#d9d2c4] bg-white px-4 py-1.5 text-sm font-medium text-[#0d1b3d]"
+                          className="rounded-full border border-brand-sand-deep bg-white px-4 py-1.5 text-sm font-medium text-brand-navy"
                         >
                           {mode}
                         </li>

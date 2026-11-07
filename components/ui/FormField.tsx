@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 const controlClassName =
-  "w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-900 placeholder:text-slate-500 shadow-sm focus:border-[#0d1b3d] focus:ring-[#0d1b3d]";
+  "w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-900 placeholder:text-slate-500 shadow-sm focus:border-brand-navy focus:ring-brand-navy";
 
 interface FormFieldProps {
   label: string;

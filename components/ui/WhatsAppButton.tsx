@@ -46,7 +46,7 @@ export function WhatsAppButton() {
       tabIndex={isOverlapping ? -1 : 0}
       onClick={() => trackEvent("whatsapp_click")}
       title="Chat on WhatsApp"
-      className={`fixed bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-[calc(env(safe-area-inset-right)+1.25rem)] z-50 inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-[#08172f] shadow-lg transition-[opacity,transform] hover:-translate-y-0.5 hover:bg-[#20bd5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 ${isOverlapping ? "pointer-events-none opacity-0" : ""}`}
+      className={`fixed bottom-[calc(env(safe-area-inset-bottom)+1.25rem)] right-[calc(env(safe-area-inset-right)+1.25rem)] z-50 inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full bg-brand-whatsapp px-4 py-3 text-sm font-semibold text-brand-navy-deep shadow-lg transition-[opacity,transform] hover:-translate-y-0.5 hover:bg-brand-whatsapp-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-whatsapp focus-visible:ring-offset-2 ${isOverlapping ? "pointer-events-none opacity-0" : ""}`}
     >
       <MessageCircle className="h-5 w-5" aria-hidden="true" />
       <span>WhatsApp</span>

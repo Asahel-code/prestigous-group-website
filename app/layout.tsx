@@ -54,10 +54,10 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-KE" className={`h-full antialiased font-sans ${inter.variable}`}>
-      <body className="min-h-full flex flex-col bg-[#f8f6f1]">
+      <body className="min-h-full flex flex-col bg-brand-cream">
         <a
           href="#main-content"
-          className="sr-only z-[100] rounded-md bg-white px-4 py-3 text-[#0d1b3d] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6d]"
+          className="sr-only z-[100] rounded-md bg-white px-4 py-3 text-brand-navy focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
         >
           Skip to main content
         </a>
