@@ -6,9 +6,9 @@ organizational performance across two service areas:
 - **Training & Development:** workplace-focused safety, compliance, leadership, and professional skills training.
 - **Consultancy:** project management, auditing, and assessment support.
 
-The site also includes a corporate events directory, event booking and
-waitlist flows, service enquiry forms, contact information, and a persistent
-WhatsApp reach-out button.
+The site also includes the training calendar, service enquiry forms, contact
+information, and a persistent WhatsApp reach-out button. Event listings are
+currently disabled and return 404 responses.
 
 ## Stack
 
@@ -43,20 +43,17 @@ The project also supports the equivalent `npm run` commands defined in
 
 ## Site Structure
 
-- `/` - homepage with service tracks, featured event, reviews, and contact CTA
+- `/` - homepage with service tracks, reviews, and contact CTA
 - `/about` - company profile and specialist strengths
 - `/services` - service overview
 - `/services/[slug]` - service detail page and enquiry form
-- `/events` - upcoming, recent, and past event directory
-- `/events/[slug]` - event details, agenda, speakers, and booking/waitlist form
+- `/training-calendar` - training calendar
 - `/contact` - contact details and enquiry form
 
 ## Content Management
 
 Service content is defined in [`data/services.ts`](data/services.ts), including
 positioning, descriptions, imagery, service breakdowns, and specialist focus.
-Event content is defined in [`data/events.ts`](data/events.ts).
-
 Shared layout and navigation live in `app/layout.tsx` and
 `components/navigation/`. Reusable forms and display components live in
 `components/forms/` and `components/ui/`.

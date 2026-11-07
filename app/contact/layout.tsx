@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Contact",
-  description: "Contact Prestigious Consultancy in Nairobi about corporate training, consultancy or events. Send a short enquiry and our team will respond in Kenya.",
+  description: "Contact Prestigious Consultancy in Nairobi about corporate training or consultancy. Send a short enquiry and our team will respond in Kenya.",
   path: "/contact",
 });
 

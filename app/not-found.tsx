@@ -15,7 +15,6 @@ export default function NotFound() {
       <nav aria-label="Helpful pages" className="mt-8 flex flex-wrap justify-center gap-5 text-sm font-semibold">
         <Link className="underline underline-offset-4" href="/">Home</Link>
         <Link className="underline underline-offset-4" href="/services">Services</Link>
-        <Link className="underline underline-offset-4" href="/events">Events</Link>
         <Link className="underline underline-offset-4" href="/contact">Contact</Link>
       </nav>
     </section>

@@ -19,12 +19,15 @@ export async function generateMetadata({ params }: EventDetailProps) {
     return {};
   }
 
-  return createPageMetadata({
-    title: event.title,
-    description:
-      "Join business leaders and professionals at Blueprint 2027 in Nairobi for practical discussion of leadership, competitiveness, innovation and sustainable growth.",
-    path: `/events/${event.slug}`,
-  });
+  return {
+    ...createPageMetadata({
+      title: event.title,
+      description:
+        "Join business leaders and professionals at Blueprint 2027 in Nairobi for practical discussion of leadership, competitiveness, innovation and sustainable growth.",
+      path: `/events/${event.slug}`,
+    }),
+    robots: { index: false, follow: false },
+  };
 }
 
 export default async function EventDetailPage({ params }: EventDetailProps) {

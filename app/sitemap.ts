@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { eventsData } from "@/data/events";
 import { servicesData } from "@/data/services";
 import { getCanonicalUrl, isProduction } from "@/config/site";
 
@@ -12,8 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     ...servicesData.map((service) => `/services/${service.slug}`),
-    "/events",
-    ...eventsData.map((event) => `/events/${event.slug}`),
     "/contact",
     "/privacy",
     "/terms",

@@ -1,11 +1,11 @@
-import { createPageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-export const metadata = createPageMetadata({
-  title: "Corporate Events",
-  description: "Discover Blueprint 2027 and corporate learning events in Kenya, bringing leaders and professionals together for practical discussion and connection.",
-  path: "/events",
-});
+export const metadata: Metadata = {
+  title: "Page not found",
+  robots: { index: false, follow: false },
+};
 
-export default function EventsLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export default function EventsLayout(): never {
+  notFound();
 }

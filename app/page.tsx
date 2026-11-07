@@ -10,7 +10,6 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { eventsData } from "@/data/events";
 import { servicesData } from "@/data/services";
 import { createPageMetadata } from "@/lib/metadata";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
@@ -54,12 +53,6 @@ const googleReviewsUrl =
 
 const googleReviews = [
   {
-    name: "Nelvin Omondi",
-    quote:
-      "I attended one of the latest conferences by the company and it was well organized and educative. Am looking forward to their next property conference.",
-    href: "https://www.google.com/maps/contrib/106199361657369378042/reviews?hl=en-GB",
-  },
-  {
     name: "STACEY OLULO",
     quote:
       "Your services are extraordinary. Hoping to sign up for your consultancy services soon.",
@@ -74,10 +67,6 @@ const googleReviews = [
 ];
 
 export default function HomePage() {
-  const featuredEvent = eventsData.find(
-    (event) => event.category === "Upcoming",
-  );
-
   return (
     <div className="overflow-hidden bg-[#f8f6f1] text-[#0d1b3d]">
       <section className="px-4 pb-12 pt-5 sm:px-6 lg:px-8 lg:pb-16">
@@ -252,102 +241,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {featuredEvent && (
-        <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#715426]">
-                  Keep learning
-                </p>
-                <h2 className="mt-4 text-4xl font-medium tracking-[-0.04em] sm:text-5xl">
-                  What&apos;s happening next
-                </h2>
-              </div>
-              <Link
-                href="/events"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d1b3d]"
-              >
-                View all events <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group grid overflow-hidden rounded-[2rem] bg-[#08172f] text-white lg:grid-cols-[0.9fr_1.1fr]">
-              <div className="relative min-h-[280px] overflow-hidden">
-                <Image
-                  src={featuredEvent.imageUrl}
-                  alt={featuredEvent.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover opacity-75 transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-[#08172f]/25" />
-              </div>
-              <div className="flex flex-col justify-center p-8 sm:p-12">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d4af6d]">
-                  {featuredEvent.category} · {featuredEvent.venue}
-                </p>
-                <h3 className="mt-4 max-w-xl text-3xl font-medium tracking-[-0.035em] sm:text-5xl">
-                  {featuredEvent.title}
-                </h3>
-                <p className="mt-5 max-w-lg leading-7 text-white/70">
-                  {featuredEvent.description}
-                </p>
-                <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-                  <TrackedLink
-                    href={`/events/${featuredEvent.slug}`}
-                    eventName="explore_event_click"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
-                  >
-                    Explore Blueprint{" "}
-                    <ArrowUpRight className="h-4 w-4" aria-hidden="true"  />
-                  </TrackedLink>
-                  {featuredEvent.registrationUrl ? (
-                    <TrackedLink
-                      href={featuredEvent.registrationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      eventName="event_register_click"
-                      aria-label="Register as a delegate (opens in a new tab)"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
-                    >
-                      Reserve your seat <ArrowUpRight className="h-4 w-4" />
-                    </TrackedLink>
-                  ) : (
-                    <TrackedLink
-                      href={`/events/${featuredEvent.slug}`}
-                      eventName="explore_event_click"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#d4af6d]"
-                    >
-                      Reserve your seat <ArrowUpRight className="h-4 w-4" aria-hidden="true"  />
-                    </TrackedLink>
-                  )}
-                  {siteConfig.partnerFormUrl ? (
-                    <TrackedLink
-                      href={siteConfig.partnerFormUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      eventName="partner_click"
-                      aria-label="Partner with us (opens in a new tab)"
-                      className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
-                    >
-                      Partner with us <ArrowUpRight className="h-4 w-4" />
-                    </TrackedLink>
-                  ) : (
-                    <TrackedLink
-                      href="/contact?interest=sponsorship"
-                      eventName="partner_click"
-                      className="inline-flex items-center gap-2 border border-[#d4af6d]/60 px-4 py-2 text-sm font-semibold text-[#d4af6d] transition-colors hover:bg-[#d4af6d]/10"
-                    >
-                      Partner with us <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </TrackedLink>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto max-w-7xl">

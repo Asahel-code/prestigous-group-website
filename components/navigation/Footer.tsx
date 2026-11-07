@@ -102,14 +102,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/events"
-                  className="text-sm transition-colors hover:text-white"
-                >
-                  Events Directory
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
                   className="text-sm transition-colors hover:text-white"
                 >

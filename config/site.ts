@@ -7,7 +7,7 @@ export const siteConfig = {
   locale: "en_KE",
   defaultDescription:
     "Corporate training and consultancy in Nairobi, Kenya, helping organisations build capability, strengthen workplace safety and improve performance.",
-  summaryServices: ["Corporate training", "Professional consultancy", "Leadership forums and events"],
+  summaryServices: ["Corporate training", "Professional consultancy"],
   contact: {
     email: process.env.CONTACT_EMAIL ?? TODO,
     phone: "+254 111 441 515",

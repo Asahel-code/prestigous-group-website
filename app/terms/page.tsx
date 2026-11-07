@@ -5,7 +5,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Terms of Use",
-  description: "Read the terms for using Prestigious Consultancy's website, enquiry forms and event registration links. Service scope and fees are agreed separately.",
+  description: "Read the terms for using Prestigious Consultancy's website and enquiry forms. Service scope and fees are agreed separately.",
   path: getCanonicalUrl("terms"),
 });
 
@@ -31,8 +31,8 @@ export default function TermsPage() {
             <p className="mt-3 leading-7 text-[#596170]">Sending an enquiry does not create a contract. Any service scope, schedule, fees, payment terms and responsibilities will be confirmed separately in an agreed written proposal or contract.</p>
           </section>
           <section>
-            <h2 className="text-2xl font-semibold">Events and external websites</h2>
-            <p className="mt-3 leading-7 text-[#596170]">Event registration may use an external form. That provider&apos;s terms and privacy notice also apply to information entered on its website. External links are provided as a convenience; their content and availability are outside our control.</p>
+            <h2 className="text-2xl font-semibold">External websites</h2>
+            <p className="mt-3 leading-7 text-[#596170]">External links are provided as a convenience; their content and availability are outside our control. Any information entered on an external website is subject to that provider&apos;s terms and privacy notice.</p>
           </section>
           <section>
             <h2 className="text-2xl font-semibold">Contact</h2>

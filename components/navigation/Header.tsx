@@ -19,8 +19,6 @@ export function Header() {
   const isDarkHero =
     pathname === "/contact" ||
     pathname === "/services" ||
-    pathname === "/events" ||
-    pathname.startsWith("/events/") ||
     pathname.startsWith("/services/");
   const isOpaqueHeader = pathname === "/contact";
   const isAboutPage = pathname === "/about";
@@ -178,12 +176,6 @@ export function Header() {
               Training Calendar
             </Link>
             <Link
-              href="/events/blue-print-2027"
-              className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
-            >
-              Blueprint 2027
-            </Link>
-            <Link
               href="/about"
               className={`text-sm font-medium transition-colors ${isDarkHero ? "text-white/80 hover:text-white" : "text-slate-700 hover:text-[#0d1b3d]"}`}
             >
@@ -298,13 +290,6 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Training Calendar
-            </Link>
-            <Link
-              href="/events/blue-print-2027"
-              className={`block rounded-md px-3 py-2 text-base font-medium ${isDarkHero ? "text-white/85 hover:bg-white/10 hover:text-white" : "text-slate-700 hover:bg-slate-50 hover:text-[#0d1b3d]"}`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Blueprint 2027
             </Link>
             <Link
               href="/about"
