@@ -42,7 +42,6 @@ function LogoContent({
 
 export function AccreditationLogo(props: AccreditationLogoProps) {
   const { accreditation } = props;
-  const description = accreditation.description?.trim();
   const certificateNumber = accreditation.certificateNumber?.trim();
   const content = <LogoContent {...props} />;
 

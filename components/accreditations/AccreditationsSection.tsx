@@ -3,8 +3,6 @@ import { join } from "node:path";
 import { AccreditationLogo } from "@/components/accreditations/AccreditationLogo";
 import { accreditations } from "@/data/accreditations";
 import type { Accreditation } from "@/data/accreditations";
-import { hasOwnerValue, siteConfig } from "@/config/site";
-
 interface AccreditationsSectionProps {
   compact?: boolean;
 }
@@ -74,11 +72,6 @@ export function AccreditationsSection({
   compact = false,
 }: AccreditationsSectionProps) {
   if (validAccreditations.length === 0) return null;
-
-  const configuredClaim = siteConfig.nita.claimWording.trim();
-  const claimWording = hasOwnerValue(configuredClaim)
-    ? configuredClaim
-    : null;
 
   return (
     <section
