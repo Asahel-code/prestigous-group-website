@@ -14,6 +14,7 @@ import { servicesData } from "@/data/services";
 import { createPageMetadata } from "@/lib/metadata";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { siteConfig } from "@/config/site";
+import { AccreditationsSection } from "@/components/accreditations/AccreditationsSection";
 
 export const metadata = createPageMetadata({
   title:
@@ -83,7 +84,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-brand-cream/90 sm:bg-transparent sm:bg-[linear-gradient(90deg,var(--brand-cream)_0%,rgba(248,246,241,0.98)_34%,rgba(248,246,241,0.86)_52%,rgba(248,246,241,0.18)_76%,rgba(var(--brand-navy-deep-rgb),0.12)_100%)]" />
           <div className="relative z-10 flex min-h-[620px] flex-col justify-center px-6 py-10 sm:min-h-[640px] sm:px-10 sm:py-12 lg:min-h-[680px] lg:px-14 lg:py-14">
             <div className="max-w-xl">
-              <h1 className="max-w-xl text-4xl font-bold uppercase leading-[1.04] text-brand-navy sm:text-5xl xl:text-6xl">
+              <h1 className="max-w-xl break-words text-4xl font-bold uppercase leading-[1.04] text-brand-navy sm:text-5xl xl:text-6xl">
                 Empowering People,
                 <br />
                 <span className="text-brand-gold-ink">Strengthening</span>
@@ -199,6 +200,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <AccreditationsSection />
+
       <section className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
@@ -260,9 +263,9 @@ export default function HomePage() {
             {googleReviews.map((review) => (
               <article
                 key={review.name}
-                className="flex min-h-[260px] flex-col border border-brand-border bg-brand-cream p-7 sm:p-9"
+                className="flex min-w-0 min-h-[260px] flex-col border border-brand-border bg-brand-cream p-7 sm:p-9"
               >
-                <blockquote className="mt-6 flex-1 text-lg leading-8 text-brand-navy">
+                <blockquote className="mt-6 flex-1 break-words text-lg leading-8 text-brand-navy">
                   &ldquo;{review.quote}&rdquo;
                 </blockquote>
                 <div className="mt-6 flex items-end justify-between gap-4 border-t border-brand-border pt-5">

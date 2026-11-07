@@ -60,12 +60,12 @@ export function CommunityImpact() {
   return (
     <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
-          <div>
+        <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
+          <div className="min-w-0">
             <p className="text-sm font-semibold text-brand-gold-ink">
               Community Impact
             </p>
-            <h2 className="mt-5 text-3xl font-medium leading-tight sm:text-5xl">
+            <h2 className="mt-5 break-words text-3xl font-medium leading-tight sm:text-5xl">
               Beyond Business.
               <br />
               <span className="text-brand-gold-ink">Creating Opportunity.</span>
@@ -79,7 +79,7 @@ export function CommunityImpact() {
               <button
                 type="button"
                 onClick={() => setIsGalleryOpen(true)}
-                className="group inline-flex min-h-11 items-center gap-2 rounded-md bg-brand-navy px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold-ink focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream"
+                className="group inline-flex min-h-11 min-w-0 max-w-full flex-wrap items-center justify-center gap-2 break-words rounded-md bg-brand-navy px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-brand-navy-deep focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold-ink focus-visible:ring-offset-2 focus-visible:ring-offset-brand-cream"
               >
                 Our Community Impact
                 <ArrowUpRight
@@ -94,7 +94,7 @@ export function CommunityImpact() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 min-[240px]:grid-cols-2">
             {featuredPhotos.map((photo) => (
               <figure
                 key={photo.caption}

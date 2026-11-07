@@ -91,7 +91,7 @@ export function Header({ brandName, proposalFormUrl }: HeaderProps) {
                   loading="eager"
                   width={200}
                   height={100}
-                  className={`h-15 w-60 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
+                  className={`h-15 w-60 max-[200px]:h-8 max-[200px]:w-16 object-contain ${isDarkHero ? "brightness-0 invert" : ""}`}
                 />
               </div>
             </Link>

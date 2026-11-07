@@ -37,7 +37,7 @@ export function Footer() {
           <div className="min-w-0">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 text-brand-gold transition-colors hover:text-white"
+              className="inline-flex min-w-0 items-center gap-3 text-brand-gold transition-colors hover:text-white max-[200px]:flex-wrap"
             >
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white p-0.5">
                 <Image
@@ -49,7 +49,7 @@ export function Footer() {
                   className="h-9 w-9 object-contain"
                 />
               </span>
-              <span className="text-xl font-semibold">
+              <span className="min-w-0 break-words text-xl font-semibold">
                 {siteConfig.legalName}
               </span>
             </Link>
@@ -185,9 +185,9 @@ export function Footer() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2 sm:items-end">
-            {hasOwnerValue(siteConfig.nita.approvalLabel) && (
+            {hasOwnerValue(siteConfig.nita.claimWording) && (
               <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/55">
-                {siteConfig.nita.approvalLabel}
+                {siteConfig.nita.claimWording}
               </span>
             )}
             <span className="text-xs text-white/60">

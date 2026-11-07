@@ -8,6 +8,8 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { BreadcrumbJsonLd, JsonLd } from "@/components/seo/JsonLd";
 import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
+import { AccreditationsSection } from "@/components/accreditations/AccreditationsSection";
+import { AccreditationCompliance } from "@/components/accreditations/AccreditationCompliance";
 
 interface ServiceDetailProps {
   params: Promise<{ slug: string }>;
@@ -67,7 +69,7 @@ export default async function ServiceDetailPage({
       <div className="min-h-screen bg-brand-cream pb-20 text-brand-navy">
         {/* Hero Banner */}
         <section className="px-4 pb-16 pt-8 sm:px-6 lg:px-8 lg:pb-24 lg:pt-12">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-brand-navy-deep px-5 py-12 text-white sm:min-h-[500px] sm:rounded-[2.5rem] sm:px-12 sm:py-16 lg:px-20 lg:py-24">
+          <div className="relative mx-auto w-full max-w-7xl min-w-0 overflow-hidden rounded-3xl bg-brand-navy-deep px-5 py-12 text-white sm:min-h-[500px] sm:rounded-[2.5rem] sm:px-12 sm:py-16 lg:px-20 lg:py-24">
             <div className="absolute inset-0">
               <Image
                 src={service.imageUrl}
@@ -81,11 +83,11 @@ export default async function ServiceDetailPage({
             </div>
 
             <div className="relative z-10 flex min-h-[300px] items-center sm:min-h-[380px]">
-              <div className="max-w-3xl">
+              <div className="w-full max-w-3xl min-w-0">
                 <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-brand-gold">
                   Our Services
                 </p>
-                <h1 className="text-4xl font-medium leading-tight text-white sm:text-6xl">
+                <h1 className="break-words text-4xl font-medium leading-tight text-white sm:text-6xl">
                   {service.theme}
                 </h1>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">
@@ -131,7 +133,7 @@ export default async function ServiceDetailPage({
         {/* Main Content */}
         <section className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="space-y-12 lg:col-span-8">
+            <div className="min-w-0 space-y-12 lg:col-span-8">
               <section
                 id="service-breakdown"
                 tabIndex={-1}
@@ -156,10 +158,10 @@ export default async function ServiceDetailPage({
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold-ink">
                         0{index + 1}
                       </p>
-                      <h3 className="mt-3 text-2xl font-semibold text-brand-navy sm:text-3xl">
+                      <h3 className="mt-3 break-words text-2xl font-semibold text-brand-navy sm:text-3xl">
                         {section.title}
                       </h3>
-                      <p className="mt-3 text-lg font-medium leading-7 text-brand-navy">
+                      <p className="mt-3 break-words text-lg font-medium leading-7 text-brand-navy">
                         {section.lead}
                       </p>
                       {section.description && (
@@ -172,18 +174,18 @@ export default async function ServiceDetailPage({
                           {section.listLabel}
                         </p>
                       )}
-                      <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                      <ul className="mt-5 grid min-w-0 gap-x-6 gap-y-3 sm:grid-cols-2">
                         {section.items.map((item) => {
                           return (
                             <li
                               key={item}
-                              className="flex items-start gap-3 text-sm leading-6 text-brand-text-muted"
+                              className="flex min-w-0 items-start gap-3 text-sm leading-6 text-brand-text-muted"
                             >
                               <CheckCircle2
                                 className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold-ink"
                                 aria-hidden="true"
                               />
-                              <span>{item}</span>
+                              <span className="min-w-0 break-words">{item}</span>
                             </li>
                           );
                         })}
@@ -222,6 +224,12 @@ export default async function ServiceDetailPage({
             </aside>
           </div>
         </section>
+        {service.slug === "training" && (
+          <>
+            <AccreditationsSection compact />
+            <AccreditationCompliance />
+          </>
+        )}
       </div>
     </>
   );

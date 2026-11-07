@@ -24,8 +24,7 @@ export const siteConfig = {
     openingHours: TODO,
   },
   nita: {
-    approvalLabel: TODO,
-    accreditationNumberOrUrl: TODO,
+    claimWording: "Nita Approved Training Provider",
   },
   socialUrls: {
     facebook: "https://www.facebook.com/PrestigiousConsultancy",

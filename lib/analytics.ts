@@ -20,7 +20,8 @@ export type AnalyticsEvent =
   | "book_course_click"
   | "custom_training_click"
   | "explore_services_click"
-  | "training_registration_click";
+  | "training_registration_click"
+  | "accreditation_click";
 
 export function trackEvent(eventName: AnalyticsEvent, detail?: string): void {
   if (!isProduction || !measurementId) return;
@@ -29,6 +30,8 @@ export function trackEvent(eventName: AnalyticsEvent, detail?: string): void {
   const parameters =
     eventName === "form_submit" && detail
       ? { form_name: detail }
+      : eventName === "accreditation_click" && detail
+        ? { accreditation_id: detail }
         : undefined;
   window.gtag?.("event", eventName, parameters);
 }

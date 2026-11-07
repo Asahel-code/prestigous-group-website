@@ -3,6 +3,7 @@ import { CommunityImpact } from "@/components/about/CommunityImpact";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getCanonicalUrl, siteConfig } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
+import { AccreditationsSection } from "@/components/accreditations/AccreditationsSection";
 
 export const metadata = createPageMetadata({
   title: "About",
@@ -44,10 +45,10 @@ export default function AboutPage() {
       ]} />
     <div className="min-h-screen bg-white pb-24 text-brand-navy">
       <section className="px-4 pb-12 pt-16 sm:px-6 sm:pb-16 sm:pt-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
+        <div className="mx-auto max-w-7xl min-w-0">
+          <div className="max-w-3xl min-w-0">
             <p className="text-sm font-semibold text-brand-gold-ink">About Prestigious</p>
-            <h1 className="mt-5 text-4xl font-medium leading-tight sm:text-6xl">
+            <h1 className="mt-5 break-words text-4xl font-medium leading-tight sm:text-6xl">
               Practical expertise.
               <br />
               <span className="text-brand-gold-ink">Real world results.</span>
@@ -61,7 +62,7 @@ export default function AboutPage() {
           {reasons.map((reason, index) => (
             <article
               key={reason.title}
-              className="min-h-56 rounded-md border border-brand-sand-muted bg-brand-cream-soft p-6 sm:p-7"
+              className="min-w-0 min-h-56 rounded-md border border-brand-sand-muted bg-brand-cream-soft p-6 sm:p-7"
             >
               <div className="flex items-center justify-between">
                 <Check className="h-5 w-5 text-brand-gold-ink" aria-hidden="true" />
@@ -69,7 +70,7 @@ export default function AboutPage() {
                   0{index + 1}
                 </span>
               </div>
-              <h2 className="mt-8 text-2xl font-medium capitalize text-brand-navy">
+              <h2 className="mt-8 break-words text-2xl font-medium capitalize text-brand-navy">
                 {reason.title}
               </h2>
               <p className="mt-3 text-sm leading-6 text-brand-text-muted">
@@ -83,7 +84,7 @@ export default function AboutPage() {
       <section className="bg-brand-cream px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-3xl">
             <p className="text-sm font-semibold text-brand-gold-ink">Who we are</p>
-            <h2 className="mt-5 text-3xl font-medium leading-tight sm:text-5xl">
+            <h2 className="mt-5 break-words text-3xl font-medium leading-tight sm:text-5xl">
               Expertise that strengthens organisations.
             </h2>
             <p className="mt-6 text-base leading-8 text-brand-text-muted sm:text-lg">
@@ -94,6 +95,8 @@ export default function AboutPage() {
             </p>
         </div>
       </section>
+
+      <AccreditationsSection compact />
 
       <CommunityImpact />
     </div>

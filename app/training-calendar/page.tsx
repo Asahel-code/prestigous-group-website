@@ -1,5 +1,6 @@
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TrainingCalendar } from "@/components/calendar/TrainingCalendar";
+import { AccreditationCompliance } from "@/components/accreditations/AccreditationCompliance";
 import { getCanonicalUrl } from "@/config/site";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -23,6 +24,7 @@ export default function CalendarPage() {
         ]}
       />
       <TrainingCalendar />
+      <AccreditationCompliance />
     </>
   );
 }
