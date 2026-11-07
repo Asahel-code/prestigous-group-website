@@ -62,7 +62,7 @@ const logoAvailability = new Map(
 
     if (!available) {
       console.warn(
-        `TODO(owner): supply official NITA logo (SVG/PNG) and confirm usage permission. Missing file: ${accreditation.logo.src}`,
+        `supply official NITA logo (SVG/PNG) and confirm usage permission. Missing file: ${accreditation.logo.src}`,
       );
     }
 
@@ -97,11 +97,6 @@ export function AccreditationsSection({
             Prestigious Consultancy is committed to delivering quality,
             professional and industry-relevant training.
           </p>
-          {claimWording && (
-            <p className="mt-3 text-sm font-medium leading-6 text-brand-navy">
-              {claimWording}
-            </p>
-          )}
         </div>
 
         <div className="mt-8 rounded-[2rem] border border-brand-border bg-brand-cream p-5 shadow-sm sm:mt-10 sm:p-8 lg:p-10">

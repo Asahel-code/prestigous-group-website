@@ -58,26 +58,10 @@ export function AccreditationLogo(props: AccreditationLogoProps) {
           className="flex min-h-44 h-full flex-col items-center justify-center gap-3 rounded-2xl border border-brand-border bg-white p-5 text-center shadow-sm transition-[border-color,transform,box-shadow] hover:-translate-y-0.5 hover:border-brand-gold hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 motion-reduce:transform-none motion-reduce:transition-none"
         >
           {content}
-          <span className="text-sm font-semibold leading-5 text-brand-navy">
-            {accreditation.name}
-          </span>
-          {description && !description.includes("TODO") && (
-            <span className="text-sm leading-5 text-brand-text-muted">
-              {description}
-            </span>
-          )}
         </a>
       ) : (
         <div className="flex min-h-44 h-full flex-col items-center justify-center gap-3 rounded-2xl border border-brand-border bg-white p-5 text-center shadow-sm">
           {content}
-          <span className="text-sm font-semibold leading-5 text-brand-navy">
-            {accreditation.name}
-          </span>
-          {description && !description.includes("TODO") && (
-            <span className="text-sm leading-5 text-brand-text-muted">
-              {description}
-            </span>
-          )}
         </div>
       )}
       {((certificateNumber && !certificateNumber.includes("TODO")) ||

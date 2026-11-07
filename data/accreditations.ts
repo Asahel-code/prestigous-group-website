@@ -15,13 +15,11 @@ export const accreditations: Accreditation[] = [
     name: "National Industrial Training Authority (NITA)",
     shortName: "NITA",
     logo: {
-      // TODO(owner): supply official NITA logo (SVG/PNG) and confirm usage permission.
-      src: "/accreditations/nita.svg",
+      src: "/img/accreditations/nita.png",
       width: 320,
       height: 128,
       alt: "NITA accreditation logo",
     },
-    href: "https://www.nita.go.ke/",
-    // TODO(owner): confirm the exact NITA verification URL.
+    href: "https://www.nita.go.ke/"
   },
 ];
