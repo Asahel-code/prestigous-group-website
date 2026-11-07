@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/services",
     ...servicesData.map((service) => `/services/${service.slug}`),
+    "/training-calendar",
     "/contact",
     "/privacy",
     "/terms",
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: getCanonicalUrl(path),
     lastModified,
     changeFrequency: "monthly",
-    priority: path === "/" ? 1 : 0.7,
+    priority:
+      path === "/" ? 1 : path === "/training-calendar" ? 0.8 : 0.7,
   }));
 }

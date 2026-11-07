@@ -15,6 +15,7 @@ export function GET() {
     `- Home: ${baseUrl}/`,
     `- About: ${baseUrl}/about`,
     `- Services: ${baseUrl}/services`,
+    `- Training Calendar: ${baseUrl}/training-calendar`,
     `- Contact: ${baseUrl}/contact`,
   ].join("\n");
 

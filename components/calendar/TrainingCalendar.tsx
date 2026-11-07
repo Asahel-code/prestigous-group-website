@@ -35,6 +35,20 @@ export function TrainingCalendar() {
     <div className="min-h-screen bg-[#f8f6f1] pb-24 text-[#0d1b3d]">
 
       <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <header className="mb-10 max-w-3xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#715426]">
+            Professional development
+          </p>
+          <h1 className="mt-3 text-3xl font-medium text-[#0d1b3d] sm:text-4xl">
+            Corporate Training Calendar 2026–2027
+          </h1>
+          <p className="mt-4 leading-7 text-[#596170]">
+            Browse scheduled courses from November 2026 to December 2027.
+            Choose from in-person, online and hybrid training for teams and
+            professionals across Kenya.
+          </p>
+        </header>
+
         {/* Filters and Search Bar */}
         <div className="mb-12 flex flex-col gap-6 rounded-3xl border border-[#e8e2d5] bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
           {/* Search */}

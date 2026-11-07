@@ -6,15 +6,19 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { servicesData } from "@/data/services";
-import { siteConfig } from "@/config/site";
 import { TrackedLink } from "../analytics/TrackedLink";
+
+interface HeaderProps {
+  brandName: string;
+  proposalFormUrl: string;
+}
 
 const serviceLinks = servicesData.map((service) => ({
   label: service.urlTitle,
   href: `/services/${service.slug}`,
 }));
 
-export function Header() {
+export function Header({ brandName, proposalFormUrl }: HeaderProps) {
   const pathname = usePathname();
   const isDarkHero =
     pathname === "/contact" ||
@@ -83,7 +87,7 @@ export function Header() {
               >
                 <Image
                   src="/logo2.png"
-                  alt={`${siteConfig.brandName} logo`}
+                  alt={`${brandName} logo`}
                   loading="eager"
                   width={200}
                   height={100}
@@ -190,9 +194,9 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-4 xl:flex">
-            {siteConfig.proposalFormUrl ? (
+            {proposalFormUrl ? (
               <TrackedLink
-                href={siteConfig.proposalFormUrl}
+                href={proposalFormUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 eventName="proposal_click"
