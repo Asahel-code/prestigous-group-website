@@ -12,11 +12,11 @@ export function GET() {
     `Contact: ${hasOwnerValue(siteConfig.contact.email) ? `${siteConfig.contact.email} | ` : ""}${siteConfig.contact.phone}.`,
     "",
     "## Key pages",
-    `- Home: ${baseUrl}/`,
-    `- About: ${baseUrl}/about`,
-    `- Services: ${baseUrl}/services`,
-    `- Training Calendar: ${baseUrl}/training-calendar`,
-    `- Contact: ${baseUrl}/contact`,
+    `- [Home](${baseUrl}/)`,
+    `- [About](${baseUrl}/about)`,
+    `- [Services](${baseUrl}/services)`,
+    `- [Training Calendar](${baseUrl}/training-calendar)`,
+    `- [Contact](${baseUrl}/contact)`,
   ].join("\n");
 
   return new Response(content, {

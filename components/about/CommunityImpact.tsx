@@ -160,6 +160,7 @@ export function CommunityImpact() {
                       src={photo.imageUrl}
                       alt={photo.caption}
                       fill
+                      sizes="(min-width: 1024px) 13rem, (min-width: 640px) 28vw, 40vw"
                       className="object-cover"
                     />
                   </div>
